@@ -1,0 +1,27 @@
+{
+  "name": "solo-corn-skills",
+  "version": "0.1.0",
+  "description": "AI Skills stack for building a one-person unicorn company",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "dev": "ts-node-dev --respawn src/index.ts"
+  },
+  "keywords": ["ai", "skills", "automation", "solopreneur"],
+  "author": "Solo Corn Skills",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.18.0",
+    "openai": "^4.28.4"
+  }
+}
