@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCS Logo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 80px;
+            position: relative;
+        }
+        
+        .logo-text {
+            font-size: 120px;
+            font-weight: 700;
+            color: #000000;
+            letter-spacing: -5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text span {
+            display: inline-block;
+            position: relative;
+        }
+        
+        /* S - constructed from straight lines */
+        .char-s {
+            width: 70px;
+            height: 90px;
+            position: relative;
+            margin-right: 5px;
+        }
+        
+        .char-s::before,
+        .char-s::after {
+            content: '';
+            position: absolute;
+            background: #000000;
+        }
+        
+        .char-s::before {
+            /* Top horizontal */
+            width: 50px;
+            height: 15px;
+            top: 0;
+            left: 10px;
+        }
+        
+        /* C - circle approximation with straight lines */
+        .char-c {
+            width: 70px;
+            height: 90px;
+            position: relative;
+            margin-right: 5px;
+        }
+        
+        /* Use SVG text for perfect geometry */
+        svg {
+            display: block;
+        }
+        
+        .accent-line {
+            position: absolute;
+            background: #000000;
+        }
+        
+        .accent-h {
+            width: 100px;
+            height: 3px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .accent-v {
+            width: 3px;
+            height: 40px;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <svg width="400" height="150" viewBox="0 0 400 150">
+            <!-- S -->
+            <g transform="translate(0, 10)">
+                <!-- S top horizontal -->
+                <rect x="10" y="10" width="60" height="15" fill="#000000"/>
+                <!-- S top vertical -->
+                <rect x="10" y="10" width="15" height="35" fill="#000000"/>
+                <!-- S middle -->
+                <rect x="10" y="40" width="60" height="15" fill="#000000"/>
+                <!-- S bottom vertical -->
+                <rect x="55" y="40" width="15" height="35" fill="#000000"/>
+                <!-- S bottom horizontal -->
+                <rect x="10" y="75" width="60" height="15" fill="#000000"/>
+            </g>
+            
+            <!-- C -->
+            <g transform="translate(90, 10)">
+                <!-- C top horizontal -->
+                <rect x="10" y="10" width="50" height="15" fill="#000000"/>
+                <!-- C left vertical -->
+                <rect x="10" y="10" width="15" height="80" fill="#000000"/>
+                <!-- C bottom horizontal -->
+                <rect x="10" y="75" width="50" height="15" fill="#000000"/>
+            </g>
+            
+            <!-- S -->
+            <g transform="translate(180, 10)">
+                <!-- S top horizontal -->
+                <rect x="10" y="10" width="60" height="15" fill="#000000"/>
+                <!-- S top vertical -->
+                <rect x="10" y="10" width="15" height="35" fill="#000000"/>
+                <!-- S middle -->
+                <rect x="10" y="40" width="60" height="15" fill="#000000"/>
+                <!-- S bottom vertical -->
+                <rect x="55" y="40" width="15" height="35" fill="#000000"/>
+                <!-- S bottom horizontal -->
+                <rect x="10" y="75" width="60" height="15" fill="#000000"/>
+            </g>
+            
+            <!-- Decorative accent line below -->
+            <rect x="10" y="115" width="230" height="3" fill="#000000"/>
+        </svg>
+    </div>
+</body>
+</html>
