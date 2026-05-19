@@ -1,5 +1,6 @@
 # Key Insights in Software Engineering and Product Development
 
+This document extracts core insights from foundational-papers.md, providing actionable guiding principles for technical decisions. Each insight includes practical suggestions and limitations to help readers make trade-offs in real applications.
 
 ---
 
