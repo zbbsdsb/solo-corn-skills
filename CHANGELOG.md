@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+---
+
+## [1.0.0] - 2026-05-20
+
 ### Added
 - Project governance framework ([GOVERNANCE.md](GOVERNANCE.md))
 - Complete contribution guidelines ([CONTRIBUTING.md](CONTRIBUTING.md))
@@ -16,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Development roadmap ([ROADMAP.md](ROADMAP.md))
 - Professional brand identity with SCS logo
 - Brutalist Linear Identity design system
+- GitHub Pages website with complete documentation
+- Project website at `https://zbbsdsb.github.io/solo-corn-skills/`
 
 ---
 
@@ -44,10 +50,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Release Notes
 
+### v1.0.0 - Official Release 🎉
+The first official release with complete project infrastructure, documentation, and website. This is the foundation for future development.
+
 ### v0.1.0 - Initial Release
 This is the foundation release with complete core skill system and mental model library.
 
 ---
 
-[Unreleased]: https://github.com/zbbsdsb/solo-corn-skills/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/zbbsdsb/solo-corn-skills/releases/tag/v1.0.0
 [0.1.0]: https://github.com/zbbsdsb/solo-corn-skills/releases/tag/v0.1.0

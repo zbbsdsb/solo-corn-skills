@@ -9,10 +9,17 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/zbbsdsb/solo-corn-skills/releases/tag/v1.0.0">
+    <img src="https://img.shields.io/badge/version-v1.0.0-brightgreen?style=flat-square" alt="v1.0.0"/>
+  </a>
   <img src="https://img.shields.io/github/stars/zbbsdsb/solo-corn-skills?style=flat-square" alt="Stars"/>
   <img src="https://img.shields.io/github/license/zbbsdsb/solo-corn-skills?style=flat-square" alt="License"/>
   <img src="https://img.shields.io/github/languages/top/zbbsdsb/solo-corn-skills?style=flat-square" alt="Language"/>
   <img src="https://img.shields.io/github/contributors/zbbsdsb/solo-corn-skills?style=flat-square" alt="Contributors"/>
+</p>
+
+<p align="center">
+  <strong>🎉 v1.0 Official Release - May 20, 2026</strong>
 </p>
 
 ---
@@ -160,6 +167,17 @@ Contributions are welcome! Please read our contribution guidelines before submit
 3. Commit your changes (`git commit -m 'Add amazing skill'`)
 4. Push to the branch (`git push origin feature/amazing-skill`)
 5. Open a Pull Request
+
+---
+
+## Roadmap & Next Steps
+
+Check [ROADMAP.md](ROADMAP.md) for our full development roadmap, and [NEXT_STEPS.md](NEXT_STEPS.md) for immediate post-v1.0 plans!
+
+### v1.1 Coming Soon (2 weeks)
+- Complete website content for all skills
+- Mental model detail pages
+- Search functionality
 
 ---
 
