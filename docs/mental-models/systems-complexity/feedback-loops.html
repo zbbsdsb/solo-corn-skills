@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Loops - Mental Models</title>
+    <link rel="stylesheet" href="../../css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Mental Models</a></li>
+                    <li><a href="index.html">Systems & Complexity</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="../../index.html">Home</a><span>/</span>
+            <a href="../index.html">Mental Models</a><span>/</span>
+            <a href="index.html">Systems & Complexity</a><span>/</span>
+            <span>Feedback Loops</span>
+        </div>
+    </section>
+
+    <section class="model-detail">
+        <div class="container">
+            <div class="model-header">
+                <div class="model-meta">
+                    <span class="tag">Systems & Complexity</span>
+                    <span class="tag">Foundation</span>
+                </div>
+                <h1>Feedback Loops</h1>
+                <p style="font-size: 1.25rem; color: var(--gray); margin-top: 8px;">Circular processes where system outputs influence future inputs, creating self-reinforcing or self-correcting behavior patterns.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 320px; gap: 60px;">
+                <div class="model-content">
+                    <div class="quick-reference-box" style="background: var(--gray-light); border-color: var(--black); margin-bottom: 40px;">
+                        <h4 style="margin-bottom: 12px;">Quick Reference</h4>
+                        <p style="margin: 0; font-size: 1rem;"><strong>The key to understanding complex systems:</strong> Every action creates ripples that eventually return to their source, altered by the journey through the system. Feedback loops are how systems maintain stability, amplify change, or transform themselves.</p>
+                    </div>
+
+                    <h2>Definition</h2>
+                    <p>A feedback loop is a fundamental system structure where the consequences of an action flow back to become part of the next cycle of action. In systems thinking, feedback loops are the primary mechanism through which systems maintain stability, amplify change, or transform themselves.</p>
+                    <p>Feedback loops consist of four key components: a sensor that detects the current state, a reference point or goal, a comparator that measures the gap between current and desired states, and an effector that takes action to reduce that gap. When properly functioning, these components create continuous adjustment and adaptation.</p>
+                    <p>The behavior of a feedback loop depends on its delay structure and gain. Short-delay feedback responds quickly but may oscillate. Long-delay feedback responds slowly but can create dramatic overshoots and corrections.</p>
+
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Sensor:</strong> Detects the current state of the system</li>
+                        <li><strong>Reference Point:</strong> Defines the goal or desired state</li>
+                        <li><strong>Comparator:</strong> Measures the gap between current and desired states</li>
+                        <li><strong>Effector:</strong> Takes action to reduce the gap between current and goal</li>
+                        <li><strong>Reinforcing (Positive):</strong> Amplifies change in one direction</li>
+                        <li><strong>Balancing (Negative):</strong> Counteracts change, seeks equilibrium</li>
+                    </ul>
+
+                    <h2>How to Apply</h2>
+                    <ol style="padding-left: 24px;">
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify the System Boundary:</strong> Define what is inside and outside the system. Focus on components that interact to produce the behavior of interest.
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Map the Causal Connections:</strong> Trace how actions lead to consequences that flow back to influence future actions.
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Classify the Feedback Type:</strong> Determine if it's reinforcing (amplifies change) or balancing (counteracts change). Identify whether delays exist and how long they are.
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Trace the Full Loop:</strong> Start at any point and follow the chain of causation until the loop closes back to the starting point.
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Analyze Dynamic Behavior:</strong> Sketch behavior over time (graph of stock levels). Identify oscillation, overshoot, or oscillation patterns. Test sensitivity to delays and gains.
+                        </li>
+                    </ol>
+
+                    <h2>Visual Diagram</h2>
+                    <pre style="font-family: monospace; font-size: 0.85rem; background: var(--gray-light); padding: 20px; overflow-x: auto; margin: 20px 0;">
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│   ┌─────────┐    Action      ┌─────────┐              │
+│   │  Sensor │ ──────────────►│ Effector│              │
+│   │         │◄────────────── │         │              │
+│   └─────────┘    Feedback    └─────────┘              │
+│        ▲                                               │
+│        │                                               │
+│        │  Current                                      │
+│        │  State                                        │
+│        ▼                                               │
+│   ┌─────────┐    Compare     ┌─────────┐              │
+│   │         │ ──────────────►│         │              │
+│   │Comparator│◄─────────────│Reference│              │
+│   └─────────┘                └─────────┘              │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+                    </pre>
+
+                    <h2>Real-World Examples</h2>
+                    
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>1. Thermostat Control System</h4>
+                        <p>A room thermostat detects temperature (sensor), compares it to the set point (comparator), and activates heating or cooling (effector). When temperature reaches the set point, the effector stops. This balancing feedback maintains comfort while preventing energy waste.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>2. Population Dynamics</h4>
+                        <p>In predator-prey systems, more prey support more predators (reinforcing loop). However, more predators eat more prey, eventually reducing the prey population (balancing loop). This creates cyclical population dynamics observable in nature and fisheries management.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>3. Social Media Engagement</h4>
+                        <p>Platform algorithms amplify content that generates engagement. High engagement leads to more visibility, which generates more engagement. This reinforcing feedback creates viral content but can also spread misinformation and create filter bubbles.</p>
+                    </div>
+
+                    <div class="featured-card">
+                        <h4>4. Economic Markets</h4>
+                        <p>Stock prices influence investor behavior and corporate decisions, which then affect future prices. Bull markets attract more investment (reinforcing), while crashes trigger selling (reinforcing downward). Balancing loops exist through fundamental value assessments, but delays can allow significant deviations.</p>
+                    </div>
+
+                    <h2>Common Pitfalls</h2>
+                    <ul>
+                        <li><strong>Ignoring Delays:</strong> Many system failures occur because decision-makers respond to outdated information. By the time symptoms become visible, conditions may have changed.</li>
+                        <li><strong>Confusing Reinforcing and Balancing Loops:</strong> A policy intervention that appears to reduce a problem may actually trigger a balancing loop that undermines the intervention.</li>
+                        <li><strong>Linear Thinking in a Nonlinear World:</strong> Treating a symptom rather than the underlying structure leads to unintended consequences.</li>
+                        <li><strong>Missing Feedback Links:</strong> Systems often contain feedback loops that are not immediately obvious. Invisible loops can cause dramatic surprises.</li>
+                        <li><strong>Treating Feedback Loops in Isolation:</strong> Real systems contain multiple interconnected feedback loops. Optimizing one loop may degrade others.</li>
+                    </ul>
+
+                    <div style="margin-top: 40px; padding-top: 40px; border-top: 2px solid var(--gray-light);">
+                        <h3>Behavior Over Time Patterns</h3>
+                        <pre style="font-family: monospace; font-size: 0.85rem; background: var(--gray-light); padding: 20px; overflow-x: auto; margin: 20px 0;">
+Growth:         Smoothing/Stabilizing:    Oscillation:
+    │                 │                        │
+ A  │    A             │    A                   │    A
+    │    │             │   /                     │   / \
+    │   /              │  /                      │  /   \
+    │  /               │ /                       │ /     \
+ ───┴──────────    ─────┴───────────          ────┴───────┴──
+    Time              Time                       Time
+
+Reinforcing Loop    Balancing Loop         Delay-Caused Oscillation
+                        </pre>
+                    </div>
+
+                    <div style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="index.html" class="btn btn-small" style="visibility: hidden;">&larr; Previous</a>
+                        <a href="index.html" class="btn btn-small">Back to Category</a>
+                        <a href="stocks-and-flows.html" class="btn btn-small">Next &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="model-sidebar">
+                    <div class="related-models">
+                        <h3>Related Models</h3>
+                        <ul>
+                            <li><a href="stocks-and-flows.html">Stocks and Flows</a><br><small>The structure that feedback loops operate upon</small></li>
+                            <li><a href="reinforcement-loops.html">Reinforcing Loops</a><br><small>Deep dive into positive feedback</small></li>
+                            <li><a href="balancing-loops.html">Balancing Loops</a><br><small>Deep dive into negative feedback</small></li>
+                            <li><a href="tipping-points.html">Tipping Points</a><br><small>Where feedback loops cross critical thresholds</small></li>
+                            <li><a href="leverage-points.html">Leverage Points</a><br><small>Where to intervene in feedback systems</small></li>
+                        </ul>
+                    </div>
+
+                    <div class="related-models">
+                        <h3>Quick Reference</h3>
+                        <table style="width: 100%; font-size: 0.875rem;">
+                            <tr>
+                                <th style="text-align: left; padding: 8px 0; border-bottom: 1px solid var(--gray-light);">Type</th>
+                                <th style="text-align: left; padding: 8px 0; border-bottom: 1px solid var(--gray-light);">Effect</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;">Reinforcing</td>
+                                <td>Amplifies change</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;">Balancing</td>
+                                <td>Stabilizes</td>
+                            </tr>
+                        </table>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Key Components</h4>
+                        <p style="font-size: 0.875rem;">Sensor → Comparator → Effector → (System State) → Sensor</p>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Intervention Principles</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Reduce harmful delays</li>
+                            <li>Strengthen stabilizing feedback</li>
+                            <li>Dampen runaway reinforcing loops</li>
+                            <li>Add new feedback where none exists</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../index.html">All Mental Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

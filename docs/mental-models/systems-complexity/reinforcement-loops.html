@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinforcement Loops - Mental Models</title>
+    <link rel="stylesheet" href="../../css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Mental Models</a></li>
+                    <li><a href="index.html">Systems & Complexity</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="../../index.html">Home</a><span>/</span>
+            <a href="../index.html">Mental Models</a><span>/</span>
+            <a href="index.html">Systems & Complexity</a><span>/</span>
+            <span>Reinforcement Loops</span>
+        </div>
+    </section>
+
+    <section class="model-detail">
+        <div class="container">
+            <div class="model-header">
+                <div class="model-meta">
+                    <span class="tag">Systems & Complexity</span>
+                    <span class="tag">Loop Type</span>
+                </div>
+                <h1>Reinforcement Loops</h1>
+                <p style="font-size: 1.25rem; color: var(--gray); margin-top: 8px;">Self-reinforcing cycles that amplify change in one direction—creating exponential growth or collapse.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 320px; gap: 60px;">
+                <div class="model-content">
+                    <div class="quick-reference-box" style="background: var(--gray-light); border-color: var(--black); margin-bottom: 40px;">
+                        <h4 style="margin-bottom: 12px;">Quick Reference</h4>
+                        <p style="margin: 0; font-size: 1rem;"><strong>Positive (Reinforcing) Feedback:</strong> More A leads to more B leads back to more A. "Positive" means reinforcing, not necessarily good. Can create virtuous cycles (learning, compound interest) or vicious cycles (debt, extinction). Always hits limits eventually.</p>
+                    </div>
+
+                    <h2>Definition</h2>
+                    <p>Reinforcing loops, also called positive feedback or virtuous/vicious cycles, are feedback structures where an increase in one variable causes a further increase (or decrease causes further decrease). They are the engines of growth and decline in systems. Every exponential growth curve, every dramatic collapse, reflects the operation of a reinforcing loop.</p>
+                    <p>The word "positive" in systems thinking does not mean "good"—it means reinforcing. A reinforcing loop can drive beneficial growth (compound interest, learning curves) or harmful collapse (debt spirals, extinctions). The "positive" indicates that the feedback direction is the same as the initial change, not that outcomes are desirable.</p>
+                    <p>Reinforcing loops produce exponential behavior. Unlike linear growth (constant rate), exponential growth accelerates over time because the rate itself grows. This creates characteristic S-curves when reinforcing loops eventually encounter constraints—growth slows as limits are approached.</p>
+
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Exponential growth/decline:</strong> Change accelerates over time as the system feeds on itself</li>
+                        <li><strong>"Positive" means reinforcing:</strong> Not necessarily good—can be virtuous or vicious</li>
+                        <li><strong>Bi-directional:</strong> Same structure can amplify growth or decline</li>
+                        <li><strong>Always hits limits:</strong> No reinforcing loop runs forever</li>
+                        <li><strong>Winner-take-all dynamics:</strong> Often creates inequality or dominance</li>
+                    </ul>
+
+                    <h2>How to Apply</h2>
+                    <ol style="padding-left: 24px;">
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify the loop components:</strong> Driver variable, causal pathway, return path
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Determine the polarity:</strong> Is it reinforcing (same direction) or balancing (opposite)?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Trace the full loop:</strong> Map how change circulates back to amplify itself
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify limits and constraints:</strong> What will eventually stop the growth/decline?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Analyze behavior over time:</strong> Look for S-curves, exponential growth, or collapse
+                        </li>
+                    </ol>
+
+                    <h2>Visual Diagram - Reinforcing Loop Structure</h2>
+                    <pre style="font-family: monospace; font-size: 0.85rem; background: var(--gray-light); padding: 20px; overflow-x: auto; margin: 20px 0;">
+┌─────────────────────────────────────────────────────────────────┐
+│                REINFORCING LOOP STRUCTURE                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│              ┌──────────────────────────────────┐               │
+│              │                                  │               │
+│              │              MORE A              │               │
+│              │                │                 │               │
+│              │                ▼                 │               │
+│              │              MORE B              │               │
+│              │                │                 │               │
+│              │                ▼                 │               │
+│              │              MORE A              │               │
+│              │                                  │               │
+│              └──────────────────────────────────┘               │
+│                                                                 │
+│  EXAMPLE: Compound Interest                                      │
+│                                                                 │
+│  ┌───────────┐                                                  │
+│  │ Savings   │                                                  │
+│  │ Balance   │                                                  │
+│  └─────┬─────┘                                                  │
+│        │                                                        │
+│        │ Higher balance                                         │
+│        ▼                                                        │
+│  ┌───────────┐                                                  │
+│  │ Interest  │                                                  │
+│  │ Earned    │                                                  │
+│  └─────┬─────┘                                                  │
+│        │                                                        │
+│        │ Interest added                                         │
+│        ▼                                                        │
+│  ┌───────────┐                                                  │
+│  │ Savings   │ ──back to start──► [Higher Balance]              │
+│  │ Balance   │                                                  │
+│  └───────────┘                                                  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+                    </pre>
+
+                    <h2>Real-World Examples</h2>
+                    
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>1. Compound Interest</h4>
+                        <p>Money in an interest-bearing account grows because interest earned is added to the principal, generating more interest. This reinforcing loop explains why small initial differences in wealth become enormous over time.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>2. Network Effects</h4>
+                        <p>A product or service becomes more valuable as more people use it (reinforcing loop). This creates winner-take-all dynamics—Facebook, Windows, and Standard Oil all benefited from reinforcing network effects that made competition increasingly difficult.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>3. Population Dynamics</h4>
+                        <p>More people → more births (inflow) → more people. In a resource-rich environment with low mortality, this creates exponential population growth. However, reinforcing loops operate in reverse: fewer people → fewer births → even fewer people, creating demographic collapse.</p>
+                    </div>
+
+                    <h2>Common Pitfalls</h2>
+                    <ul>
+                        <li><strong>Assuming loops run forever:</strong> Exponential growth cannot continue indefinitely</li>
+                        <li><strong>Ignoring reverse mode:</strong> Same structure can amplify decline</li>
+                        <li><strong>Missing multiple interacting loops:</strong> Real systems have many loops</li>
+                        <li><strong>Forgetting delays:</strong> Long delays create dramatic overshoot</li>
+                        <li><strong>Trying to stop rather than redirect:</strong> Redirecting is often better than stopping</li>
+                    </ul>
+
+                    <div style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="leverage-points.html" class="btn btn-small">&larr; Previous</a>
+                        <a href="index.html" class="btn btn-small">Back to Category</a>
+                        <a href="balancing-loops.html" class="btn btn-small">Next &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="model-sidebar">
+                    <div class="related-models">
+                        <h3>Related Models</h3>
+                        <ul>
+                            <li><a href="feedback-loops.html">Feedback Loops</a><br><small>Parent concept</small></li>
+                            <li><a href="balancing-loops.html">Balancing Loops</a><br><small>Counterpart that stabilizes</small></li>
+                            <li><a href="tipping-points.html">Tipping Points</a><br><small>Triggered by critical mass</small></li>
+                        </ul>
+                    </div>
+
+                    <div class="related-models">
+                        <h3>Quick Reference</h3>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Key Properties</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Produces exponential behavior</li>
+                            <li>"Positive" = reinforcing, not good</li>
+                            <li>Bi-directional (growth/decline)</li>
+                            <li>Hits limits eventually</li>
+                            <li>Winner-take-all dynamics</li>
+                        </ul>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Recognition Patterns</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>"Success breeds success"</li>
+                            <li>"The rich get richer"</li>
+                            <li>"Vicious cycles"</li>
+                            <li>Constant doubling times</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../index.html">All Mental Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

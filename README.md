@@ -24,6 +24,19 @@
 
 ---
 
+## 🚀 Website
+
+**Explore our interactive documentation and mental models library:**
+
+🌐 **[https://zbbsdsb.github.io/solo-corn-skills/](https://zbbsdsb.github.io/solo-corn-skills/)**
+
+- Browse 45+ mental models with detailed explanations
+- Navigate through skill categories and documentation
+- Quick reference guides and comparison tools
+- Responsive design for desktop and mobile
+
+---
+
 ## Mission
 
 **Empowering individuals to build billion-dollar companies with AI-powered skill workflows.**
@@ -104,6 +117,28 @@ cd strategic-decision     # Master business strategy frameworks
 
 ---
 
+## Documentation
+
+Comprehensive guides are available:
+
+| Document | Purpose |
+|----------|---------|
+| [README.md](README.md) | This file - project overview |
+| [INSTALLATION.md](INSTALLATION.md) | Complete installation and setup guide |
+| [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | Architecture and directory structure explained |
+| [API.md](API.md) | API documentation and skill invocation |
+| [TUTORIALS.md](TUTORIALS.md) | Step-by-step tutorials and walkthroughs |
+| [FAQ.md](FAQ.md) | Frequently asked questions |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute to the project |
+| [GOVERNANCE.md](GOVERNANCE.md) | Project governance and decision making |
+| [ROADMAP.md](ROADMAP.md) | Development roadmap and future plans |
+| [CHANGELOG.md](CHANGELOG.md) | Version history and changes |
+| [FORK.md](FORK.md) | Guide to forking and pull requests |
+| [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) | Release process checklist |
+| [NEXT_STEPS.md](NEXT_STEPS.md) | Immediate post-v1.0 plans |
+
+---
+
 ## Project Structure
 
 ```
@@ -137,7 +172,28 @@ solo-corn-skills/
 │   ├── favicon.svg
 │   ├── brutalist-linear-identity.md
 │   └── brand-guidelines.md
-└── README.md
+├── docs/                  # GitHub Pages website
+│   ├── _config.yml
+│   ├── index.html
+│   ├── css/
+│   │   └── style.css
+│   ├── about/
+│   ├── skills/
+│   └── mental-models/
+├── README.md              # This file
+├── INSTALLATION.md        # Installation guide
+├── PROJECT_STRUCTURE.md   # Architecture documentation
+├── API.md                 # API documentation
+├── TUTORIALS.md           # Tutorials and walkthroughs
+├── FAQ.md                 # Frequently asked questions
+├── CONTRIBUTING.md        # Contribution guidelines
+├── GOVERNANCE.md          # Project governance
+├── ROADMAP.md             # Development roadmap
+├── CHANGELOG.md           # Version history
+├── FORK.md                # Fork and PR guide
+├── RELEASE_CHECKLIST.md   # Release process
+├── NEXT_STEPS.md          # Post-v1.0 plans
+└── LICENSE
 ```
 
 ---

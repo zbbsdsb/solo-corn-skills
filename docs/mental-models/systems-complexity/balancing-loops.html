@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balancing Loops - Mental Models</title>
+    <link rel="stylesheet" href="../../css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Mental Models</a></li>
+                    <li><a href="index.html">Systems & Complexity</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="../../index.html">Home</a><span>/</span>
+            <a href="../index.html">Mental Models</a><span>/</span>
+            <a href="index.html">Systems & Complexity</a><span>/</span>
+            <span>Balancing Loops</span>
+        </div>
+    </section>
+
+    <section class="model-detail">
+        <div class="container">
+            <div class="model-header">
+                <div class="model-meta">
+                    <span class="tag">Systems & Complexity</span>
+                    <span class="tag">Loop Type</span>
+                </div>
+                <h1>Balancing Loops</h1>
+                <p style="font-size: 1.25rem; color: var(--gray); margin-top: 8px;">Self-correcting mechanisms that counteract deviations and push systems toward desired goals.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 320px; gap: 60px;">
+                <div class="model-content">
+                    <div class="quick-reference-box" style="background: var(--gray-light); border-color: var(--black); margin-bottom: 40px;">
+                        <h4 style="margin-bottom: 12px;">Quick Reference</h4>
+                        <p style="margin: 0; font-size: 1rem;"><strong>Negative (Balancing) Feedback:</strong> More A leads to less B leads back to less A. "Negative" means counteracting, not necessarily bad. Requires three things: a goal, a sensor to detect gaps, and an effector to reduce gaps. Delays can cause oscillation.</p>
+                    </div>
+
+                    <h2>Definition</h2>
+                    <p>Balancing loops, also called negative feedback or stabilizing loops, are feedback structures that counteract changes and push system state toward a desired goal. They are the mechanisms of stability, homeostasis, and self-correction. Every thermostat, every market equilibrium, every physiological regulation reflects the operation of balancing loops.</p>
+                    <p>The word "negative" in systems thinking does not mean "bad"—it means counteracting. A balancing loop resists change from any direction, pushing back toward a target or equilibrium. If the system state rises above the goal, the balancing loop pushes it down. If it falls below, the balancing loop pushes it up.</p>
+                    <p>Balancing loops require three components: a goal or reference point (what the system is trying to achieve), a sensor (something that measures the current state), and an effector (something that can take action to reduce the gap).</p>
+
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Goal-seeking:</strong> Always pushes toward a target or equilibrium</li>
+                        <li><strong>"Negative" means counteracting:</strong> Not necessarily bad, just opposite direction</li>
+                        <li><strong>Requires goal + sensor + effector:</strong> Three essential components</li>
+                        <li><strong>Delays cause oscillation:</strong> Time between action and effect creates overshoot</li>
+                        <li><strong>Creates stability:</strong> Properly tuned loops maintain homeostasis</li>
+                    </ul>
+
+                    <h2>How to Apply</h2>
+                    <ol style="padding-left: 24px;">
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify the goal:</strong> What target or equilibrium is the system seeking?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify the sensor:</strong> What measures the gap between current state and goal?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify the effector:</strong> What actions reduce the gap?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Assess loop dynamics:</strong> Is the loop too weak, too strong, or well-tuned?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Analyze delays and oscillation:</strong> Look for overshoot and cycling behavior
+                        </li>
+                    </ol>
+
+                    <h2>Visual Diagram - Balancing Loop Structure</h2>
+                    <pre style="font-family: monospace; font-size: 0.85rem; background: var(--gray-light); padding: 20px; overflow-x: auto; margin: 20px 0;">
+┌─────────────────────────────────────────────────────────────────┐
+│                BALANCING LOOP STRUCTURE                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│              ┌──────────────────────────────────┐               │
+│              │                                  │               │
+│              │         GOAL / TARGET            │               │
+│              │                                  │               │
+│              │              │                   │               │
+│              │              ▼                   │               │
+│              │         GAP DETECTION            │               │
+│              │    (Compare to Current State)    │               │
+│              │              │                   │               │
+│              │              ▼                   │               │
+│              │         TAKE ACTION              │               │
+│              │              │                   │               │
+│              │              ▼                   │               │
+│              │      CHANGE CURRENT STATE        │               │
+│              │              │                   │               │
+│              │              └───────────────────┘               │
+│              │                                  │               │
+│              └──────────────────────────────────┘               │
+│                                                                 │
+│  EXAMPLE: Home Thermostat                                        │
+│                                                                 │
+│  ┌───────────────┐    ┌───────────────┐    ┌───────────────┐   │
+│  │  Temperature  │───▶│    Sensor     │───▶│   Heater/AC   │   │
+│  │    Target     │    │               │    │               │   │
+│  └───────────────┘    └───────────────┘    └───────┬───────┘   │
+│                                                     │            │
+│                                                     ▼            │
+│                                              ┌───────────────┐   │
+│                                              │ Current Room  │   │
+│                                              │ Temperature   │   │
+│                                              └───────────────┘   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+                    </pre>
+
+                    <h2>Real-World Examples</h2>
+                    
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>1. Home Thermostat</h4>
+                        <p>The classic balancing loop: temperature sensor detects deviation from set point, triggers heating or cooling, which changes temperature until the sensor detects goal reached and cuts off.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>2. Blood Sugar Regulation</h4>
+                        <p>Pancreas detects rising blood sugar after meals, releases insulin, which promotes glucose uptake by cells, reducing blood sugar. When sugar drops too low, glucagon triggers release of stored glucose. This balancing loop keeps blood sugar within narrow bounds.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>3. Market Price Equilibrium</h4>
+                        <p>When prices rise above "natural" levels, consumers buy less (reducing demand) and producers make more (increasing supply). Both effects push prices back down. When prices fall below natural levels, the reverse occurs. Markets are continuously adjusting toward equilibrium.</p>
+                    </div>
+
+                    <h2>Common Pitfalls</h2>
+                    <ul>
+                        <li><strong>Forgetting delays:</strong> Most common failure—time between action and effect creates overshoot</li>
+                        <li><strong>Weak loops:</strong> Can't achieve goals because action is too feeble</li>
+                        <li><strong>Missing balancing loops:</strong> Systems without them are prone to collapse</li>
+                        <li><strong>Conflicting goals:</strong> Multiple loops pulling in different directions</li>
+                        <li><strong>Moving targets:</strong> Changing goals creates persistent instability</li>
+                    </ul>
+
+                    <div style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="reinforcement-loops.html" class="btn btn-small">&larr; Previous</a>
+                        <a href="index.html" class="btn btn-small">Back to Category</a>
+                        <a href="tipping-points.html" class="btn btn-small">Next &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="model-sidebar">
+                    <div class="related-models">
+                        <h3>Related Models</h3>
+                        <ul>
+                            <li><a href="feedback-loops.html">Feedback Loops</a><br><small>Parent concept</small></li>
+                            <li><a href="reinforcement-loops.html">Reinforcing Loops</a><br><small>Counterpart that amplifies</small></li>
+                            <li><a href="tipping-points.html">Tipping Points</a><br><small>Where loops may fail</small></li>
+                        </ul>
+                    </div>
+
+                    <div class="related-models">
+                        <h3>Quick Reference</h3>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Essential Components</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Goal or target state</li>
+                            <li>Sensor to detect gaps</li>
+                            <li>Effector to reduce gaps</li>
+                            <li>Optional: delays</li>
+                        </ul>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Troubleshooting</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Persistent gap: loop too weak</li>
+                            <li>Oscillation: too strong + delays</li>
+                            <li>Instability: missing balancing loop</li>
+                            <li>Chasing: moving target</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../index.html">All Mental Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

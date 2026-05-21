@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipping Points - Mental Models</title>
+    <link rel="stylesheet" href="../../css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Mental Models</a></li>
+                    <li><a href="index.html">Systems & Complexity</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="../../index.html">Home</a><span>/</span>
+            <a href="../index.html">Mental Models</a><span>/</span>
+            <a href="index.html">Systems & Complexity</a><span>/</span>
+            <span>Tipping Points</span>
+        </div>
+    </section>
+
+    <section class="model-detail">
+        <div class="container">
+            <div class="model-header">
+                <div class="model-meta">
+                    <span class="tag">Systems & Complexity</span>
+                    <span class="tag">Threshold</span>
+                </div>
+                <h1>Tipping Points</h1>
+                <p style="font-size: 1.25rem; color: var(--gray); margin-top: 8px;">Critical thresholds where small changes produce dramatic, often irreversible shifts in system behavior.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 320px; gap: 60px;">
+                <div class="model-content">
+                    <div class="quick-reference-box" style="background: var(--gray-light); border-color: var(--black); margin-bottom: 40px;">
+                        <h4 style="margin-bottom: 12px;">Quick Reference</h4>
+                        <p style="margin: 0; font-size: 1rem;"><strong>Critical Thresholds:</strong> Nothing happens until... everything changes. Hysteresis means getting back is harder than getting there. Watch for early warning signs: critical slowing down, increasing variance, flickering between states.</p>
+                    </div>
+
+                    <h2>Definition</h2>
+                    <p>A tipping point is that critical moment when a system crosses a threshold and fundamentally transforms. Below the tipping point, the system behaves in one way—stable, predictable, resistant to change. Above the tipping point, it transforms into something qualitatively different—unstable, unpredictable, and difficult to reverse. Malcolm Gladwell popularized the concept, but it has deep roots in physics, ecology, and systems theory.</p>
+                    <p>Tipping points are characterized by: nonlinearity (small inputs produce disproportionate outputs), threshold effects (no change until a critical point, then sudden transformation), hysteresis (the path forward differs from the path back—reversing requires more than undoing what was done), and cascading effects (one tipping point can trigger others in connected systems).</p>
+                    <p>Systems near tipping points often exhibit characteristic warning signs: critical slowing down (recovery from perturbations takes longer), increasing variance, and flickering between states.</p>
+
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Nonlinearity:</strong> Disproportionate response at critical thresholds</li>
+                        <li><strong>Threshold effects:</strong> Stability until suddenly everything changes</li>
+                        <li><strong>Hysteresis:</strong> Getting back is harder than getting there</li>
+                        <li><strong>Cascading risks:</strong> One tipping point can trigger others</li>
+                        <li><strong>Early warning signs:</strong> Slowing down, increasing variance, flickering</li>
+                    </ul>
+
+                    <h2>How to Apply</h2>
+                    <ol style="padding-left: 24px;">
+                        <li style="margin-bottom: 16px;">
+                            <strong>Map system state space:</strong> Identify key variables and attractors
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Find critical thresholds:</strong> Look for nonlinear relationships
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Watch for early warning signs:</strong> Monitor for slowing down, variance, flickering
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Assess hysteresis:</strong> How hard would reversal be?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify cascading risks:</strong> Which other systems might be affected?
+                        </li>
+                    </ol>
+
+                    <h2>Visual Diagram - Tipping Point Dynamics</h2>
+                    <pre style="font-family: monospace; font-size: 0.85rem; background: var(--gray-light); padding: 20px; overflow-x: auto; margin: 20px 0;">
+┌─────────────────────────────────────────────────────────────────┐
+│                    TIPPING POINT DYNAMICS                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  System State                                                   │
+│       │                                                         │
+│       │    ┌─────────────────────────────────────────────┐     │
+│   A   │    │         BASIN OF ATTRACTION A              │     │
+│       │    │                                             │     │
+│       │    │  System returns here after small           │     │
+│       │    │  perturbations                              │     │
+│       │    └─────────────────────────────────────────────┘     │
+│       │                    │                                    │
+│       │                    │ TIPPING POINT (RIDGE)              │
+│       │                    ▼                                    │
+│       │    ┌─────────────────────────────────────────────┐     │
+│   B   │    │         BASIN OF ATTRACTION B              │     │
+│       │    │                                             │     │
+│       │    │  System settles here until                  │     │
+│       │    │  next tipping point                         │     │
+│       │    └─────────────────────────────────────────────┘     │
+│       │                                                         │
+│       └─────────────────────────────────────────────────────────►│
+│                          Driver (Pressure, Temperature, etc.)  │
+│                                                                 │
+│  Moving from A to B: crosses tipping point                       │
+│  Moving from B to A: may require crossing HIGHER tipping point  │
+│  (Hysteresis—the path back is harder)                            │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+                    </pre>
+
+                    <h2>Real-World Examples</h2>
+                    
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>1. Ice Sheet Collapse</h4>
+                        <p>Below certain temperature thresholds, ice sheets are stable. Above thresholds, melting exceeds accumulation, creating positive feedback (less ice → lower albedo → more warming → more melting). Greenland's ice sheet may have passed a tipping point for committed sea level rise.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>2. Financial Market Crashes</h4>
+                        <p>Markets normally absorb shocks through price adjustments. At extreme leverage and liquidity thresholds, small shocks trigger cascading selling, margin calls, and forced liquidations—a crash. These events share statistical signatures: volatility clustering, correlation increases, and liquidity evaporation.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>3. Ecosystem Regime Shifts</h4>
+                        <p>Coral reefs can shift abruptly from coral-dominated to algal-dominated states when fishing pressure or temperature exceeds thresholds. Lakes can flip from clear to murky when nutrient loading exceeds the lake's capacity to process waste. These shifts can be irreversible without massive intervention.</p>
+                    </div>
+
+                    <h2>Common Pitfalls</h2>
+                    <ul>
+                        <li><strong>False linearity assumption:</strong> "More effort = more results" fails near thresholds</li>
+                        <li><strong>Ignoring hysteresis:</strong> "We can just reverse it later" underestimates difficulty</li>
+                        <li><strong>Missing early warning signs:</strong> Subtle signals precede collapse</li>
+                        <li><strong>Single-threshold thinking:</strong> Real systems have multiple thresholds</li>
+                        <li><strong>Intervention hubris:</strong> After tipping, intervention may be ineffective</li>
+                    </ul>
+
+                    <div style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="balancing-loops.html" class="btn btn-small">&larr; Previous</a>
+                        <a href="index.html" class="btn btn-small">Back to Category</a>
+                        <a href="../index.html" class="btn btn-small">All Models &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="model-sidebar">
+                    <div class="related-models">
+                        <h3>Related Models</h3>
+                        <ul>
+                            <li><a href="chaos-theory-basics.html">Chaos Theory</a><br><small>Sensitivity at critical points</small></li>
+                            <li><a href="feedback-loops.html">Feedback Loops</a><br><small>Mechanisms creating tipping</small></li>
+                            <li><a href="leverage-points.html">Leverage Points</a><br><small>High-leverage interventions</small></li>
+                        </ul>
+                    </div>
+
+                    <div class="related-models">
+                        <h3>Quick Reference</h3>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Warning Signs</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Critical slowing down</li>
+                            <li>Increasing variance</li>
+                            <li>Increasing autocorrelation</li>
+                            <li>Flickering between states</li>
+                            <li>More extreme values</li>
+                        </ul>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Risk Management</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Stay away from thresholds</li>
+                            <li>Build safety margins</li>
+                            <li>Monitor warning signs</li>
+                            <li>Diversify to avoid single points</li>
+                            <li>Focus on resilience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../index.html">All Mental Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

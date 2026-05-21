@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Models - SOLO CORN SKILLS</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/mental-models.css">
 </head>
 <body>
     <header>
@@ -24,42 +25,156 @@
     <section class="hero">
         <div class="container">
             <h1>Mental Models</h1>
-            <p>45+ cognitive frameworks for better decisions.</p>
+            <p class="subtitle">45+ cognitive frameworks for better decision-making</p>
             <div class="accent-line center"></div>
+            <p style="margin-top: 40px;">
+                <a href="#search" class="btn">Explore Models</a>
+            </p>
         </div>
     </section>
 
-    <section>
+    <section id="search" class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <h2 style="text-align: center; margin-bottom: 24px;">Find Mental Models</h2>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search mental models (e.g., 'first principles', 'second order')...">
+                    <button onclick="searchModels()" class="search-btn">Search</button>
+                </div>
+                <p style="text-align: center; font-size: 0.875rem; color: var(--gray);">
+                    Try: First Principles, Second-Order Thinking, OODA Loop, SWOT Analysis, Loss Aversion
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-models">
         <div class="container">
             <div class="section-header">
-                <h2>Categories</h2>
+                <h2>Featured Models</h2>
                 <div class="accent-line"></div>
+                <p>Essential frameworks used by top decision-makers and problem solvers.</p>
             </div>
             
             <div class="grid">
-                <div class="card">
+                <div class="featured-card">
+                    <span class="featured-badge">Decision Making</span>
+                    <h3>First Principles Thinking</h3>
+                    <p>Break down complex problems to their fundamental elements and rebuild from the ground up.</p>
+                    <p><a href="decision-reasoning/first-principles.html" class="btn btn-small">Learn More</a></p>
+                </div>
+                
+                <div class="featured-card">
+                    <span class="featured-badge">Strategic</span>
+                    <h3>Second-Order Thinking</h3>
+                    <p>Consider the consequences of your decisions' consequences before acting.</p>
+                    <p><a href="decision-reasoning/second-order-thinking.html" class="btn btn-small">Learn More</a></p>
+                </div>
+                
+                <div class="featured-card">
+                    <span class="featured-badge">Strategy</span>
+                    <h3>OODA Loop</h3>
+                    <p>Rapid decision-making through Observe, Orient, Decide, and Act cycles.</p>
+                    <p><a href="strategy-competition/ooda-loop.html" class="btn btn-small">Learn More</a></p>
+                </div>
+                
+                <div class="featured-card">
+                    <span class="featured-badge">Analysis</span>
+                    <h3>SWOT Analysis</h3>
+                    <p>Evaluate Strengths, Weaknesses, Opportunities, and Threats systematically.</p>
+                    <p><a href="strategy-competition/swot-analysis.html" class="btn btn-small">Learn More</a></p>
+                </div>
+                
+                <div class="featured-card">
+                    <span class="featured-badge">Psychology</span>
+                    <h3>Loss Aversion</h3>
+                    <p>Understand why people feel the pain of losses twice as intensely as the pleasure of gains.</p>
+                    <p><a href="psychology-behavior/loss-aversion.html" class="btn btn-small">Learn More</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>All Categories</h2>
+                <div class="accent-line"></div>
+                <p>Browse mental models by domain to find the right framework for your challenge.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="category-card">
                     <h3>Decision & Reasoning</h3>
-                    <p>10+ frameworks for better thinking.</p>
+                    <span class="category-count">12 Models</span>
+                    <p>Frameworks for structured thinking, logical analysis, and better decision-making. Includes first principles, probabilistic thinking, and inversion methods.</p>
+                    <p><a href="decision-reasoning/index.html" class="btn btn-small">Explore Category</a></p>
                 </div>
                 
-                <div class="card">
+                <div class="category-card">
                     <h3>Strategy & Competition</h3>
-                    <p>Competitive advantage and business strategy.</p>
+                    <span class="category-count">10 Models</span>
+                    <p>Tools for competitive analysis, strategic planning, and game theory. Includes game theory, blue ocean strategy, and Porter's Five Forces.</p>
+                    <p><a href="strategy-competition/index.html" class="btn btn-small">Explore Category</a></p>
                 </div>
                 
-                <div class="card">
+                <div class="category-card">
                     <h3>Systems & Complexity</h3>
-                    <p>Understanding complex systems and feedback loops.</p>
+                    <span class="category-count">9 Models</span>
+                    <p>Understanding feedback loops, emergence, and complex adaptive systems. Includes systems thinking, leverage points, and chaos theory.</p>
+                    <p><a href="systems-complexity/index.html" class="btn btn-small">Explore Category</a></p>
                 </div>
                 
-                <div class="card">
+                <div class="category-card">
                     <h3>Psychology & Behavior</h3>
-                    <p>Biases, incentives, and human behavior.</p>
+                    <span class="category-count">8 Models</span>
+                    <p>Insights into human behavior, cognitive biases, and motivation. Includes loss aversion, confirmation bias, and incentives.</p>
+                    <p><a href="psychology-behavior/index.html" class="btn btn-small">Explore Category</a></p>
                 </div>
                 
-                <div class="card">
+                <div class="category-card">
                     <h3>Execution & Learning</h3>
-                    <p>Getting things done and improving over time.</p>
+                    <span class="category-count">6 Models</span>
+                    <p>Frameworks for getting things done, learning effectively, and improving over time. Includes deliberate practice, double-loop learning, and PDCA.</p>
+                    <p><a href="execution-learning/index.html" class="btn btn-small">Explore Category</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-reference-section">
+        <div class="container">
+            <div class="section-header" style="color: var(--white);">
+                <h2>Quick Reference</h2>
+                <div class="accent-line" style="background: var(--white);"></div>
+                <p>Cheat sheets and summary cards for everyday use.</p>
+            </div>
+            
+            <div class="quick-reference-box">
+                <div class="quick-reference-grid">
+                    <div class="quick-ref-item">
+                        <h4>Decision Matrix</h4>
+                        <p>Quick 2x2 framework for prioritizing options based on impact and effort.</p>
+                    </div>
+                    
+                    <div class="quick-ref-item">
+                        <h4>Thinking Ladder</h4>
+                        <p>6 levels from data to wisdom for structured analysis.</p>
+                    </div>
+                    
+                    <div class="quick-ref-item">
+                        <h4>Model Selection Guide</h4>
+                        <p>Choose the right mental model based on your problem type.</p>
+                    </div>
+                    
+                    <div class="quick-ref-item">
+                        <h4>Bias Checklist</h4>
+                        <p>Common cognitive biases to watch out for in decisions.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="quick-reference/index.html" class="btn">View All Quick References</a>
                 </div>
             </div>
         </div>
@@ -74,8 +189,20 @@
                 </div>
                 
                 <div>
-                    <h4>Links</h4>
+                    <h4>Categories</h4>
                     <ul>
+                        <li><a href="decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="systems-complexity/index.html">Systems & Complexity</a></li>
+                        <li><a href="psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="quick-reference/index.html">Quick Reference</a></li>
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../about/index.html">About</a></li>
                     </ul>
@@ -83,5 +210,85 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const models = [
+            {
+                title: "First Principles Thinking",
+                category: "decision-reasoning",
+                description: "Break down complex problems to their fundamental elements",
+                url: "decision-reasoning/first-principles.html"
+            },
+            {
+                title: "Second-Order Thinking",
+                category: "decision-reasoning",
+                description: "Consider the consequences of your decisions' consequences",
+                url: "decision-reasoning/second-order-thinking.html"
+            },
+            {
+                title: "OODA Loop",
+                category: "strategy-competition",
+                description: "Rapid decision-making through Observe, Orient, Decide, Act",
+                url: "strategy-competition/ooda-loop.html"
+            },
+            {
+                title: "SWOT Analysis",
+                category: "strategy-competition",
+                description: "Evaluate Strengths, Weaknesses, Opportunities, Threats",
+                url: "strategy-competition/swot-analysis.html"
+            },
+            {
+                title: "Loss Aversion",
+                category: "psychology-behavior",
+                description: "Understanding the pain of losses vs pleasure of gains",
+                url: "psychology-behavior/loss-aversion.html"
+            },
+            {
+                title: "Inversion",
+                category: "decision-reasoning",
+                description: "Think backwards to avoid problems instead of seeking solutions",
+                url: "decision-reasoning/inversion.html"
+            },
+            {
+                title: "Circle of Competence",
+                category: "psychology-behavior",
+                description: "Know your strengths and limitations",
+                url: "psychology-behavior/circle-of-competence.html"
+            },
+            {
+                title: "Systems Thinking",
+                category: "systems-complexity",
+                description: "Understanding feedback loops and emergence",
+                url: "systems-complexity/systems-thinking.html"
+            }
+        ];
+
+        function searchModels() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+            
+            const results = models.filter(model => 
+                model.title.toLowerCase().includes(query) ||
+                model.description.toLowerCase().includes(query) ||
+                model.category.toLowerCase().includes(query)
+            );
+            
+            if (results.length > 0) {
+                window.location.href = results[0].url;
+            } else {
+                alert('No models found for "' + query + '". Try searching for specific mental model names.');
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchModels();
+            }
+        });
+    </script>
 </body>
 </html>

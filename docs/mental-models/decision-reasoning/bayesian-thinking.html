@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayesian Thinking - Decision & Reasoning - SOLO CORN SKILLS</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../skills/index.html">Skills</a></li>
+                    <li><a href="../index.html">Mental Models</a></li>
+                    <li><a href="../../about/index.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="navigation-menu">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="../index.html">All Models</a></li>
+                <li><a href="index.html">Decision & Reasoning</a></li>
+                <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                <li><a href="../systems-complexity/index.html">Systems & Complexity</a></li>
+                <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="model-detail">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a><span>/</span>
+                <a href="../index.html">Mental Models</a><span>/</span>
+                <a href="index.html">Decision & Reasoning</a><span>/</span>
+                <span>Bayesian Thinking</span>
+            </div>
+
+            <div class="model-header" style="margin-top: 24px;">
+                <div class="model-meta">
+                    <span class="tag">Probability & Evidence</span>
+                    <span class="tag">Belief Updating</span>
+                </div>
+                <h1 style="margin-bottom: 16px;">Bayesian Thinking</h1>
+                <p style="font-size: 1.25rem; color: var(--gray);">Continuously updating your beliefs based on new evidence, calibrated by how reliable that evidence is.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 300px; gap: 60px;">
+                <div class="model-content">
+                    <div style="border: 3px solid var(--black); padding: 32px; margin-bottom: 40px; background: var(--gray-light);">
+                        <h3 style="margin-bottom: 16px;">Quick Definition</h3>
+                        <p style="margin-bottom: 0; font-size: 1.125rem; font-weight: 600;">Continuously updating your beliefs based on new evidence, calibrated by how reliable that evidence is.</p>
+                    </div>
+
+                    <h2>Definition</h2>
+                    <p>Bayesian thinking treats beliefs as probabilities that should be updated whenever new evidence emerges. Named after Thomas Bayes, the 18th-century mathematician who developed the foundational theorem, this framework acknowledges that our certainty about any proposition exists on a spectrum rather than as binary true/false states.</p>
+                    <p>The core insight is that strong prior beliefs require stronger evidence to change, while weak beliefs can be shifted by modest evidence. This approach prevents both dismissing new information too quickly and overreacting to every piece of data. Bayesian thinking means explicitly acknowledging what you believe now (priors), considering how likely different outcomes would produce the evidence you see, and updating your beliefs calibrated degree rather than wholesale rejection or acceptance.</p>
+
+                    <h2>Origin & History</h2>
+                    <p>Thomas Bayes, an English mathematician and Presbyterian minister, published "An Essay Towards Solving a Problem in the Doctrine of Chances" posthumously in 1763. His theorem provided a mathematical framework for calculating conditional probabilities.</p>
+                    <p>The interpretation and application of Bayes's work became a major philosophical debate in statistics, splitting into frequentist and Bayesian schools. Bayesian methods have experienced a renaissance with increased computing power and practical applications in machine learning, artificial intelligence, and complex systems modeling.</p>
+
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Beliefs are probabilities</strong> - Maintain calibrated confidence levels, not binary certainties</li>
+                        <li><strong>Prior matters</strong> - Strong prior beliefs require stronger evidence to change</li>
+                        <li><strong>Evidence quality counts</strong> - Not all evidence is equally informative; consider reliability</li>
+                        <li><strong>Update incrementally</strong> - Adjust beliefs to a calibrated degree, not wholesale rejection</li>
+                        <li><strong>Continuously iterate</strong> - Treat every belief as provisional and keep updating</li>
+                    </ul>
+
+                    <h2>When to Use</h2>
+                    <ul>
+                        <li>Evaluating new information from experiments or research</li>
+                        <li>Updating predictions with new data points</li>
+                        <li>Making decisions with uncertain outcomes</li>
+                        <li>Medical diagnosis and treatment decisions</li>
+                        <li>Investment analysis with evolving information</li>
+                        <li>Forecasting in uncertain environments</li>
+                    </ul>
+
+                    <h2>How to Apply</h2>
+                    <ol>
+                        <li><strong>Establish your prior belief</strong> - Before seeing new evidence, state what you believe as a probability</li>
+                        <li><strong>Gather baseline evidence</strong> - Note what information led to this prior belief</li>
+                        <li><strong>Observe new evidence</strong> - Clearly identify what specifically you are observing</li>
+                        <li><strong>Assess evidence quality</strong> - Ask "How reliable is this evidence?" and "How likely would this appear if my belief were true versus false?"</li>
+                        <li><strong>Calculate the update</strong> - Apply Bayes's theorem formally or use intuitive calibration</li>
+                        <li><strong>Update your posterior</strong> - Adjust your belief to reflect the new evidence</li>
+                        <li><strong>Repeat continuously</strong> - Treat every belief as provisional</li>
+                    </ol>
+
+                    <h2>Real-World Example</h2>
+                    <div style="border-left: 4px solid var(--black); padding-left: 24px;">
+                        <p><strong>Medical Diagnosis:</strong> A doctor evaluating chest pain might start with a prior probability of 10% that a patient is having a heart attack. A positive stress test might increase this to 40%, while a negative result might reduce it to 2%. The test doesn't give certainty—it updates the probability based on its known reliability rates.</p>
+                    </div>
+
+                    <h2>Common Pitfalls</h2>
+                    <ul>
+                        <li><strong>Base rate neglect</strong> - Ignoring the prior probability (how common something is generally)</li>
+                        <li><strong>Confirmation bias in evidence</strong> - Searching for or overweighting confirming evidence</li>
+                        <li><strong>Overconfidence in updates</strong> - Making too-large belief changes based on single evidence</li>
+                        <li><strong>Underconfidence in updates</strong> - Being so cautious that new evidence has insufficient impact</li>
+                        <li><strong>Difficulty with rare events</strong> - Struggling to properly update on low-probability but high-impact possibilities</li>
+                    </ul>
+                </div>
+
+                <div class="model-sidebar">
+                    <div class="related-models">
+                        <h3>Quick Reference</h3>
+                        <div style="padding: 16px 0;">
+                            <p style="margin-bottom: 12px;"><strong>Core Question:</strong></p>
+                            <p style="margin-bottom: 16px; font-style: italic;">Given this new evidence, how much should I update my belief?</p>
+
+                            <p style="margin-bottom: 12px;"><strong>Key Habit:</strong></p>
+                            <p style="margin-bottom: 16px; font-style: italic;">Always maintain calibrated probabilities, not binary certainties</p>
+
+                            <p style="margin-bottom: 12px;"><strong>Primary Enemy:</strong></p>
+                            <p style="margin-bottom: 16px; font-style: italic;">Confirmation bias and treating all evidence as equally informative</p>
+
+                            <p style="margin-bottom: 12px;"><strong>Formula:</strong></p>
+                            <p style="margin-bottom: 0; font-style: italic;">P(A|B) = P(B|A) x P(A) / P(B)</p>
+                        </div>
+                    </div>
+
+                    <div class="related-models">
+                        <h3>Related Models</h3>
+                        <ul>
+                            <li><a href="confirmation-bias-awareness.html">Confirmation Bias Awareness</a></li>
+                            <li><a href="regression-to-mean.html">Regression to Mean</a></li>
+                            <li><a href="occams-razor.html">Occam's Razor</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; padding-top: 40px; border-top: 3px solid var(--black);">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <a href="index.html" class="btn btn-small" style="margin-right: 16px;">Back to Category</a>
+                        <a href="../index.html" class="btn btn-small">All Models</a>
+                    </div>
+                    <div style="display: flex; gap: 16px;">
+                        <span style="color: var(--gray);">Previous:</span>
+                        <a href="inversion.html">Inversion</a>
+                        <span style="color: var(--gray);">|</span>
+                        <span style="color: var(--gray);">Next:</span>
+                        <a href="occams-razor.html">Occam's Razor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="index.html">Decision & Reasoning</a></li>
+                        <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="../systems-complexity/index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../index.html">All Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about/index.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

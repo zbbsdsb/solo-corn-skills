@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Guide - Mental Models</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Mental Models</a></li>
+                    <li><a href="index.html">Quick Reference</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="../../index.html">Home</a><span>/</span>
+            <a href="../index.html">Mental Models</a><span>/</span>
+            <a href="index.html">Quick Reference</a><span>/</span>
+            <span>Decision Guide</span>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="container">
+            <h1>"Which Model to Use?" Guide</h1>
+            <p class="subtitle">Select the right mental model for your problem</p>
+            <div class="accent-line center"></div>
+        </div>
+    </section>
+
+    <section class="categories-section" style="padding-top: 80px;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Decision Tree</h2>
+                <div class="accent-line"></div>
+                <p>Answer these questions to find the perfect model.</p>
+            </div>
+
+            <div class="featured-card" style="margin-bottom: 40px;">
+                <h3>1. What type of problem are you solving?</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px;">
+                    <button onclick="showSection('complex')" class="btn btn-small">Complex Problem Solving</button>
+                    <button onclick="showSection('decision')" class="btn btn-small">Making a Decision</button>
+                    <button onclick="showSection('strategy')" class="btn btn-small">Strategy & Competition</button>
+                    <button onclick="showSection('system')" class="btn btn-small">Understanding Systems</button>
+                </div>
+            </div>
+
+            <div id="complex" style="display: none;" class="featured-card">
+                <h3>Complex Problem Solving</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 16px;"><strong>First Principles:</strong> Break it down to fundamentals <a href="../decision-reasoning/first-principles.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Inversion:</strong> Think about what to avoid <a href="../decision-reasoning/inversion.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Occam's Razor:</strong> Prefer simpler explanations <a href="../decision-reasoning/occams-razor.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                </ul>
+            </div>
+
+            <div id="decision" style="display: none;" class="featured-card">
+                <h3>Making a Decision</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 16px;"><strong>Second-Order Thinking:</strong> Consider long-term consequences <a href="../decision-reasoning/second-order-thinking.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Bayesian Thinking:</strong> Update with new evidence <a href="../decision-reasoning/bayesian-thinking.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Circle of Competence:</strong> Know your limits <a href="../decision-reasoning/circle-of-competence.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                </ul>
+            </div>
+
+            <div id="strategy" style="display: none;" class="featured-card">
+                <h3>Strategy & Competition</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 16px;"><strong>SWOT Analysis:</strong> Assess your situation <a href="../strategy-competition/swot-analysis.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Porter's Five Forces:</strong> Analyze industry <a href="../strategy-competition/porters-five-forces.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Game Theory:</strong> Model interactions <a href="../strategy-competition/game-theory-basics.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                </ul>
+            </div>
+
+            <div id="system" style="display: none;" class="featured-card">
+                <h3>Understanding Systems</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 16px;"><strong>Feedback Loops:</strong> Map cause and effect <a href="../systems-complexity/feedback-loops.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Leverage Points:</strong> Find where to intervene <a href="../systems-complexity/leverage-points.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                    <li style="margin-bottom: 16px;"><strong>Tipping Points:</strong> Watch for critical thresholds <a href="../systems-complexity/tipping-points.html" class="btn btn-small" style="margin-left: 16px;">Use</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showSection(id) {
+            // Hide all sections
+            const sections = ['complex', 'decision', 'strategy', 'system'];
+            sections.forEach(sectionId => {
+                document.getElementById(sectionId).style.display = 'none';
+            });
+            // Show selected section
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="../systems-complexity/index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Quick Reference</a></li>
+                        <li><a href="../index.html">All Mental Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

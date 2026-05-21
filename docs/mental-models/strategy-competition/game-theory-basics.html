@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Theory Basics - Mental Models</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../skills/index.html">Skills</a></li>
+                    <li><a href="index.html">Mental Models</a></li>
+                    <li><a href="../../about/index.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="../../index.html">Home</a>
+            <span>/</span>
+            <a href="index.html">Mental Models</a>
+            <span>/</span>
+            <a href="index.html">Strategy & Competition</a>
+            <span>/</span>
+            Game Theory Basics
+        </div>
+    </div>
+
+    <section class="model-detail">
+        <div class="container">
+            <div class="model-header">
+                <div class="model-meta">
+                    <span class="tag">Game Theory</span>
+                    <span class="tag">Strategic Decision-Making</span>
+                </div>
+                <h1>Game Theory Basics</h1>
+                <p class="subtitle">Predict competitor behavior and optimize outcomes in competitive situations</p>
+            </div>
+
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 320px; gap: 60px;">
+                <div class="model-content">
+                    <h2>Definition</h2>
+                    <p>Game Theory is a mathematical framework for analyzing strategic interactions where the outcome for each participant depends on the choices of all participants. The field examines how rational actors make decisions when they are aware that their choices affect others, and others' choices affect them. Key concepts include games (situations with set rules and players), strategies (complete plans of action), payoffs (outcomes or rewards), information (what players know), and equilibria (stable states where no player can benefit by changing strategy unilaterally).</p>
+
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Nash Equilibrium:</strong> Stable outcomes where no player can improve by changing strategy alone</li>
+                        <li><strong>Dominant Strategies:</strong> Best choice regardless of what others do; if you have one, use it</li>
+                        <li><strong>Zero-Sum vs. Non-Zero-Sum:</strong> Some games are competitive (one's gain is another's loss), others allow mutual benefit</li>
+                        <li><strong>Credibility Matters:</strong> Threats must be rational to be believable in sequential games</li>
+                        <li><strong>Repeated Games Enable Cooperation:</strong> Future consequences allow for strategies like tit-for-tat</li>
+                    </ul>
+
+                    <h2>When to Use</h2>
+                    <ul>
+                        <li>Pricing decisions and competitive responses</li>
+                        <li>Market entry and expansion decisions</li>
+                        <li>Negotiations and contract design</li>
+                        <li>Auction strategy and bidding decisions</li>
+                        <li>Any situation where outcomes depend on others' choices</li>
+                        <li>Strategic alliance and partnership formation</li>
+                    </ul>
+
+                    <h2>How to Apply</h2>
+                    <ol>
+                        <li><strong>Define Game Structure:</strong> Identify players, actions, timing, and available information</li>
+                        <li><strong>Map the Payoffs:</strong> Determine outcomes for each combination of actions</li>
+                        <li><strong>Identify Strategy Types:</strong> Determine if strategies are dominant, dominated, or conditional</li>
+                        <li><strong>Look for Dominant Strategies:</strong> If any player has one, predict they will use it</li>
+                        <li><strong>Eliminate Dominated Strategies:</strong> Remove strategies rational players would never choose</li>
+                        <li><strong>Find Nash Equilibria:</strong> Identify stable outcomes where no player can improve unilaterally</li>
+                        <li><strong>Consider Sequential Games:</strong> Use backward induction from the end working backward</li>
+                        <li><strong>Assess Credibility:</strong> Evaluate whether promised actions are rational and believable</li>
+                        <li><strong>Consider Repeated Interactions:</strong> Assess how future consequences change behavior</li>
+                        <li><strong>Apply to Real Decisions:</strong> Translate insights into practical strategic guidance</li>
+                    </ol>
+
+                    <h2>Real-World Example</h2>
+                    <p><strong>Prisoner's Dilemma in Pricing:</strong> Two competing airlines must decide on pricing strategy. If both charge high prices, both earn healthy profits. If one undercuts the other, the lower-priced airline captures the market. If both undercut, both lose money. The Nash equilibrium is mutual undercutting, even though both would be better off with high prices. This explains why airlines struggle to maintain high fares despite rational awareness of better outcomes.</p>
+
+                    <h2>Common Pitfalls</h2>
+                    <ul>
+                        <li><strong>Assuming Perfect Rationality:</strong> Real-world players have cognitive limits, emotions, and biases</li>
+                        <li><strong>Ignoring Information Asymmetry:</strong> Players often have private information that affects outcomes</li>
+                        <li><strong>Overlooking Credibility:</strong> Threats that sound good but are not rational lead to failed strategies</li>
+                        <li><strong>Misidentifying the Game:</strong> The same situation can be modeled differently with different predictions</li>
+                        <li><strong>Neglecting Cultural Factors:</strong> Cultural norms and relationships affect real strategic behavior</li>
+                        <li><strong>Treating Games as Static:</strong> Markets are dynamic; equilibria shift as environments change</li>
+                    </ul>
+
+                    <h2>Quick Reference</h2>
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--black);">
+                                <th style="text-align: left; padding: 12px;">Game</th>
+                                <th style="text-align: left; padding: 12px;">Key Insight</th>
+                                <th style="text-align: left; padding: 12px;">Business Application</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--gray-light);">
+                                <td style="padding: 12px;"><strong>Prisoner's Dilemma</strong></td>
+                                <td style="padding: 12px;">Individual rationality leads to worse collective outcome</td>
+                                <td style="padding: 12px;">Pricing wars, cartel instability</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--gray-light);">
+                                <td style="padding: 12px;"><strong>Chicken</strong></td>
+                                <td style="padding: 12px;">First to commit wins</td>
+                                <td style="padding: 12px;">First-mover decisions, brinksmanship</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--gray-light);">
+                                <td style="padding: 12px;"><strong>Battle of the Sexes</strong></td>
+                                <td style="padding: 12px;">Coordination with different preferences</td>
+                                <td style="padding: 12px;">Negotiations, partnership formation</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--gray-light);">
+                                <td style="padding: 12px;"><strong>Stag Hunt</strong></td>
+                                <td style="padding: 12px;">Cooperation on high-reward joint strategy</td>
+                                <td style="padding: 12px;">Strategic alliances, joint ventures</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px;"><strong>Hawk-Dove</strong></td>
+                                <td style="padding: 12px;">Aggression vs. conciliation tradeoffs</td>
+                                <td style="padding: 12px;">Market entry conflicts, disputes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Decision Rules:</strong> If you have a dominant strategy, use it. If no dominant strategy, look for Nash equilibrium. In sequential games, use backward induction. In repeated games, consider future consequences. Always assess whether threats are credible.</p>
+                </div>
+
+                <div class="model-sidebar">
+                    <div class="related-models">
+                        <h3>Quick Summary</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 20px;">The study of mathematical models describing strategic interactions between rational decision-makers, used to predict behavior and optimize outcomes in competitive situations.</p>
+                        <p><strong>Best for:</strong> Predicting competitor behavior and strategic interactions</p>
+                    </div>
+
+                    <div class="related-models">
+                        <h3>Related Models</h3>
+                        <ul>
+                            <li><a href="porters-five-forces.html">Porter's Five Forces</a></li>
+                            <li><a href="asymmetric-betting.html">Asymmetric Betting</a></li>
+                            <li><a href="power-dynamics.html">Power Dynamics</a></li>
+                            <li><a href="competitive-moats.html">Competitive Moats</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; padding-top: 40px; border-top: 3px solid var(--black);">
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <span class="tag" style="background: var(--gray-light); margin-bottom: 8px;">Previous</span>
+                        <p style="margin: 0;"><a href="porters-five-forces.html">Porter's Five Forces</a></p>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="tag" style="background: var(--gray-light); margin-bottom: 8px;">Next</span>
+                        <p style="margin: 0;"><a href="competitive-moats.html">Competitive Moats</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="index.html">Strategy & Competition</a></li>
+                        <li><a href="../systems-complexity/index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">All Mental Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../about/index.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

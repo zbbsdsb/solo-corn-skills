@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Theory Basics - Mental Models</title>
+    <link rel="stylesheet" href="../../css/mental-models.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../index.html">Mental Models</a></li>
+                    <li><a href="index.html">Systems & Complexity</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="../../index.html">Home</a><span>/</span>
+            <a href="../index.html">Mental Models</a><span>/</span>
+            <a href="index.html">Systems & Complexity</a><span>/</span>
+            <span>Chaos Theory Basics</span>
+        </div>
+    </section>
+
+    <section class="model-detail">
+        <div class="container">
+            <div class="model-header">
+                <div class="model-meta">
+                    <span class="tag">Systems & Complexity</span>
+                    <span class="tag">Pattern</span>
+                </div>
+                <h1>Chaos Theory Basics</h1>
+                <p style="font-size: 1.25rem; color: var(--gray); margin-top: 8px;">How deterministic systems with sensitive dependence on initial conditions produce seemingly random, unpredictable behavior.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 320px; gap: 60px;">
+                <div class="model-content">
+                    <div class="quick-reference-box" style="background: var(--gray-light); border-color: var(--black); margin-bottom: 40px;">
+                        <h4 style="margin-bottom: 12px;">Quick Reference</h4>
+                        <p style="margin: 0; font-size: 1rem;"><strong>The butterfly effect:</strong> Simple systems governed by simple rules can produce extraordinarily complex, seemingly random behavior. The term "chaos" does not mean randomness—it means hidden order disguised as randomness. Three hallmarks: deterministic, sensitive to initial conditions, bounded.</p>
+                    </div>
+
+                    <h2>Definition</h2>
+                    <p>Chaos theory studies deterministic systems that exhibit sensitive dependence on initial conditions, making long-term prediction impossible even when the system itself is fully deterministic. The term "chaos" is misleading—it does not mean randomness or disorder, but rather hidden order disguised as randomness.</p>
+                    <p>The key insight is that simple systems governed by simple rules can produce extraordinarily complex, seemingly random behavior. The butterfly effect—popularly summarized as "the flap of a butterfly's wings in Brazil sets off a tornado in Texas"—illustrates sensitive dependence: tiny differences in initial conditions lead to vastly different outcomes.</p>
+                    <p>Three hallmarks characterize chaotic systems:</p>
+                    <ul>
+                        <li><strong>Deterministic:</strong> No random elements; future states are fully determined by current state and system rules</li>
+                        <li><strong>Sensitive to Initial Conditions:</strong> Small differences in starting conditions amplify exponentially over time</li>
+                        <li><strong>Bounded:</strong> Despite unpredictability, the system remains within a finite region of state space</li>
+                    </ul>
+
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Deterministic chaos:</strong> No randomness required—complex behavior emerges from simple rules</li>
+                        <li><strong>Sensitive dependence:</strong> Small differences amplify exponentially (butterfly effect)</li>
+                        <li><strong>Bounded trajectories:</strong> System stays within limits despite chaotic motion</li>
+                        <li><strong>Strange attractors:</strong> Geometric patterns that trajectories converge toward</li>
+                        <li><strong>Fractal structure:</strong> Self-similarity at different scales</li>
+                        <li><strong>Long-term limits:</strong> Short-term prediction possible; long-term fundamentally limited</li>
+                    </ul>
+
+                    <h2>How to Apply</h2>
+                    <ol style="padding-left: 24px;">
+                        <li style="margin-bottom: 16px;">
+                            <strong>Distinguish Chaos from Randomness:</strong> Not all unpredictability is chaos. Key tests: Can you write down the equations (deterministic)? Do small changes produce large changes (sensitive)? Does the system stay within limits (bounded)?
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Identify the System's Phase Space:</strong> Map all possible states of the system. The trajectory shows how the system moves through states over time.
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Look for Strange Attractors:</strong> These create the fractal geometry underlying chaotic motion—structured patterns within apparent randomness.
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Measure Lyapunov Exponent:</strong> Positive Lyapunov exponent indicates chaos. It measures the rate of exponential divergence of nearby trajectories.
+                        </li>
+                        <li style="margin-bottom: 16px;">
+                            <strong>Apply Practical Implications:</strong> Short-term prediction may be possible. Long-term prediction is fundamentally limited. Look for patterns in statistical properties.
+                        </li>
+                    </ol>
+
+                    <h2>Visual Diagram - Chaos Spectrum</h2>
+                    <pre style="font-family: monospace; font-size: 0.85rem; background: var(--gray-light); padding: 20px; overflow-x: auto; margin: 20px 0;">
+┌─────────────────────────────────────────────────────────────────┐
+│                    CHAOS SPECTRUM                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐       │
+│  │   ORDER     │────►│    CHAOS    │────►│  RANDOMNESS │       │
+│  │             │     │             │     │             │       │
+│  │ Predictable │     │ Deterministic│     │ No pattern  │      │
+│  │ patterns    │     │ but unpredictable│ │            │      │
+│  └─────────────┘     └─────────────┘     └─────────────┘       │
+│                                                                 │
+│     Simple rules           Complex rules         True chance   │
+│     clear patterns         hidden patterns       no connection │
+│                                                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  CHAOTIC SYSTEMS HAVE:                                         │
+│  ────────────────────────                                      │
+│  • Deterministic dynamics (no randomness)                       │
+│  • Sensitivity to initial conditions (butterfly effect)         │
+│  • Strange attractors (geometric patterns)                      │
+│  • Fractal structure (self-similarity at scales)                 │
+│  • Long-term unpredictability despite deterministic rules       │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+                    </pre>
+
+                    <h2>Real-World Examples</h2>
+                    
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>1. Weather Systems</h4>
+                        <p>Weather is the canonical example of chaos. The Navier-Stokes equations governing atmospheric motion are deterministic, but sensitive dependence on initial conditions limits forecasts to roughly 10-14 days. Beyond that, predictions degrade to climate statistics.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>2. Heart Rhythm Irregularities</h4>
+                        <p>Healthy heart rhythms exhibit heart rate variability—a signature of chaotic dynamics. Certain arrhythmias replace this controlled chaos with periodic rhythms or complete randomness, both pathological.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>3. Stock Markets</h4>
+                        <p>Market prices appear random, but may actually be chaotic. The challenge is distinguishing true randomness from deterministic chaos masked by noise.</p>
+                    </div>
+
+                    <div class="featured-card" style="margin-bottom: 24px;">
+                        <h4>4. Population Dynamics</h4>
+                        <p>Predator-prey systems, insect populations, and epidemics often exhibit chaotic fluctuations. Small changes in birth rates can shift between stable cycles and chaos.</p>
+                    </div>
+
+                    <div class="featured-card">
+                        <h4>5. Neural Activity</h4>
+                        <p>Brain waves exhibit chaotic dynamics. Consciousness may depend on staying at the "edge of chaos"—between rigid order and random noise.</p>
+                    </div>
+
+                    <h2>Common Pitfalls</h2>
+                    <ul>
+                        <li><strong>Confusing Chaos with Randomness:</strong> Many phenomena that appear random are actually chaotic. The inability to find patterns may reflect limited analysis, not true randomness.</li>
+                        <li><strong>Ignoring Sensitivity:</strong> In chaotic systems, small interventions can produce large effects—but unpredictably. Trying to "nudge" may produce outcomes wildly different from intentions.</li>
+                        <li><strong>Overestimating Prediction Horizons:</strong> People often underestimate how quickly predictions diverge. A forecast that seems reasonable may have already diverged due to accumulating errors.</li>
+                        <li><strong>Treating All Complexity as Chaos:</strong> Not all complexity is chaotic. Some systems are merely complicated but predictable.</li>
+                        <li><strong>Assuming Control is Impossible:</strong> Chaos does not mean systems are uncontrollable. Identifying underlying dynamics enables influence without requiring precise prediction.</li>
+                    </ul>
+
+                    <div style="margin-top: 40px; padding-top: 40px; border-top: 2px solid var(--gray-light);">
+                        <h3>Timeline of Divergence</h3>
+                        <pre style="font-family: monospace; font-size: 0.85rem; background: var(--gray-light); padding: 20px; overflow-x: auto; margin: 20px 0;">
+Prediction Error
+     │
+     │                    Starting from 0.1% difference
+ 100%│                                              ══════
+     │                                         ═══
+  10%│                                    ═══
+     │                               ═══
+   1%│                          ═══
+     │                     ═══
+  0.1%│────────────────═════ (divergence threshold)
+     └────────────────────────────────────────────────────►
+     0    2    4    6    8   10   12   14   Time (days)
+                        </pre>
+                    </div>
+
+                    <div style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="emergence.html" class="btn btn-small">&larr; Previous</a>
+                        <a href="index.html" class="btn btn-small">Back to Category</a>
+                        <a href="leverage-points.html" class="btn btn-small">Next &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="model-sidebar">
+                    <div class="related-models">
+                        <h3>Related Models</h3>
+                        <ul>
+                            <li><a href="emergence.html">Emergence</a><br><small>Chaos is one mechanism producing emergent behavior</small></li>
+                            <li><a href="tipping-points.html">Tipping Points</a><br><small>Transitions to chaos often occur at critical thresholds</small></li>
+                            <li><a href="feedback-loops.html">Feedback Loops</a><br><small>Nonlinear feedback creates chaotic dynamics</small></li>
+                        </ul>
+                    </div>
+
+                    <div class="related-models">
+                        <h3>Quick Reference</h3>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Key Properties</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Deterministic (not random)</li>
+                            <li>Sensitive to initial conditions</li>
+                            <li>Bounded trajectories</li>
+                            <li>Strange attractors</li>
+                            <li>Positive Lyapunov exponent</li>
+                        </ul>
+                        <h4 style="margin-top: 16px; margin-bottom: 8px;">Implications for Practice</h4>
+                        <ul style="font-size: 0.875rem; padding-left: 16px;">
+                            <li>Short-term prediction: often feasible</li>
+                            <li>Long-term prediction: limited</li>
+                            <li>Focus on ranges, not point forecasts</li>
+                            <li>Build resilience, not just efficiency</li>
+                            <li>Small interventions can have large but unpredictable effects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="../decision-reasoning/index.html">Decision & Reasoning</a></li>
+                        <li><a href="../strategy-competition/index.html">Strategy & Competition</a></li>
+                        <li><a href="index.html">Systems & Complexity</a></li>
+                        <li><a href="../psychology-behavior/index.html">Psychology & Behavior</a></li>
+                        <li><a href="../execution-learning/index.html">Execution & Learning</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../index.html">All Mental Models</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

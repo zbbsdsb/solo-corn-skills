@@ -2,6 +2,20 @@
 
 **Thank you for considering contributing to SOLO CORN SKILLS!** Every contribution, no matter how small, helps this project grow.
 
+## 🌐 Website
+
+**Check out our live documentation:**
+
+🌐 **[https://zbbsdsb.github.io/solo-corn-skills/](https://zbbsdsb.github.io/solo-corn-skills/)**
+
+The website features:
+- Interactive mental models library (45+ models)
+- Complete skill documentation
+- Quick reference guides
+- Mobile-friendly design
+
+---
+
 ## Code of Conduct
 
 This project adheres to a code of conduct. By participating, you are expected to uphold this code.
