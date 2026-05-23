@@ -13,6 +13,23 @@
     --gray-dark: #1a1a1a;
     --gray: #666666;
     --gray-light: #e5e5e5;
+    
+    /* Spacing System */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 60px;
+    --space-2xl: 80px;
+    
+    /* Typography Scale */
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 3rem;
 }
 
 body {
@@ -197,6 +214,184 @@ footer ul li {
     margin-bottom: 8px;
 }
 
+/* Video Container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 3px solid var(--black);
+    background: var(--gray-dark);
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Stats */
+.stat-number {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.stat-number-large {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* Two Column Layout */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .two-column {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* Skill Card Large */
+.skill-card-large {
+    border: 3px solid var(--black);
+    padding: 40px;
+    background: var(--white);
+    transition: all 0.2s ease;
+}
+
+.skill-card-large:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* Skill Badge */
+.skill-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 2px solid var(--black);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    padding: 16px 0;
+    font-size: var(--text-sm);
+    border-bottom: 1px solid var(--gray-light);
+    margin-bottom: 40px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+}
+
+.breadcrumbs span {
+    margin: 0 8px;
+    color: var(--gray);
+}
+
+/* Dark Section */
+.section-dark {
+    background: var(--black);
+    color: var(--white);
+}
+
+.section-dark h2,
+.section-dark h3 {
+    color: var(--white);
+}
+
+.section-dark .accent-line {
+    background: var(--white);
+}
+
+/* Light Section */
+.section-light {
+    background: var(--gray-light);
+}
+
+/* Capability List */
+.capability-list {
+    list-style: none;
+    margin: 24px 0;
+}
+
+.capability-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-light);
+    position: relative;
+    padding-left: 24px;
+}
+
+.capability-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+
+/* Skill Meta Box */
+.skill-meta-box {
+    border: 3px solid var(--black);
+    padding: 32px;
+    background: var(--white);
+}
+
+.skill-meta-box dt {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    letter-spacing: 1px;
+    margin-top: 16px;
+    color: var(--gray);
+}
+
+.skill-meta-box dd {
+    margin: 8px 0 0 0;
+    font-size: var(--text-base);
+}
+
+/* Tag */
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 2px solid var(--black);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Workflow Steps */
+.workflow-step {
+    border: 3px solid var(--white);
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+.workflow-step-number {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
@@ -209,6 +404,8 @@ footer ul li {
     
     nav ul {
         gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .hero {
@@ -217,5 +414,9 @@ footer ul li {
     
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .skill-card-large {
+        padding: 24px;
     }
 }

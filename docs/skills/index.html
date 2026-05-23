@@ -5,6 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - SOLO CORN SKILLS</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .skills-flow {
+            padding: 80px 0;
+            background: var(--gray-light);
+            border-top: 3px solid var(--black);
+            border-bottom: 3px solid var(--black);
+        }
+        
+        .flow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        
+        .flow-item {
+            border: 3px solid var(--black);
+            padding: 16px 24px;
+            background: var(--white);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .flow-item:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        .flow-arrow {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .skill-card-enhanced {
+            border: 3px solid var(--black);
+            padding: 32px;
+            background: var(--white);
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .skill-card-enhanced:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        .skill-card-enhanced:hover .tag {
+            border-color: var(--white);
+        }
+        
+        .skill-card-enhanced h3 {
+            margin: 16px 0 12px;
+        }
+        
+        .skill-card-enhanced p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        
+        .orchestrator-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,6 +87,7 @@
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="index.html">Skills</a></li>
                     <li><a href="../mental-models/index.html">Mental Models</a></li>
+                    <li><a href="../video/index.html">Video</a></li>
                     <li><a href="../about/index.html">About</a></li>
                 </ul>
             </nav>
@@ -24,56 +97,106 @@
     <section class="hero">
         <div class="container">
             <h1>Core Skills</h1>
-            <p>Seven powerful, integrated skill modules.</p>
+            <p>Seven powerful, integrated modules. Use them standalone or compose them into complex workflows.</p>
             <div class="accent-line center"></div>
         </div>
     </section>
 
+    <!-- Skills Flow Visualization -->
+    <section class="skills-flow">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>HOW SKILLS CONNECT</h2>
+                <div class="accent-line center"></div>
+            </div>
+            
+            <div class="flow-container">
+                <a href="landing.html" class="flow-item">Landing</a>
+                <span class="flow-arrow">→</span>
+                <a href="research-integration.html" class="flow-item">Research</a>
+                <span class="flow-arrow">→</span>
+                <a href="strategic-decision.html" class="flow-item">Strategy</a>
+                <span class="flow-arrow">→</span>
+                <a href="product-builder.html" class="flow-item">Product</a>
+                <span class="flow-arrow">→</span>
+                <a href="marketing-growth.html" class="flow-item">Marketing</a>
+            </div>
+            
+            <p class="orchestrator-note">
+                <strong>COLLECTOR</strong> orchestrates the workflow. 
+                <strong>MENTAL MODELS</strong> guide every decision.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Grid -->
     <section>
         <div class="container">
+            <div class="section-header">
+                <h2>Explore Each Skill</h2>
+                <div class="accent-line"></div>
+            </div>
+            
             <div class="grid">
-                <div class="card">
-                    <h3>Research Integration</h3>
-                    <p>Synthesize insights from academic research and multiple sources.</p>
-                    <a href="research-integration.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Product Builder</h3>
-                    <p>From idea to deployed code, complete product development workflow.</p>
-                    <a href="product-builder.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Marketing Growth</h3>
-                    <p>User acquisition and retention strategies for sustainable growth.</p>
-                    <a href="marketing-growth.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Collector</h3>
-                    <p>Decision framework for selecting the right skill at the right time.</p>
-                    <a href="collector.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
+                <div class="skill-card-enhanced">
+                    <span class="tag">Validate</span>
                     <h3>Landing</h3>
-                    <p>First-principles idea validation with brutal honesty.</p>
+                    <p>First-principles idea validation. Know what to build before you build it. Brutal honesty for better decisions.</p>
                     <a href="landing.html">Learn More →</a>
                 </div>
                 
-                <div class="card">
+                <div class="skill-card-enhanced">
+                    <span class="tag">Research</span>
+                    <h3>Research Integration</h3>
+                    <p>Synthesize insights from academic papers, market data, and multiple AI sources into coherent knowledge.</p>
+                    <a href="research-integration.html">Learn More →</a>
+                </div>
+                
+                <div class="skill-card-enhanced">
+                    <span class="tag">Strategize</span>
                     <h3>Strategic Decision</h3>
-                    <p>Business model, competitive strategy, and market analysis.</p>
+                    <p>Business model design, competitive strategy, and market analysis. Think like a founder.</p>
                     <a href="strategic-decision.html">Learn More →</a>
                 </div>
                 
-                <div class="card">
+                <div class="skill-card-enhanced">
+                    <span class="tag">Build</span>
+                    <h3>Product Builder</h3>
+                    <p>From idea to deployed code. Complete product development workflow with AI-assisted implementation.</p>
+                    <a href="product-builder.html">Learn More →</a>
+                </div>
+                
+                <div class="skill-card-enhanced">
+                    <span class="tag">Grow</span>
+                    <h3>Marketing Growth</h3>
+                    <p>User acquisition and retention strategies. Build sustainable growth engines without a marketing team.</p>
+                    <a href="marketing-growth.html">Learn More →</a>
+                </div>
+                
+                <div class="skill-card-enhanced">
+                    <span class="tag">Decide</span>
+                    <h3>Collector</h3>
+                    <p>Decision framework for selecting the right skill at the right time. Orchestrate your workflow.</p>
+                    <a href="collector.html">Learn More →</a>
+                </div>
+                
+                <div class="skill-card-enhanced">
+                    <span class="tag">Think</span>
                     <h3>Mental Models</h3>
-                    <p>45+ cognitive frameworks for better thinking and decisions.</p>
-                    <a href="../mental-models/index.html">Learn More →</a>
+                    <p>45+ cognitive frameworks for better decisions. From first principles to game theory.</p>
+                    <a href="../mental-models/index.html">Explore Models →</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-dark" style="padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: var(--white);">STOP SWITCHING. START BUILDING.</h2>
+            <p style="color: var(--gray-light); margin: 24px 0;">Each skill works independently. Together, they form a complete system.</p>
+            <div class="accent-line center" style="background: var(--white);"></div>
+            <a href="../video/index.html" class="btn" style="background: var(--white); color: var(--black);">Watch the Video</a>
         </div>
     </section>
 
@@ -86,9 +209,18 @@
                 </div>
                 
                 <div>
-                    <h4>Links</h4>
+                    <h4>Explore</h4>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
+                        <li><a href="../mental-models/index.html">Mental Models</a></li>
+                        <li><a href="../video/index.html">Video</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/zbbsdsb/solo-corn-skills" target="_blank">GitHub</a></li>
                         <li><a href="../about/index.html">About</a></li>
                     </ul>
                 </div>

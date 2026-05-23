@@ -3,184 +3,1916 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLO CORN SKILLS</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>SCS — Solo Corn Skills</title>
+    <style>
+        /* ============================================
+           CSS VARIABLES (Brand System)
+           ============================================ */
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-dark: #1a1a1a;
+            --gray: #666666;
+            --gray-light: #e5e5e5;
+            --ease-brutal: cubic-bezier(0.25, 0.1, 0.25, 1);
+            --stagger: 0.15s;
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 40px;
+            --space-xl: 60px;
+            --space-2xl: 80px;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 2rem;
+            --text-4xl: 3rem;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            background: var(--black);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            color: var(--black);
+        }
+
+        /* ============================================
+           FIXED NAVIGATION BAR
+           ============================================ */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            border-bottom: 3px solid var(--white);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .site-nav.in-content {
+            background: var(--white);
+            border-bottom-color: var(--black);
+        }
+
+        .site-nav .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 56px;
+        }
+
+        .site-nav .nav-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .site-nav.in-content .nav-logo {
+            color: var(--black);
+        }
+
+        .site-nav .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .site-nav .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--white);
+            transition: color 0.3s;
+        }
+
+        .site-nav.in-content .nav-links a {
+            color: var(--black);
+        }
+
+        .site-nav .nav-links a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* ============================================
+           SCROLL CONTAINER
+           ============================================ */
+        .scroll-container {
+            height: 100vh;
+            overflow-y: auto;
+            overscroll-behavior: none;
+        }
+
+        /* ============================================
+           VIDEO SCENES (scroll-snap)
+           ============================================ */
+        .video-section {
+            scroll-snap-type: y mandatory;
+        }
+
+        .scene {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            contain: layout paint;
+        }
+
+        /* ============================================
+           SCENE NAV DOTS
+           ============================================ */
+        .scene-nav {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 150;
+            transition: opacity 0.4s;
+        }
+
+        .scene-nav.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--gray);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-dot.active {
+            background: var(--white);
+        }
+
+        .nav-dot.on-white {
+            background: var(--gray-light);
+        }
+
+        .nav-dot.on-white.active {
+            background: var(--black);
+        }
+
+        /* ============================================
+           SCROLL INDICATOR
+           ============================================ */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gray);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .scroll-indicator.visible {
+            opacity: 1;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 24px;
+            background: var(--gray);
+            margin: 8px auto 0;
+            animation: scroll-bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ============================================
+           ANIMATION BASE
+           ============================================ */
+        .anim-element {
+            opacity: 0;
+        }
+
+        /* ============================================
+           KEYFRAMES
+           ============================================ */
+        @keyframes reveal-left {
+            from { clip-path: inset(0 100% 0 0); }
+            to   { clip-path: inset(0 0 0 0); }
+        }
+
+        @keyframes reveal-right {
+            from { clip-path: inset(0 0 0 100%); }
+            to   { clip-path: inset(0 0 0 0); }
+        }
+
+        @keyframes reveal-top {
+            from { clip-path: inset(0 0 100% 0); }
+            to   { clip-path: inset(0 0 0 0); }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes fade-out-up {
+            from { opacity: 1; transform: translateY(0); }
+            to   { opacity: 0; transform: translateY(-30px); }
+        }
+
+        @keyframes line-expand-h {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+        }
+
+        @keyframes card-rise {
+            from { opacity: 0; transform: translateY(60px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pain-fly-in {
+            from {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty));
+            }
+            to {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes pain-shake {
+            0%, 100% { transform: translateX(0); }
+            20%  { transform: translateX(-6px); }
+            40%  { transform: translateX(6px); }
+            60%  { transform: translateX(-4px); }
+            80%  { transform: translateX(4px); }
+        }
+
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes node-fill {
+            from { background: transparent; }
+            to   { background: var(--white); }
+        }
+
+        @keyframes btn-rise {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes logo-chaos-fly {
+            from {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) rotate(var(--rotate));
+            }
+            to {
+                opacity: 0.25;
+                transform: translate(0, 0) rotate(var(--rotate));
+            }
+        }
+
+        /* ============================================
+           SCENE 1 — HOOK
+           ============================================ */
+        #scene-1 { background: var(--black); }
+
+        .hook-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hook-logo {
+            margin-bottom: 2rem;
+            opacity: 0;
+        }
+
+        .hook-logo svg {
+            width: clamp(80px, 12vw, 120px);
+            height: auto;
+        }
+
+        #scene-1.active .hook-logo {
+            animation: fade-in 0.6s var(--ease-brutal) forwards;
+        }
+
+        .hook-content h1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.3;
+        }
+
+        .hook-content .word {
+            display: inline-block;
+            clip-path: inset(0 100% 0 0);
+        }
+
+        #scene-1.active .hook-content .word {
+            animation: reveal-left 0.6s var(--ease-brutal) forwards;
+        }
+        #scene-1.active .hook-content .word:nth-child(1) { animation-delay: 0.5s; }
+        #scene-1.active .hook-content .word:nth-child(2) { animation-delay: 0.75s; }
+        #scene-1.active .hook-content .word:nth-child(3) { animation-delay: 1.0s; }
+
+        .hook-accent {
+            width: 200px;
+            height: 3px;
+            background: var(--white);
+            margin-top: 2rem;
+            transform: scaleX(0);
+        }
+
+        #scene-1.active .hook-accent {
+            animation: line-expand-h 0.8s var(--ease-brutal) 1.6s forwards;
+        }
+
+        /* ============================================
+           SCENE 2 — PAIN
+           ============================================ */
+        #scene-2 { background: var(--black); }
+
+        .pain-grid {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.4rem;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .pain-word {
+            font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-align: center;
+            transform: translate(var(--tx), var(--ty));
+        }
+
+        #scene-2.active .pain-word {
+            animation: pain-fly-in 0.5s var(--ease-brutal) forwards;
+        }
+        #scene-2.active .pain-word:nth-child(1) { animation-delay: 0.1s; }
+        #scene-2.active .pain-word:nth-child(2) { animation-delay: 0.3s; }
+        #scene-2.active .pain-word:nth-child(3) { animation-delay: 0.5s; }
+        #scene-2.active .pain-word:nth-child(4) { animation-delay: 0.7s; }
+        #scene-2.active .pain-word:nth-child(5) { animation-delay: 0.9s; }
+        #scene-2.active .pain-word:nth-child(6) { animation-delay: 1.1s; }
+        #scene-2.active .pain-word:nth-child(7) { animation-delay: 1.3s; }
+
+        .pain-word.shaking {
+            animation: pain-shake 0.15s linear infinite !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        /* AI Tool Logos — Chaos Layer */
+        .ai-logos-chaos {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ai-logo {
+            position: absolute;
+            width: clamp(50px, 8vw, 70px);
+            height: clamp(50px, 8vw, 70px);
+            color: var(--white);
+            opacity: 0;
+            transform: translate(var(--tx), var(--ty)) rotate(var(--rotate));
+        }
+
+        .ai-logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        #scene-2.active .ai-logo {
+            animation: logo-chaos-fly 0.8s var(--ease-brutal) forwards;
+        }
+        #scene-2.active .ai-logo:nth-child(1) { animation-delay: 0.0s; }
+        #scene-2.active .ai-logo:nth-child(2) { animation-delay: 0.15s; }
+        #scene-2.active .ai-logo:nth-child(3) { animation-delay: 0.3s; }
+
+        /* ============================================
+           SCENE 3 — VISION
+           ============================================ */
+        #scene-3 { background: var(--white); }
+
+        .vision-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.15em;
+            padding: 2rem;
+        }
+
+        .vision-line {
+            font-size: clamp(1.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            clip-path: inset(0 100% 0 0);
+        }
+
+        #scene-3.active .vision-line {
+            animation: reveal-left 0.6s var(--ease-brutal) forwards;
+        }
+        #scene-3.active .vision-line:nth-child(1) { animation-delay: 0.2s; }
+        #scene-3.active .vision-line:nth-child(2) { animation-delay: 0.7s; }
+        #scene-3.active .vision-line:nth-child(3) { animation-delay: 1.2s; }
+
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--black);
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        #scene-3.active .highlight::after {
+            animation: line-expand-h 0.4s var(--ease-brutal) 1.8s forwards;
+        }
+
+        .vision-sub {
+            font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+            letter-spacing: 0.3em;
+            color: var(--gray);
+            margin-top: 1.5rem;
+        }
+
+        #scene-3.active .vision-sub {
+            animation: fade-in 0.6s var(--ease-brutal) 2.4s forwards;
+        }
+
+        .vision-logo {
+            margin-top: 2rem;
+            clip-path: inset(0 0 100% 0);
+        }
+
+        .vision-logo svg {
+            width: clamp(200px, 30vw, 350px);
+            height: auto;
+        }
+
+        #scene-3.active .vision-logo {
+            animation: reveal-top 0.8s var(--ease-brutal) 3.2s forwards;
+        }
+
+        /* ============================================
+           SCENE 4 — SOLUTION
+           ============================================ */
+        #scene-4 { background: var(--black); }
+
+        .solution-content {
+            text-align: center;
+            width: 90%;
+            max-width: 960px;
+        }
+
+        .solution-header {
+            margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+        }
+
+        .sol-pre {
+            font-size: clamp(0.9rem, 2vw, 1.3rem);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--gray);
+            clip-path: inset(0 100% 0 0);
+            margin-bottom: 0.8rem;
+        }
+
+        .sol-title {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            color: var(--gray);
+            clip-path: inset(0 100% 0 0);
+            margin-bottom: 0.5rem;
+        }
+
+        .sol-name {
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            clip-path: inset(0 100% 0 0);
+        }
+
+        #scene-4.active .sol-pre {
+            animation: reveal-left 0.5s var(--ease-brutal) forwards;
+        }
+        #scene-4.active .sol-title {
+            animation: reveal-left 0.5s var(--ease-brutal) 0.3s forwards;
+        }
+        #scene-4.active .sol-name {
+            animation: reveal-left 0.6s var(--ease-brutal) 0.7s forwards;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .skill-card {
+            border: 2px solid var(--white);
+            padding: clamp(14px, 2vw, 24px);
+            color: var(--white);
+            font-size: clamp(0.6rem, 1.1vw, 0.85rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.5;
+            transform: translateY(60px);
+        }
+
+        #scene-4.active .skill-card {
+            animation: card-rise 0.5s var(--ease-brutal) forwards;
+        }
+        #scene-4.active .skill-card:nth-child(1) { animation-delay: 1.4s; }
+        #scene-4.active .skill-card:nth-child(2) { animation-delay: 1.55s; }
+        #scene-4.active .skill-card:nth-child(3) { animation-delay: 1.7s; }
+        #scene-4.active .skill-card:nth-child(4) { animation-delay: 1.85s; }
+        #scene-4.active .skill-card:nth-child(5) { animation-delay: 2.0s; }
+        #scene-4.active .skill-card:nth-child(6) { animation-delay: 2.15s; }
+        #scene-4.active .skill-card:nth-child(7) { animation-delay: 2.3s; }
+
+        /* ============================================
+           SCENE 5 — HOW IT WORKS
+           ============================================ */
+        #scene-5 { background: var(--black); }
+
+        .how-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(1.5rem, 3vh, 3rem);
+            padding: 2rem;
+            width: 90%;
+            max-width: 700px;
+        }
+
+        .how-nodes-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .how-nodes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(12px, 2vw, 20px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .node {
+            width: clamp(48px, 7vw, 64px);
+            height: clamp(48px, 7vw, 64px);
+            border: 3px solid var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--white);
+            font-size: clamp(0.6rem, 1vw, 0.8rem);
+            letter-spacing: 0.05em;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .node.filled {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .connection-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .conn-line {
+            stroke: var(--white);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        #scene-5.active .conn-line {
+            animation: draw-line 0.8s var(--ease-brutal) forwards;
+        }
+
+        .how-text {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .how-line {
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            clip-path: inset(0 100% 0 0);
+        }
+
+        #scene-5.active .how-line {
+            animation: reveal-left 0.5s var(--ease-brutal) forwards;
+        }
+        #scene-5.active .how-line:nth-child(1) { animation-delay: 0.1s; }
+        #scene-5.active .how-line:nth-child(2) { animation-delay: 2.2s; }
+        #scene-5.active .how-line:nth-child(3) { animation-delay: 2.7s; }
+
+        /* ============================================
+           SCENE 6 — PROOF
+           ============================================ */
+        #scene-6 { background: var(--white); }
+
+        .proof-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 700px;
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: baseline;
+            gap: clamp(12px, 2vw, 24px);
+            padding: clamp(12px, 2vh, 20px) 0;
+            width: 100%;
+        }
+
+        .stat-number-video {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            min-width: 2ch;
+        }
+
+        .stat-label {
+            font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray-dark);
+        }
+
+        .stat-divider {
+            width: 100%;
+            height: 3px;
+            background: var(--gray-light);
+            transform: scaleX(0);
+        }
+
+        #scene-6.active .stat-row {
+            animation: fade-in 0.4s var(--ease-brutal) forwards;
+        }
+        #scene-6.active .stat-row:nth-child(1) { animation-delay: 0.1s; }
+        #scene-6.active .stat-row:nth-child(3) { animation-delay: 0.7s; }
+        #scene-6.active .stat-row:nth-child(5) { animation-delay: 1.3s; }
+        #scene-6.active .stat-row:nth-child(7) { animation-delay: 1.9s; }
+
+        #scene-6.active .stat-divider {
+            animation: line-expand-h 0.3s var(--ease-brutal) forwards;
+        }
+        #scene-6.active .stat-divider:nth-child(2) { animation-delay: 0.5s; }
+        #scene-6.active .stat-divider:nth-child(4) { animation-delay: 1.1s; }
+        #scene-6.active .stat-divider:nth-child(6) { animation-delay: 1.7s; }
+
+        /* ============================================
+           SCENE 7 — CTA (Bridge to Content)
+           ============================================ */
+        #scene-7 { background: var(--black); }
+
+        .cta-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 2rem;
+        }
+
+        .cta-line {
+            font-size: clamp(1.5rem, 4.5vw, 3.2rem);
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 0.12em;
+            clip-path: inset(0 100% 0 0);
+        }
+
+        #scene-7.active .cta-line {
+            animation: reveal-left 0.6s var(--ease-brutal) forwards;
+        }
+        #scene-7.active .cta-line:nth-child(1) { animation-delay: 0.2s; }
+        #scene-7.active .cta-line:nth-child(2) { animation-delay: 0.8s; }
+
+        .cta-logo {
+            margin-top: 1rem;
+            clip-path: inset(0 0 100% 0);
+        }
+
+        .cta-logo svg {
+            width: clamp(180px, 25vw, 300px);
+            height: auto;
+        }
+
+        #scene-7.active .cta-logo {
+            animation: reveal-top 0.7s var(--ease-brutal) 1.5s forwards;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            border: 3px solid var(--white);
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: clamp(0.8rem, 1.2vw, 1rem);
+            letter-spacing: 0.15em;
+            margin-top: 1.5rem;
+            transform: translateY(30px);
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        #scene-7.active .cta-btn {
+            animation: btn-rise 0.5s var(--ease-brutal) 2.3s forwards;
+        }
+
+        .cta-accent {
+            width: 120px;
+            height: 3px;
+            background: var(--white);
+            margin-top: 1.5rem;
+            transform: scaleX(0);
+        }
+
+        #scene-7.active .cta-accent {
+            animation: line-expand-h 0.6s var(--ease-brutal) 2.9s forwards;
+        }
+
+        .cta-sub {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            color: var(--gray);
+            margin-top: 0.8rem;
+        }
+
+        #scene-7.active .cta-sub {
+            animation: fade-in 0.5s var(--ease-brutal) 3.3s forwards;
+        }
+
+        /* ============================================
+           CONTENT SECTIONS (Normal Scroll)
+           ============================================ */
+        .content-section {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .content-section section {
+            padding: 80px 0;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Content Typography */
+        .content-section h2, .content-section h3, .content-section h4 {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .content-section h1 { font-size: 3rem; }
+        .content-section h2 { font-size: 2rem; }
+        .content-section h3 { font-size: 1.5rem; }
+        .content-section h4 { font-size: 1.25rem; }
+
+        .content-section p {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .content-section a {
+            color: var(--black);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .content-section a:hover {
+            text-decoration: none;
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .content-card {
+            border: 3px solid var(--black);
+            padding: 32px;
+            background: var(--white);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .content-card:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .content-card:hover a {
+            color: var(--white);
+        }
+
+        /* Content Buttons */
+        .content-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background-color: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .content-btn:hover {
+            background-color: var(--gray-dark);
+            color: var(--white);
+        }
+
+        /* Content Accent Line */
+        .content-accent-line {
+            width: 100px;
+            height: 3px;
+            background: var(--black);
+            margin: 32px 0;
+        }
+
+        .content-accent-line.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Content Section Header */
+        .content-section-header {
+            margin-bottom: 60px;
+        }
+
+        .content-section-header h2 {
+            margin-bottom: 16px;
+        }
+
+        /* Content Two Column */
+        .content-two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Content Tags */
+        .content-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid var(--black);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Content Capability List */
+        .content-capability-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .content-capability-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .content-capability-list li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* Content Stat Number */
+        .content-stat-number {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        /* Content Skill Card Large */
+        .content-skill-card {
+            border: 3px solid var(--black);
+            padding: 40px;
+            background: var(--white);
+            transition: all 0.2s ease;
+        }
+
+        .content-skill-card:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Content Footer */
+        .content-footer {
+            border-top: 3px solid var(--black);
+            padding: 48px 0;
+            margin-top: 0;
+        }
+
+        .content-footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+        }
+
+        .content-footer ul {
+            list-style: none;
+        }
+
+        .content-footer ul li {
+            margin-bottom: 8px;
+        }
+
+        .content-footer a {
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .content-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content Dark Section */
+        .content-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .content-dark h2,
+        .content-dark h3 {
+            color: var(--white);
+        }
+
+        .content-dark .content-accent-line {
+            background: var(--white);
+        }
+
+        .content-dark a {
+            color: var(--white);
+        }
+
+        .content-dark a:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* Content Light Section */
+        .content-light {
+            background: var(--gray-light);
+        }
+
+        /* Content Hero */
+        .content-hero {
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .content-hero h2 {
+            margin-bottom: 24px;
+        }
+
+        .content-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Scroll reveal animation for content sections */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s var(--ease-brutal), transform 0.6s var(--ease-brutal);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           RESPONSIVE — Tablet
+           ============================================ */
+        @media (max-width: 1024px) {
+            .skill-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE — Mobile
+           ============================================ */
+        @media (max-width: 768px) {
+            .scene-nav {
+                right: 12px;
+                gap: 8px;
+            }
+
+            .nav-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .hook-content h1 {
+                letter-spacing: 0.15em;
+            }
+
+            .pain-grid {
+                gap: 1rem;
+            }
+
+            .pain-word {
+                font-size: clamp(1rem, 4vw, 1.6rem);
+            }
+
+            .ai-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .skill-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .skill-card {
+                padding: 10px;
+                font-size: 0.55rem;
+            }
+
+            .how-nodes {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+
+            .node {
+                width: 40px;
+                height: 40px;
+                font-size: 0.55rem;
+                border-width: 2px;
+            }
+
+            .stat-number-video {
+                font-size: clamp(2.5rem, 14vw, 4.5rem);
+            }
+
+            .vision-line {
+                letter-spacing: 0.04em;
+            }
+
+            .cta-line {
+                letter-spacing: 0.06em;
+            }
+
+            .site-nav .nav-links {
+                gap: 16px;
+            }
+
+            .site-nav .nav-links a {
+                font-size: 0.7rem;
+            }
+
+            .content-two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .content-section h1 { font-size: 2rem; }
+            .content-section h2 { font-size: 1.5rem; }
+
+            .content-footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-skill-card {
+                padding: 24px;
+            }
+
+            .content-hero {
+                padding: 80px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">SCS</div>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="skills/index.html">Skills</a></li>
-                    <li><a href="mental-models/index.html">Mental Models</a></li>
-                    <li><a href="about/index.html">About</a></li>
-                </ul>
-            </nav>
+    <!-- Fixed Navigation Bar -->
+    <nav class="site-nav" id="site-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" id="nav-logo-link">SCS</a>
+            <ul class="nav-links">
+                <li><a href="#scene-1">Video</a></li>
+                <li><a href="#content-stats">Overview</a></li>
+                <li><a href="#content-skills">Skills</a></li>
+                <li><a href="skills/index.html">All Skills</a></li>
+                <li><a href="mental-models/index.html">Mental Models</a></li>
+                <li><a href="about/index.html">About</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <svg width="300" height="112" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
-                <!-- S - First letter -->
-                <g transform="translate(20, 25)">
-                    <rect x="0" y="0" width="70" height="18" fill="#000000"/>
-                    <rect x="0" y="0" width="18" height="45" fill="#000000"/>
-                    <rect x="0" y="40" width="70" height="18" fill="#000000"/>
-                    <rect x="52" y="40" width="18" height="45" fill="#000000"/>
-                    <rect x="0" y="82" width="70" height="18" fill="#000000"/>
-                </g>
-                <!-- C - Second letter -->
-                <g transform="translate(120, 25)">
-                    <rect x="0" y="0" width="60" height="18" fill="#000000"/>
-                    <rect x="0" y="0" width="18" height="100" fill="#000000"/>
-                    <rect x="0" y="82" width="60" height="18" fill="#000000"/>
-                </g>
-                <!-- S - Third letter -->
-                <g transform="translate(210, 25)">
-                    <rect x="0" y="0" width="70" height="18" fill="#000000"/>
-                    <rect x="0" y="0" width="18" height="45" fill="#000000"/>
-                    <rect x="0" y="40" width="70" height="18" fill="#000000"/>
-                    <rect x="52" y="40" width="18" height="45" fill="#000000"/>
-                    <rect x="0" y="82" width="70" height="18" fill="#000000"/>
-                </g>
-                <!-- Accent line -->
-                <rect x="20" y="140" width="260" height="3" fill="#000000"/>
-            </svg>
-            
-            <h1>SOLO CORN SKILLS</h1>
-            <p>Extensible AI skill workflows for solopreneurs. Build billion-dollar companies with modular, proven methods.</p>
-            <div class="accent-line center"></div>
-            <a href="skills/index.html" class="btn">Explore Skills</a>
-            <br><br>
-            <p><small>View the project on <a href="https://github.com/zbbsdsb/solo-corn-skills" target="_blank">GitHub</a></small></p>
-        </div>
-    </section>
+    <!-- Scene Navigation Dots -->
+    <nav class="scene-nav" id="scene-nav">
+        <span class="nav-dot active" data-scene="1"></span>
+        <span class="nav-dot" data-scene="2"></span>
+        <span class="nav-dot" data-scene="3"></span>
+        <span class="nav-dot" data-scene="4"></span>
+        <span class="nav-dot" data-scene="5"></span>
+        <span class="nav-dot" data-scene="6"></span>
+        <span class="nav-dot" data-scene="7"></span>
+    </nav>
 
-    <!-- Core Skills -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>Core Skills</h2>
-                <p>Seven powerful, integrated skill modules.</p>
-                <div class="accent-line"></div>
-            </div>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3>Research Integration</h3>
-                    <p>Synthesize insights from academic research and multiple sources.</p>
-                    <a href="skills/research-integration.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Product Builder</h3>
-                    <p>From idea to deployed code, complete product development workflow.</p>
-                    <a href="skills/product-builder.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Marketing Growth</h3>
-                    <p>User acquisition and retention strategies for sustainable growth.</p>
-                    <a href="skills/marketing-growth.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Collector</h3>
-                    <p>Decision framework for selecting the right skill at the right time.</p>
-                    <a href="skills/collector.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Landing</h3>
-                    <p>First-principles idea validation with brutal honesty.</p>
-                    <a href="skills/landing.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Strategic Decision</h3>
-                    <p>Business model, competitive strategy, and market analysis.</p>
-                    <a href="skills/strategic-decision.html">Learn More →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Mental Models</h3>
-                    <p>45+ cognitive frameworks for better thinking and decisions.</p>
-                    <a href="mental-models/index.html">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Scroll Container -->
+    <div class="scroll-container" id="scroll-container">
 
-    <!-- Why Section -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>Why SCS?</h2>
-                <div class="accent-line"></div>
-            </div>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3>Modular</h3>
-                    <p>Skills work independently or integrate seamlessly.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Proven</h3>
-                    <p>Based on 50+ years of research and best practices.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Complete</h3>
-                    <p>From research to product to marketing—full coverage.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- ==================== VIDEO SECTION (scroll-snap) ==================== -->
+        <div class="video-section" id="video-section">
 
-    <!-- CTA -->
-    <section class="hero">
-        <div class="container">
-            <h2>Ready to Build Something Great?</h2>
-            <div class="accent-line center"></div>
-            <a href="https://github.com/zbbsdsb/solo-corn-skills" class="btn">Get Started on GitHub</a>
-        </div>
-    </section>
+            <!-- SCENE 1: HOOK -->
+            <section class="scene" id="scene-1">
+                <div class="hook-content">
+                    <div class="hook-logo anim-element">
+                        <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(20, 10)">
+                                <rect x="0" y="0" width="70" height="18" fill="#ffffff"/>
+                                <rect x="0" y="0" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="40" width="70" height="18" fill="#ffffff"/>
+                                <rect x="52" y="40" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="82" width="70" height="18" fill="#ffffff"/>
+                            </g>
+                            <g transform="translate(120, 10)">
+                                <rect x="0" y="0" width="60" height="18" fill="#ffffff"/>
+                                <rect x="0" y="0" width="18" height="100" fill="#ffffff"/>
+                                <rect x="0" y="82" width="60" height="18" fill="#ffffff"/>
+                            </g>
+                            <g transform="translate(210, 10)">
+                                <rect x="0" y="0" width="70" height="18" fill="#ffffff"/>
+                                <rect x="0" y="0" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="40" width="70" height="18" fill="#ffffff"/>
+                                <rect x="52" y="40" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="82" width="70" height="18" fill="#ffffff"/>
+                            </g>
+                            <rect x="20" y="115" width="260" height="3" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <h1>
+                    <span class="word">ONE PERSON.</span>
+                    <span class="word">INFINITE</span>
+                    <span class="word">POSSIBILITIES.</span>
+                </h1>
+                    <div class="hook-accent anim-element"></div>
+                </div>
+                <div class="scroll-indicator" id="scroll-hint">Scroll to explore</div>
+            </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>SOLO CORN SKILLS</h4>
-                    <p>Extensible AI skill workflows for solopreneurs.</p>
+            <!-- SCENE 2: PAIN -->
+            <section class="scene" id="scene-2">
+                <div class="ai-logos-chaos">
+                    <div class="ai-logo" style="--tx: -70vw; --ty: -35vh; --rotate: -20deg; top: 15%; left: 10%;">
+                        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 5 L52 17 L52 43 L30 55 L8 43 L8 17 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+                            <line x1="30" y1="5" x2="30" y2="30" stroke="currentColor" stroke-width="2"/>
+                            <line x1="30" y1="30" x2="52" y2="43" stroke="currentColor" stroke-width="2"/>
+                            <line x1="30" y1="30" x2="8" y2="43" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="ai-logo" style="--tx: 75vw; --ty: -25vh; --rotate: 15deg; top: 20%; right: 12%;">
+                        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="26" y="26" width="8" height="8" fill="currentColor"/>
+                            <line x1="30" y1="10" x2="30" y2="22" stroke="currentColor" stroke-width="3"/>
+                            <line x1="30" y1="38" x2="30" y2="50" stroke="currentColor" stroke-width="3"/>
+                            <line x1="10" y1="30" x2="22" y2="30" stroke="currentColor" stroke-width="3"/>
+                            <line x1="38" y1="30" x2="50" y2="30" stroke="currentColor" stroke-width="3"/>
+                            <line x1="16" y1="16" x2="24" y2="24" stroke="currentColor" stroke-width="2"/>
+                            <line x1="44" y1="16" x2="36" y2="24" stroke="currentColor" stroke-width="2"/>
+                            <line x1="16" y1="44" x2="24" y2="36" stroke="currentColor" stroke-width="2"/>
+                            <line x1="44" y1="44" x2="36" y2="36" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="ai-logo" style="--tx: -60vw; --ty: 40vh; --rotate: -30deg; bottom: 18%; left: 15%;">
+                        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="8" width="40" height="6" fill="currentColor"/>
+                            <rect x="27" y="8" width="6" height="44" fill="currentColor"/>
+                            <rect x="15" y="45" width="30" height="3" fill="currentColor"/>
+                        </svg>
+                    </div>
                 </div>
-                
-                <div>
-                    <h4>Links</h4>
-                    <ul>
-                        <li><a href="skills/index.html">Skills</a></li>
-                        <li><a href="mental-models/index.html">Mental Models</a></li>
-                        <li><a href="about/index.html">About</a></li>
-                    </ul>
+                <div class="pain-grid">
+                    <div class="pain-word anim-element" style="--tx: 0; --ty: -40vh; font-size: clamp(1.6rem, 4vw, 2.8rem);">COPY. PASTE. REPEAT.</div>
+                    <div class="pain-word anim-element" style="--tx: 0; --ty: -25vh; font-size: clamp(1.3rem, 3vw, 2rem); color: var(--gray);">STILL STUCK?</div>
+                    <div class="pain-word anim-element" style="--tx: -80vw; --ty: -10vh;">SCATTERED TOOLS.</div>
+                    <div class="pain-word anim-element" style="--tx: 85vw; --ty: 5vh;">BROKEN WORKFLOWS.</div>
+                    <div class="pain-word anim-element" style="--tx: -75vw; --ty: 20vh;">NO SYSTEM.</div>
+                    <div class="pain-word anim-element" style="--tx: 80vw; --ty: 35vh;">NO SCALE.</div>
+                    <div class="pain-word anim-element" style="--tx: 0; --ty: 50vh;">SOUND FAMILIAR?</div>
                 </div>
-                
-                <div>
-                    <h4>GitHub</h4>
-                    <ul>
-                        <li><a href="https://github.com/zbbsdsb/solo-corn-skills">Repository</a></li>
-                        <li><a href="https://github.com/zbbsdsb/solo-corn-skills/stargazers">Stars</a></li>
-                        <li><a href="https://github.com/zbbsdsb/solo-corn-skills/network/members">Forks</a></li>
-                        <li><a href="https://github.com/zbbsdsb/solo-corn-skills/graphs/contributors">Contributors</a></li>
-                    </ul>
+            </section>
+
+            <!-- SCENE 3: VISION -->
+            <section class="scene" id="scene-3">
+                <div class="vision-content">
+                    <div class="vision-text">
+                        <p class="vision-line anim-element">2025.</p>
+                        <p class="vision-line anim-element">ONE PERSON.</p>
+                        <p class="vision-line anim-element"><span class="highlight">BILLION-DOLLAR</span> COMPANY.</p>
+                    </div>
+                    <p class="vision-sub anim-element">THIS IS HAPPENING NOW.</p>
+                    <div class="vision-logo anim-element">
+                        <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(20, 10)">
+                                <rect x="0" y="0" width="70" height="18" fill="#000000"/>
+                                <rect x="0" y="0" width="18" height="45" fill="#000000"/>
+                                <rect x="0" y="40" width="70" height="18" fill="#000000"/>
+                                <rect x="52" y="40" width="18" height="45" fill="#000000"/>
+                                <rect x="0" y="82" width="70" height="18" fill="#000000"/>
+                            </g>
+                            <g transform="translate(120, 10)">
+                                <rect x="0" y="0" width="60" height="18" fill="#000000"/>
+                                <rect x="0" y="0" width="18" height="100" fill="#000000"/>
+                                <rect x="0" y="82" width="60" height="18" fill="#000000"/>
+                            </g>
+                            <g transform="translate(210, 10)">
+                                <rect x="0" y="0" width="70" height="18" fill="#000000"/>
+                                <rect x="0" y="0" width="18" height="45" fill="#000000"/>
+                                <rect x="0" y="40" width="70" height="18" fill="#000000"/>
+                                <rect x="52" y="40" width="18" height="45" fill="#000000"/>
+                                <rect x="0" y="82" width="70" height="18" fill="#000000"/>
+                            </g>
+                            <rect x="20" y="115" width="260" height="3" fill="#000000"/>
+                        </svg>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- SCENE 4: SOLUTION -->
+            <section class="scene" id="scene-4">
+                <div class="solution-content">
+                    <div class="solution-header">
+                        <p class="sol-pre anim-element">STOP SWITCHING.</p>
+                        <p class="sol-pre anim-element">START BUILDING.</p>
+                        <h2 class="sol-title anim-element">INTRODUCING</h2>
+                        <h3 class="sol-name anim-element">SOLO CORN SKILLS</h3>
+                    </div>
+                    <div class="skill-grid">
+                        <div class="skill-card anim-element">RESEARCH<br>INTEGRATION</div>
+                        <div class="skill-card anim-element">PRODUCT<br>BUILDER</div>
+                        <div class="skill-card anim-element">MARKETING<br>GROWTH</div>
+                        <div class="skill-card anim-element">COLLECTOR</div>
+                        <div class="skill-card anim-element">LANDING</div>
+                        <div class="skill-card anim-element">STRATEGIC<br>DECISION</div>
+                        <div class="skill-card anim-element">MENTAL<br>MODELS</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SCENE 5: HOW IT WORKS -->
+            <section class="scene" id="scene-5">
+                <div class="how-content">
+                    <div class="how-nodes-wrapper">
+                        <div class="how-nodes">
+                            <div class="node anim-element" data-label="RI">RI</div>
+                            <div class="node anim-element" data-label="PB">PB</div>
+                            <div class="node anim-element" data-label="MG">MG</div>
+                            <div class="node anim-element" data-label="CO">CO</div>
+                            <div class="node anim-element" data-label="LA">LA</div>
+                            <div class="node anim-element" data-label="SD">SD</div>
+                            <div class="node anim-element" data-label="MM">MM</div>
+                        </div>
+                        <svg class="connection-svg" id="connection-svg"></svg>
+                    </div>
+                    <div class="how-text">
+                        <p class="how-line anim-element">SKILLS CONNECT.</p>
+                        <p class="how-line anim-element">WORKFLOWS COMPOSE.</p>
+                        <p class="how-line anim-element">YOU SCALE.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SCENE 6: PROOF -->
+            <section class="scene" id="scene-6">
+                <div class="proof-content">
+                    <div class="stat-row anim-element">
+                        <span class="stat-number-video" data-target="45" data-suffix="+">0</span>
+                        <span class="stat-label">MENTAL MODELS</span>
+                    </div>
+                    <div class="stat-divider anim-element"></div>
+                    <div class="stat-row anim-element">
+                        <span class="stat-number-video" data-target="7" data-suffix="">0</span>
+                        <span class="stat-label">INTEGRATED SKILLS</span>
+                    </div>
+                    <div class="stat-divider anim-element"></div>
+                    <div class="stat-row anim-element">
+                        <span class="stat-number-video" data-target="0" data-suffix="">0</span>
+                        <span class="stat-label">TOOL SWITCHING</span>
+                    </div>
+                    <div class="stat-divider anim-element"></div>
+                    <div class="stat-row anim-element">
+                        <span class="stat-number-video" data-target="1" data-suffix="">0</span>
+                        <span class="stat-label">SYSTEM</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SCENE 7: CTA (Bridge) -->
+            <section class="scene" id="scene-7">
+                <div class="cta-content">
+                    <h2 class="cta-line anim-element">THE FUTURE IS BUILT BY ONE.</h2>
+                    <h2 class="cta-line anim-element">START BUILDING.</h2>
+                    <div class="cta-logo anim-element">
+                        <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(20, 10)">
+                                <rect x="0" y="0" width="70" height="18" fill="#ffffff"/>
+                                <rect x="0" y="0" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="40" width="70" height="18" fill="#ffffff"/>
+                                <rect x="52" y="40" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="82" width="70" height="18" fill="#ffffff"/>
+                            </g>
+                            <g transform="translate(120, 10)">
+                                <rect x="0" y="0" width="60" height="18" fill="#ffffff"/>
+                                <rect x="0" y="0" width="18" height="100" fill="#ffffff"/>
+                                <rect x="0" y="82" width="60" height="18" fill="#ffffff"/>
+                            </g>
+                            <g transform="translate(210, 10)">
+                                <rect x="0" y="0" width="70" height="18" fill="#ffffff"/>
+                                <rect x="0" y="0" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="40" width="70" height="18" fill="#ffffff"/>
+                                <rect x="52" y="40" width="18" height="45" fill="#ffffff"/>
+                                <rect x="0" y="82" width="70" height="18" fill="#ffffff"/>
+                            </g>
+                            <rect x="20" y="115" width="260" height="3" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <a href="#content-stats" class="cta-btn anim-element">EXPLORE MORE</a>
+                    <div class="cta-accent anim-element"></div>
+                    <p class="cta-sub anim-element">SOLO CORN SKILLS</p>
+                </div>
+                <div class="scroll-indicator" id="scroll-hint-2">Scroll for details</div>
+            </section>
+
         </div>
-    </footer>
+        <!-- END VIDEO SECTION -->
+
+        <!-- ==================== CONTENT SECTION (Normal Scroll) ==================== -->
+        <div class="content-section" id="content-section">
+
+            <!-- Stats Section -->
+            <section id="content-stats">
+                <div class="content-container">
+                    <div class="content-section-header" style="text-align: center;">
+                        <h2 class="reveal">THE ONE-PERSON COMPANY REVOLUTION</h2>
+                        <div class="content-accent-line center reveal"></div>
+                    </div>
+                    <div class="content-grid reveal" style="grid-template-columns: repeat(4, 1fr);">
+                        <div style="text-align: center; padding: 32px; border: 3px solid var(--black);">
+                            <div class="content-stat-number">$1B+</div>
+                            <p style="margin-top: 16px; font-weight: 700; text-transform: uppercase;">Solo Unicorn Valuations</p>
+                        </div>
+                        <div style="text-align: center; padding: 32px; border: 3px solid var(--black);">
+                            <div class="content-stat-number">10x</div>
+                            <p style="margin-top: 16px; font-weight: 700; text-transform: uppercase;">AI Productivity Gain</p>
+                        </div>
+                        <div style="text-align: center; padding: 32px; border: 3px solid var(--black);">
+                            <div class="content-stat-number">7</div>
+                            <p style="margin-top: 16px; font-weight: 700; text-transform: uppercase;">Core Skill Modules</p>
+                        </div>
+                        <div style="text-align: center; padding: 32px; border: 3px solid var(--black);">
+                            <div class="content-stat-number">45+</div>
+                            <p style="margin-top: 16px; font-weight: 700; text-transform: uppercase;">Mental Models</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem vs Solution Section -->
+            <section class="content-light">
+                <div class="content-container">
+                    <div class="content-section-header" style="text-align: center;">
+                        <h2 class="reveal">BUILT FOR THE SOLOPRENEUR ERA</h2>
+                        <div class="content-accent-line center reveal"></div>
+                    </div>
+                    <div class="content-two-column reveal" style="align-items: flex-start;">
+                        <div style="border: 3px solid var(--black); padding: 40px; background: var(--white);">
+                            <h3 style="margin-bottom: 24px;">THE PROBLEM</h3>
+                            <p>AI tools promised to multiply productivity. Instead, they created chaos:</p>
+                            <ul class="content-capability-list">
+                                <li>Endless context switching between ChatGPT, Claude, and specialized tools</li>
+                                <li>No system for organizing AI-generated insights</li>
+                                <li>Fragmented workflows that don't scale</li>
+                                <li>Knowledge scattered across platforms</li>
+                                <li>Copy. Paste. Repeat. Still stuck?</li>
+                            </ul>
+                        </div>
+                        <div style="border: 3px solid var(--black); padding: 40px; background: var(--black); color: var(--white);">
+                            <h3 style="margin-bottom: 24px; color: var(--white);">THE SCS SOLUTION</h3>
+                            <p style="color: var(--white);">One integrated system that connects research, strategy, product, and marketing:</p>
+                            <ul class="content-capability-list" style="color: var(--white);">
+                                <li>Modular skills that work independently or together</li>
+                                <li>Consistent frameworks across all stages</li>
+                                <li>Mental models that improve decision quality</li>
+                                <li>Zero tool switching. One unified workflow.</li>
+                                <li>Open source and extensible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Skills -->
+            <section id="content-skills">
+                <div class="content-container">
+                    <div class="content-section-header">
+                        <h2 class="reveal">Core Skills</h2>
+                        <p class="reveal">Seven powerful, integrated modules. Use them standalone or compose them into complex workflows.</p>
+                        <div class="content-accent-line reveal"></div>
+                    </div>
+                    <div class="content-grid">
+                        <div class="content-skill-card reveal">
+                            <span class="content-tag">Research</span>
+                            <h3>Research Integration</h3>
+                            <p>Synthesize insights from academic papers, market data, and multiple AI sources into coherent knowledge.</p>
+                            <a href="skills/research-integration.html">Learn More &rarr;</a>
+                        </div>
+                        <div class="content-skill-card reveal">
+                            <span class="content-tag">Build</span>
+                            <h3>Product Builder</h3>
+                            <p>From idea to deployed code. Complete product development workflow with AI-assisted implementation.</p>
+                            <a href="skills/product-builder.html">Learn More &rarr;</a>
+                        </div>
+                        <div class="content-skill-card reveal">
+                            <span class="content-tag">Grow</span>
+                            <h3>Marketing Growth</h3>
+                            <p>User acquisition and retention strategies. Build sustainable growth engines without a marketing team.</p>
+                            <a href="skills/marketing-growth.html">Learn More &rarr;</a>
+                        </div>
+                        <div class="content-skill-card reveal">
+                            <span class="content-tag">Decide</span>
+                            <h3>Collector</h3>
+                            <p>Decision framework for selecting the right skill at the right time. Orchestrate your workflow.</p>
+                            <a href="skills/collector.html">Learn More &rarr;</a>
+                        </div>
+                        <div class="content-skill-card reveal">
+                            <span class="content-tag">Validate</span>
+                            <h3>Landing</h3>
+                            <p>First-principles idea validation with brutal honesty. Know what to build before you build it.</p>
+                            <a href="skills/landing.html">Learn More &rarr;</a>
+                        </div>
+                        <div class="content-skill-card reveal">
+                            <span class="content-tag">Strategize</span>
+                            <h3>Strategic Decision</h3>
+                            <p>Business model design, competitive strategy, and market analysis. Think like a founder.</p>
+                            <a href="skills/strategic-decision.html">Learn More &rarr;</a>
+                        </div>
+                        <div class="content-skill-card reveal">
+                            <span class="content-tag">Think</span>
+                            <h3>Mental Models</h3>
+                            <p>45+ cognitive frameworks for better decisions. From first principles to game theory.</p>
+                            <a href="mental-models/index.html">Explore Models &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why SCS -->
+            <section class="content-light">
+                <div class="content-container">
+                    <div class="content-section-header">
+                        <h2 class="reveal">Why SCS?</h2>
+                        <div class="content-accent-line reveal"></div>
+                    </div>
+                    <div class="content-grid reveal" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="content-card" style="text-align: center;">
+                            <div style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1; letter-spacing: -0.02em; margin-bottom: 16px;">01</div>
+                            <h3>Modular</h3>
+                            <p>Use skills independently for quick tasks, or integrate them into complex workflows.</p>
+                        </div>
+                        <div class="content-card" style="text-align: center;">
+                            <div style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1; letter-spacing: -0.02em; margin-bottom: 16px;">02</div>
+                            <h3>Proven</h3>
+                            <p>Based on 50+ years of research in decision science, systems thinking, and product development.</p>
+                        </div>
+                        <div class="content-card" style="text-align: center;">
+                            <div style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1; letter-spacing: -0.02em; margin-bottom: 16px;">03</div>
+                            <h3>Unified</h3>
+                            <p>Stop switching between tools. One system for research, strategy, product, and marketing.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="content-dark content-hero">
+                <div class="content-container">
+                    <h2 class="reveal" style="color: var(--white);">STOP SWITCHING.<br>START BUILDING.</h2>
+                    <p class="reveal" style="color: var(--gray-light);">Join the one-person company revolution. Build your billion-dollar product with SCS.</p>
+                    <div class="content-accent-line center reveal" style="background: var(--white);"></div>
+                    <a href="skills/index.html" class="content-btn reveal" style="background: var(--white); color: var(--black);">Explore Skills</a>
+                    <br><br>
+                    <p class="reveal"><small style="color: var(--gray);">View on <a href="https://github.com/zbbsdsb/solo-corn-skills" target="_blank" style="color: var(--white);">GitHub</a></small></p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="content-footer">
+                <div class="content-container">
+                    <div class="content-footer-grid">
+                        <div>
+                            <h4>SOLO CORN SKILLS</h4>
+                            <p>Extensible AI skill workflows for solopreneurs.</p>
+                        </div>
+                        <div>
+                            <h4>Explore</h4>
+                            <ul>
+                                <li><a href="skills/index.html">Skills</a></li>
+                                <li><a href="mental-models/index.html">Mental Models</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Connect</h4>
+                            <ul>
+                                <li><a href="https://github.com/zbbsdsb/solo-corn-skills" target="_blank">GitHub</a></li>
+                                <li><a href="about/index.html">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- END CONTENT SECTION -->
+
+    </div>
+    <!-- END SCROLL CONTAINER -->
+
+    <script>
+        /* ============================================
+           INTERSECTION OBSERVER — Scene Detection
+           ============================================ */
+        const container = document.getElementById('scroll-container');
+        const scenes = document.querySelectorAll('.scene');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const siteNav = document.getElementById('site-nav');
+        const sceneNav = document.getElementById('scene-nav');
+        const videoSection = document.getElementById('video-section');
+        const contentSection = document.getElementById('content-section');
+        const scrollHint = document.getElementById('scroll-hint');
+        const scrollHint2 = document.getElementById('scroll-hint-2');
+
+        const whiteBgScenes = ['scene-3', 'scene-6'];
+
+        const sceneObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    activateScene(entry.target);
+                }
+            });
+        }, {
+            root: container,
+            threshold: [0.5]
+        });
+
+        scenes.forEach(scene => sceneObserver.observe(scene));
+
+        /* ============================================
+           CONTENT SECTION OBSERVER — Nav transition
+           ============================================ */
+        const contentObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    siteNav.classList.add('in-content');
+                    sceneNav.classList.add('hidden');
+                } else {
+                    siteNav.classList.remove('in-content');
+                    sceneNav.classList.remove('hidden');
+                }
+            });
+        }, {
+            root: container,
+            threshold: 0.1
+        });
+
+        contentObserver.observe(contentSection);
+
+        /* ============================================
+           SCROLL HINT OBSERVER
+           ============================================ */
+        if (scrollHint) {
+            const hintObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => scrollHint.classList.add('visible'), 2500);
+                    }
+                });
+            }, { threshold: 0.5 });
+            hintObserver.observe(document.getElementById('scene-1'));
+        }
+
+        if (scrollHint2) {
+            const hint2Observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => scrollHint2.classList.add('visible'), 3000);
+                    }
+                });
+            }, { threshold: 0.5 });
+            hint2Observer.observe(document.getElementById('scene-7'));
+        }
+
+        /* ============================================
+           SCENE ACTIVATION
+           ============================================ */
+        function activateScene(scene) {
+            const sceneId = scene.id;
+
+            scenes.forEach(s => s.classList.remove('active'));
+            scene.classList.add('active');
+
+            updateNavDots(sceneId);
+            updateNavColors(sceneId);
+            triggerSceneAnimations(scene);
+        }
+
+        /* ============================================
+           NAV DOTS
+           ============================================ */
+        function updateNavDots(sceneId) {
+            const num = sceneId.replace('scene-', '');
+            navDots.forEach(dot => {
+                dot.classList.toggle('active', dot.dataset.scene === num);
+            });
+        }
+
+        function updateNavColors(sceneId) {
+            const isWhite = whiteBgScenes.includes(sceneId);
+            navDots.forEach(dot => {
+                dot.classList.toggle('on-white', isWhite);
+            });
+        }
+
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sceneId = 'scene-' + dot.dataset.scene;
+                document.getElementById(sceneId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        /* ============================================
+           ANIMATION TRIGGER
+           ============================================ */
+        function triggerSceneAnimations(scene) {
+            if (scene.dataset.animated) return;
+            scene.dataset.animated = 'true';
+
+            const sceneId = scene.id;
+
+            // Scene 2: shake after fly-in
+            if (sceneId === 'scene-2') {
+                setTimeout(() => {
+                    scene.querySelectorAll('.pain-word').forEach(w => w.classList.add('shaking'));
+                }, 2200);
+            }
+
+            // Scene 5: draw connection lines then fill nodes
+            if (sceneId === 'scene-5') {
+                setTimeout(() => drawConnectionLines(), 400);
+                setTimeout(() => {
+                    scene.querySelectorAll('.node').forEach((n, i) => {
+                        setTimeout(() => n.classList.add('filled'), i * 120);
+                    });
+                }, 1500);
+            }
+
+            // Scene 6: counter animation
+            if (sceneId === 'scene-6') {
+                scene.querySelectorAll('.stat-number-video').forEach((el, i) => {
+                    const target = parseInt(el.dataset.target);
+                    const suffix = el.dataset.suffix || '';
+                    setTimeout(() => animateCounter(el, target, suffix), i * 600 + 200);
+                });
+            }
+        }
+
+        /* ============================================
+           SCENE 5: DRAW CONNECTION LINES
+           ============================================ */
+        function drawConnectionLines() {
+            const nodes = document.querySelectorAll('#scene-5 .node');
+            const svg = document.getElementById('connection-svg');
+            const wrapper = document.querySelector('.how-nodes-wrapper');
+            const wrapperRect = wrapper.getBoundingClientRect();
+
+            const connections = [
+                [0, 1], [1, 2], [2, 3],
+                [4, 5], [5, 6],
+                [0, 4], [1, 5], [2, 6],
+                [3, 6]
+            ];
+
+            svg.innerHTML = '';
+
+            connections.forEach(([from, to], idx) => {
+                const fromRect = nodes[from].getBoundingClientRect();
+                const toRect = nodes[to].getBoundingClientRect();
+
+                const x1 = fromRect.left + fromRect.width / 2 - wrapperRect.left;
+                const y1 = fromRect.top + fromRect.height / 2 - wrapperRect.top;
+                const x2 = toRect.left + toRect.width / 2 - wrapperRect.left;
+                const y2 = toRect.top + toRect.height / 2 - wrapperRect.top;
+
+                const length = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', x1);
+                line.setAttribute('y1', y1);
+                line.setAttribute('x2', x2);
+                line.setAttribute('y2', y2);
+                line.classList.add('conn-line');
+                line.style.strokeDasharray = length;
+                line.style.strokeDashoffset = length;
+                line.style.animationDelay = (idx * 0.08) + 's';
+
+                svg.appendChild(line);
+            });
+        }
+
+        /* ============================================
+           SCENE 6: COUNTER ANIMATION
+           ============================================ */
+        function animateCounter(element, target, suffix, duration) {
+            duration = duration || 800;
+            const start = performance.now();
+            const update = (now) => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.round(progress * target);
+                element.textContent = current + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        }
+
+        /* ============================================
+           KEYBOARD NAVIGATION
+           ============================================ */
+        document.addEventListener('keydown', (e) => {
+            const currentScene = document.querySelector('.scene.active');
+            if (!currentScene) return;
+            const currentNum = parseInt(currentScene.id.replace('scene-', ''));
+            let targetNum = null;
+
+            if ((e.key === 'ArrowDown' || e.key === ' ') && currentNum < 7) {
+                targetNum = currentNum + 1;
+            } else if (e.key === 'ArrowUp' && currentNum > 1) {
+                targetNum = currentNum - 1;
+            }
+
+            if (targetNum) {
+                e.preventDefault();
+                document.getElementById('scene-' + targetNum).scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        /* ============================================
+           CONTENT REVEAL ON SCROLL
+           ============================================ */
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            root: container,
+            threshold: 0.15
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        /* ============================================
+           NAV LOGO — Scroll to top
+           ============================================ */
+        document.getElementById('nav-logo-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            container.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

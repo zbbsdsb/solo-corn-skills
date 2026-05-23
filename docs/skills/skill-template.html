@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{SKILL_NAME} - SOLO CORN SKILLS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .skill-hero {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        
+        .skill-hero h1 {
+            margin-top: 24px;
+        }
+        
+        .skill-tagline {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-top: 16px;
+        }
+        
+        .skill-overview {
+            padding: 80px 0;
+        }
+        
+        .skill-workflow {
+            padding: 80px 0;
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        .skill-workflow h2 {
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        
+        .workflow-step {
+            border: 3px solid var(--white);
+            padding: 32px;
+        }
+        
+        .workflow-step-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .use-cases {
+            padding: 80px 0;
+        }
+        
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .use-case-card {
+            border: 3px solid var(--black);
+            padding: 32px;
+        }
+        
+        .use-case-card h4 {
+            margin-bottom: 16px;
+        }
+        
+        .integration {
+            padding: 80px 0;
+            background: var(--gray-light);
+        }
+        
+        .skill-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+        
+        .skill-link {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 3px solid var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+        
+        .skill-link:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        .skill-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        .skill-cta h2 {
+            color: var(--white);
+        }
+        
+        .skill-cta .btn {
+            background: var(--white);
+            color: var(--black);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html">SCS</a></div>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="index.html">Skills</a></li>
+                    <li><a href="../mental-models/index.html">Mental Models</a></li>
+                    <li><a href="../video/index.html">Video</a></li>
+                    <li><a href="../about/index.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="../index.html">Home</a><span>/</span>
+            <a href="index.html">Skills</a><span>/</span>
+            <span>{SKILL_NAME}</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="skill-hero">
+        <div class="container">
+            <span class="skill-badge">{CATEGORY}</span>
+            <h1>{SKILL_NAME}</h1>
+            <p class="skill-tagline">{ONE_LINE_DESCRIPTION}</p>
+            <div class="accent-line center"></div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="skill-overview">
+        <div class="container">
+            <div class="two-column" style="align-items: flex-start;">
+                <div>
+                    <h2>What It Does</h2>
+                    <p>{DETAILED_DESCRIPTION}</p>
+                    
+                    <h3 style="margin-top: 40px;">Core Capabilities</h3>
+                    <ul class="capability-list">
+                        <li>{CAPABILITY_1}</li>
+                        <li>{CAPABILITY_2}</li>
+                        <li>{CAPABILITY_3}</li>
+                        <li>{CAPABILITY_4}</li>
+                    </ul>
+                </div>
+                <div class="skill-meta-box">
+                    <h3>Quick Facts</h3>
+                    <dl>
+                        <dt>Best For</dt>
+                        <dd>{USE_CASES}</dd>
+                        <dt>Integrates With</dt>
+                        <dd>{RELATED_SKILLS}</dd>
+                        <dt>Complexity</dt>
+                        <dd>{LEVEL}</dd>
+                        <dt>Output</dt>
+                        <dd>{OUTPUT}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="skill-workflow">
+        <div class="container">
+            <h2>Workflow</h2>
+            <div class="workflow-grid">
+                <div class="workflow-step">
+                    <div class="workflow-step-number">01</div>
+                    <h4>{STEP_1_TITLE}</h4>
+                    <p>{STEP_1_DESC}</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">02</div>
+                    <h4>{STEP_2_TITLE}</h4>
+                    <p>{STEP_2_DESC}</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">03</div>
+                    <h4>{STEP_3_TITLE}</h4>
+                    <p>{STEP_3_DESC}</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">04</div>
+                    <h4>{STEP_4_TITLE}</h4>
+                    <p>{STEP_4_DESC}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>When To Use</h2>
+                <div class="accent-line center"></div>
+            </div>
+            
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <h4>{USE_CASE_1_TITLE}</h4>
+                    <p>{USE_CASE_1_DESC}</p>
+                </div>
+                <div class="use-case-card">
+                    <h4>{USE_CASE_2_TITLE}</h4>
+                    <p>{USE_CASE_2_DESC}</p>
+                </div>
+                <div class="use-case-card">
+                    <h4>{USE_CASE_3_TITLE}</h4>
+                    <p>{USE_CASE_3_DESC}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration -->
+    <section class="integration">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>Works With</h2>
+                <p>This skill connects seamlessly with other SCS modules.</p>
+                <div class="accent-line center"></div>
+            </div>
+            
+            <div class="skill-links">
+                {RELATED_SKILL_LINKS}
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="skill-cta">
+        <div class="container">
+            <h2>Ready to Use {SKILL_NAME}?</h2>
+            <p style="color: var(--gray-light); margin: 24px 0;">View the complete documentation on GitHub.</p>
+            <div class="accent-line center" style="background: var(--white);"></div>
+            <a href="https://github.com/zbbsdsb/solo-corn-skills/tree/main/{SKILL_FOLDER}" class="btn" target="_blank">View Documentation</a>
+            <br><br>
+            <a href="index.html" style="color: var(--gray-light);">← Back to All Skills</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SOLO CORN SKILLS</h4>
+                    <p>Extensible AI skill workflows for solopreneurs.</p>
+                </div>
+                
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Skills</a></li>
+                        <li><a href="../mental-models/index.html">Mental Models</a></li>
+                        <li><a href="../video/index.html">Video</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/zbbsdsb/solo-corn-skills" target="_blank">GitHub</a></li>
+                        <li><a href="../about/index.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
