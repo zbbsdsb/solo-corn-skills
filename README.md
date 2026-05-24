@@ -37,6 +37,42 @@
 
 ---
 
+## ⚡ CLI Tool
+
+**Use SOLO CORN SKILLS directly from your terminal!**
+
+### Quick Start
+
+```bash
+cd tools/cli
+npm install
+npm run build
+npm link
+
+# Now you can use 'scs' globally!
+scs --version
+scs models list
+scs models show first-principles
+```
+
+### Commands
+
+```bash
+# Mental models
+scs models list
+scs models list --category decision-reasoning
+scs models show <model-id>
+scs models search <query>
+scs models categories
+
+# Help
+scs help
+```
+
+More info: See [tools/cli/README.md](tools/cli/README.md) and [QUICKSTART.md](tools/cli/QUICKSTART.md)
+
+---
+
 ## Mission
 
 **Empowering individuals to build billion-dollar companies with AI-powered skill workflows.**

@@ -11,6 +11,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.0] - 2026-05-24
+
+### Added
+- **SOLO CORN SKILLS CLI** - Command-line interface (tools/cli/)
+- Mental models quick access from terminal
+- Model listing, detail view, search, and category filtering
+- Multiple output formats (pretty, JSON)
+- Colorful terminal UI with category-based color coding
+- Comprehensive documentation (README.md, QUICKSTART.md)
+- Quick demo script (demo.bat)
+- TypeScript-based architecture with type safety
+
+### Changed
+- Updated main README.md with CLI Tool section
+- Added CLI quick start guide and commands
+
+---
+
 ## [1.0.2] - 2026-05-21
 
 ### Added
