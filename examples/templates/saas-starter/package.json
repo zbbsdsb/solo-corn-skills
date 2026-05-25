@@ -1,0 +1,17 @@
+{
+  "name": "saas-starter",
+  "version": "1.0.0",
+  "description": "SaaS Project Skeleton - SOLO CORN SKILLS",
+  "main": "backend/index.js",
+  "scripts": {
+    "start": "node backend/index.js",
+    "dev": "node backend/index.js"
+  },
+  "keywords": ["solo-corn-skills", "saas", "starter", "template"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "devDependencies": {}
+}

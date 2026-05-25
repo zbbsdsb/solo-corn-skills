@@ -73,6 +73,38 @@ More info: See [tools/cli/README.md](tools/cli/README.md) and [QUICKSTART.md](to
 
 ---
 
+## 📚 代码示例库
+
+**快速开始你的项目，使用我们的可复用模板！**
+
+### 🎯 可用模板
+
+| 模板 | 描述 | 路径 |
+|------|------|------|
+| **Basic Starter** | 简洁的基础项目骨架 | [examples/templates/basic-starter/](examples/templates/basic-starter/) |
+| **SaaS Starter** | 前后端分离的 SaaS 项目 | [examples/templates/saas-starter/](examples/templates/saas-starter/) |
+
+### 使用 Basic Starter
+
+```bash
+cd examples/templates/basic-starter
+npm install
+npm start
+```
+
+### 使用 SaaS Starter
+
+```bash
+cd examples/templates/saas-starter
+npm install
+npm start
+# 浏览器访问 http://localhost:3000
+```
+
+更多示例和模板请查看 [examples/](examples/) 目录。
+
+---
+
 ## Mission
 
 **Empowering individuals to build billion-dollar companies with AI-powered skill workflows.**

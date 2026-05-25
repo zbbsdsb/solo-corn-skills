@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.0] - 2026-05-25
+
+### Added
+- **项目模板库** - `examples/templates/`
+  - `basic-starter/` - 基础项目骨架
+  - `saas-starter/` - SaaS项目骨架（前后端分离）
+- 更新主 README.md 添加代码示例库章节
+- 模板包含完整的可运行代码和文档
+
+---
+
 ## [1.1.0] - 2026-05-24
 
 ### Added
