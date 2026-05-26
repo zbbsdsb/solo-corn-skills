@@ -43,6 +43,16 @@ scs models list
 scs models show first-principles
 scs models search "decision"
 scs models categories
+
+# Workflow commands
+scs init
+scs run idea-to-spec
+scs run --list
+
+# Skill commands
+scs skills
+scs skill landing
+scs invoke landing --interactive
 ```
 
 ### Mental Models
@@ -78,6 +88,112 @@ scs models search "cognitive"
 scs models categories
 ```
 
+### Init - Start a New Project
+
+Initialize a new project workflow interactively:
+
+```bash
+scs init
+
+# Or with pre-selected workflow
+scs init idea-to-spec
+```
+
+**What it does:**
+- Asks about your goal (idea validation, product design, etc.)
+- Asks about your background and time constraints
+- Recommends an appropriate workflow
+- Saves the workflow configuration
+
+### Run - Execute a Workflow
+
+Run pre-defined or custom workflows:
+
+```bash
+# Run a specific workflow
+scs run idea-to-spec
+
+# Interactive mode (asks questions for input)
+scs run idea-to-spec --interactive
+
+# List all available workflows
+scs run --list
+
+# Show details about a workflow
+scs run --show idea-to-spec
+
+# Save output to file
+scs run idea-to-spec --output my-output.json
+
+# Skip certain stages
+scs run idea-to-spec --skip clarify
+```
+
+**Available Workflows:**
+- `idea-to-spec` - From concept to technical specification
+- `idea-validation` - Quick idea validation
+- `product-design` - Full product design workflow
+- `tech-selection` - Technology selection and architecture
+- `market-analysis` - Market analysis and strategy
+
+### Skills - Manage and Invoke Skills
+
+#### List All Skills
+
+```bash
+scs skills
+```
+
+Shows all registered skills with metadata and categories.
+
+#### Show Skill Details
+
+```bash
+scs skill landing
+scs skill product-builder
+scs skill strategic-decision
+```
+
+Shows detailed information about a skill including:
+- Input schema
+- Output schema
+- Capabilities
+- Usage examples
+
+#### Invoke a Skill
+
+```bash
+# Basic invocation
+scs invoke landing --input '{"idea":"我要做一个产品"}'
+
+# Interactive mode (most common)
+scs invoke landing --interactive
+
+# Chain multiple skills
+scs invoke landing --then product-builder --then strategic-decision
+
+# With context from file
+scs invoke landing --input @my-input.json
+
+# Save output to file
+scs invoke landing --output result.json
+
+# Multiple options together
+scs invoke landing --interactive --output result.json
+```
+
+#### Interactive Mode Flow
+
+```bash
+scs invoke landing --interactive
+
+# What happens:
+# 1. Asks for required inputs
+# 2. Executes the skill
+# 3. Shows results in a user-friendly format
+# 4. Asks if you want to continue to next skill
+```
+
 ### Output Formats
 
 ```bash
@@ -86,6 +202,9 @@ scs models list
 
 # JSON format
 scs models show first-principles --output json
+
+# YAML format
+scs models show first-principles --output yaml
 ```
 
 ## Categories
@@ -125,12 +244,18 @@ tools/cli/
 ├── src/
 │   ├── index.ts                 # Main entry point
 │   ├── commands/
+│   │   ├── init.ts              # Init command
+│   │   ├── run.ts               # Run command
+│   │   ├── invoke.ts            # Invoke command
 │   │   └── models/
 │   │       └── index.ts         # Models commands
 │   ├── core/
 │   │   ├── model-loader.ts      # Data loading
+│   │   ├── skill-registry.ts    # Skill management
+│   │   ├── workflow-engine.ts   # Workflow execution
 │   │   └── output-formatter.ts  # Output formatting
 │   ├── utils/
+│   │   └── inquirer.ts          # Interactive prompts
 │   └── types/
 │       └── index.ts             # TypeScript types
 ├── data/                        # Skill data
@@ -138,6 +263,45 @@ tools/cli/
 ├── package.json
 ├── tsconfig.json
 └── README.md
+```
+
+## Complete Examples
+
+### Example 1: Idea to Spec (Recommended)
+
+```bash
+# 1. Initialize project
+scs init
+
+# Select: "Idea to Spec" workflow
+
+# 2. Run the workflow
+scs run idea-to-spec --interactive
+
+# Or run step by step (chaining)
+scs invoke landing --interactive --then product-builder --then strategic-decision --output spec.json
+```
+
+### Example 2: Quick Idea Validation
+
+```bash
+# Run validation workflow directly
+scs run idea-validation --interactive
+
+# Output:
+# - Problem statement
+# - Feasibility score
+# - Recommendations
+```
+
+### Example 3: Invoking Single Skill
+
+```bash
+# Just want to clarify an idea
+scs invoke landing --interactive
+
+# Just want to generate spec
+scs invoke product-builder --input '{"problem":"我要做一个AI工具"}'
 ```
 
 ## Contributing
@@ -153,3 +317,28 @@ Please refer to the main [CONTRIBUTING.md](../../CONTRIBUTING.md) file for guide
 ## License
 
 MIT
+
+---
+
+## What's New in v0.2.0
+
+- 🎉 **Skill Registry** - Auto-discovers and manages all skills
+- 🚀 **Workflow Engine** - Executes multi-stage workflows
+- 💬 **Interactive Mode** - User-friendly question-based interaction
+- 🔗 **Skill Chaining** - Chain multiple skills together
+- 📝 **New Commands** - `init`, `run`, `skills`, `skill`, `invoke`
+- 📚 **Updated Documentation** - Comprehensive guides and examples
+
+---
+
+## Quick Reference
+
+```bash
+# Most useful commands
+scs init                                  # Start a new project
+scs skills                                # List all skills
+scs run idea-to-spec --interactive       # Run idea-to-spec workflow
+scs invoke landing --interactive          # Interactive skill invocation
+scs invoke landing --then product-builder # Chain skills
+scs --help                                # Show help
+```
