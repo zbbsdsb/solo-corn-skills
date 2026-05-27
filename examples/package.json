@@ -1,10 +1,10 @@
 {
   "name": "solo-corn-skills-examples",
   "version": "1.0.0",
-  "description": "代码示例库 - Solo Corn Skills",
+  "description": "Code Examples Library - Solo Corn Skills",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"运行示例测试\" && exit 0"
+    "test": "echo \"Running Example Tests\" && exit 0"
   },
   "keywords": [
     "ai",
