@@ -12,6 +12,9 @@
   <a href="https://github.com/zbbsdsb/solo-corn-skills/releases/tag/v1.0.0">
     <img src="https://img.shields.io/badge/version-v1.0.0-brightgreen?style=flat-square" alt="v1.0.0"/>
   </a>
+  <a href="https://www.npmjs.com/package/@oasis-npm/scs">
+    <img src="https://img.shields.io/npm/v/@oasis-npm/scs?style=flat-square" alt="npm version"/>
+  </a>
   <img src="https://img.shields.io/github/stars/zbbsdsb/solo-corn-skills?style=flat-square" alt="Stars"/>
   <img src="https://img.shields.io/github/license/zbbsdsb/solo-corn-skills?style=flat-square" alt="License"/>
   <img src="https://img.shields.io/github/languages/top/zbbsdsb/solo-corn-skills?style=flat-square" alt="Language"/>
@@ -41,7 +44,20 @@
 
 **Use SOLO CORN SKILLS directly from your terminal!**
 
-### Quick Start
+### Quick Start (Recommended)
+
+Install via npm:
+
+```bash
+npm install -g @oasis-npm/scs
+
+# Now you can use 'scs' globally!
+scs --version
+scs models list
+scs models show first-principles
+```
+
+### Build from Source
 
 ```bash
 cd tools/cli

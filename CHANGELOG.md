@@ -11,14 +11,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.0] - 2026-05-26
+
+### Added
+- **CLI v0.2.0** - Enhanced CLI with new features:
+  - `scs init` - Interactive workflow initialization
+  - `scs run <workflow>` - Workflow execution
+  - `scs invoke <skill>` - Skill invocation with interactive mode
+  - `scs invoke <skill> --interactive` - Interactive question mode
+  - `scs invoke <skill> --then <skill2>` - Skill chaining
+  - `scs invoke <skill> --output <file>` - Output to file
+  - `scs skills` - List all skills
+  - `scs skill <name>` - Show skill details
+- **Skill Standardization** - All 8 skills now have standardized interfaces:
+  - Landing, Product Builder, Strategic Decision
+  - Marketing Growth, Collector, Connector
+  - Research Integration, Mental Models
+- **Skill Registry** - Automatic skill discovery and registration
+- **Workflow Engine** - Multi-stage workflow orchestration
+- **Interactive Inquirer** - User-friendly question-based interaction
+
+### Changed
+- Updated all SKILL.md files with Interface Definition sections
+- Enhanced CLI README with complete documentation
+- Updated skill metadata and version numbers
+
+---
+
 ## [1.2.0] - 2026-05-25
 
 ### Added
-- **项目模板库** - `examples/templates/`
-  - `basic-starter/` - 基础项目骨架
-  - `saas-starter/` - SaaS项目骨架（前后端分离）
-- 更新主 README.md 添加代码示例库章节
-- 模板包含完整的可运行代码和文档
+- **Code Examples Library** - `examples/templates/`
+  - `basic-starter/` - Basic project skeleton
+  - `saas-starter/` - SaaS project skeleton (frontend-backend separation)
+- Updated main README.md with Code Examples section
+- Templates include complete runnable code and documentation
 
 ---
 
@@ -120,7 +147,9 @@ This is the foundation release with complete core skill system and mental model 
 
 ---
 
-[Unreleased]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.0.2...v1.2.0
 [1.0.2]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/zbbsdsb/solo-corn-skills/releases/tag/v1.0.0
