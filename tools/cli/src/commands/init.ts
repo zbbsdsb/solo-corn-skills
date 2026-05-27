@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import chalk from 'chalk';
 import { interactionManager } from '../utils/inquirer';
 import { skillRegistry } from '../core/skill-registry';
 import { InitOptions, SkillWorkflow } from '../types';

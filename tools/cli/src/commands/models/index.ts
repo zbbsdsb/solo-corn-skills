@@ -1,6 +1,6 @@
 import { Command } from 'commander';
-import { ModelLoader } from '../core/model-loader';
-import { OutputFormatter } from '../core/output-formatter';
+import { ModelLoader } from '../../core/model-loader';
+import { OutputFormatter } from '../../core/output-formatter';
 
 const modelLoader = new ModelLoader();
 

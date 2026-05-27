@@ -11,11 +11,13 @@ A command-line interface for SOLO CORN SKILLS - Build billion-dollar companies, 
 
 ### Installation
 
-#### From npm (Coming Soon)
+#### From npm (Recommended)
 
 ```bash
-npm install -g @solo-corn-skills/cli
+npm install -g @oasis-npm/scs
 ```
+
+Package page: https://www.npmjs.com/package/@oasis-npm/scs
 
 #### From Source
 
@@ -312,6 +314,7 @@ Please refer to the main [CONTRIBUTING.md](../../CONTRIBUTING.md) file for guide
 
 - **Website**: https://zbbsdsb.github.io/solo-corn-skills/
 - **GitHub**: https://github.com/zbbsdsb/solo-corn-skills
+- **npm Package**: https://www.npmjs.com/package/@oasis-npm/scs
 - **Documentation**: https://zbbsdsb.github.io/solo-corn-skills/
 
 ## License

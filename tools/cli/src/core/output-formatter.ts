@@ -1,5 +1,5 @@
 import { MentalModel, CategoryInfo } from '../types';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 
 export class OutputFormatter {
   static formatModelList(models: MentalModel[], format: string): string {
@@ -80,7 +80,7 @@ export class OutputFormatter {
 
     categories.forEach((category, index) => {
       const categoryColor = this.getCategoryColor(category.id);
-      output += `${chalk.yellow(index + 1 + '.')} ${categoryColor.bold(category.name)}\n`;
+      output += `${chalk.yellow(index + 1 + '.')} ${chalk.bold(categoryColor(category.name))}\n`;
       output += `   ${chalk.gray('ID:')} ${chalk.cyan(category.id)}\n`;
       output += `   ${chalk.gray('Models:')} ${chalk.green(category.modelCount)}\n\n`;
     });

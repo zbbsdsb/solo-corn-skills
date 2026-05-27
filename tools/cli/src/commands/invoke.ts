@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import { skillRegistry } from '../core/skill-registry';
 import { workflowEngine } from '../core/workflow-engine';
 import { interactionManager } from '../utils/inquirer';
-import { InvokeOptions } from '../types';
+import { InvokeOptions, Question } from '../types';
 
 /**
  * Display skill information
@@ -94,7 +94,7 @@ async function invokeSkill(
     if (options.interactive) {
       console.log(chalk.bold(`\n📝 调用技能: ${skillName}\n`));
       
-      const questions = [
+      const questions: Question[] = [
         {
           type: 'input',
           name: 'idea',
@@ -198,7 +198,7 @@ async function chainInvoke(
     let inputs: Record<string, any> = {};
 
     if (i === 0 && options.interactive) {
-      const questions = [
+      const questions: Question[] = [
         {
           type: 'input',
           name: 'idea',

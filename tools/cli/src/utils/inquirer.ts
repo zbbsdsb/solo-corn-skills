@@ -199,8 +199,8 @@ export class InteractionManager {
 
       const moveSelection = (direction: number) => {
         selected = (selected + direction + max) % max;
-        this.rl!.output.write('\x1b[2K');
-        this.rl!.output.write('\x1b[0G');
+        (this.rl! as any).output.write('\x1b[2K');
+        (this.rl! as any).output.write('\x1b[0G');
         
         question.choices!.forEach((choice, index) => {
           const marker = index === selected ? chalk.green('❯') : ' ';
@@ -208,13 +208,13 @@ export class InteractionManager {
             ? chalk.gray(` - ${choice.description}`) 
             : '';
           if (index === selected) {
-            this.rl!.output.write(`${marker} ${chalk.cyan(chalk.bold(index + 1 + '. ' + choice.name))}${description}\n`);
+            (this.rl! as any).output.write(`${marker} ${chalk.cyan(chalk.bold(index + 1 + '. ' + choice.name))}${description}\n`);
           } else {
-            this.rl!.output.write(`${marker} ${index + 1}. ${choice.name}${description}\n`);
+            (this.rl! as any).output.write(`${marker} ${index + 1}. ${choice.name}${description}\n`);
           }
         });
         
-        this.rl!.output.write('\x1b[' + (max + 1) + 'A');
+        (this.rl! as any).output.write('\x1b[' + (max + 1) + 'A');
       };
 
       const question = {
@@ -247,8 +247,8 @@ export class InteractionManager {
       const selected: Set<number> = new Set();
 
       const render = () => {
-        this.rl!.output.write('\x1b[2K');
-        this.rl!.output.write('\x1b[0G');
+        (this.rl! as any).output.write('\x1b[2K');
+        (this.rl! as any).output.write('\x1b[0G');
         
         choices.forEach((choice, index) => {
           const check = selected.has(index) ? chalk.green('✓') : ' ';
@@ -256,11 +256,11 @@ export class InteractionManager {
           const description = choice.description 
             ? chalk.gray(` - ${choice.description}`) 
             : '';
-          this.rl!.output.write(`${check} ${marker} ${choice.name}${description}\n`);
+          (this.rl! as any).output.write(`${check} ${marker} ${choice.name}${description}\n`);
         });
         
-        this.rl!.output.write(chalk.gray('\nPress SPACE to toggle, ENTER to confirm\n'));
-        this.rl!.output.write('\x1b[' + (choices.length + 2) + 'A');
+        (this.rl! as any).output.write(chalk.gray('\nPress SPACE to toggle, ENTER to confirm\n'));
+        (this.rl! as any).output.write('\x1b[' + (choices.length + 2) + 'A');
       };
 
       this.rl!.on('keypress', (str, key) => {

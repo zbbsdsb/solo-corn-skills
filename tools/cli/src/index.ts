@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import * as figlet from 'figlet';
-import * as chalk from 'chalk';
+import figlet from 'figlet';
+import chalk from 'chalk';
 import { createModelsCommand } from './commands/models';
 import { registerInitCommand, init } from './commands/init';
 import { registerRunCommand } from './commands/run';
@@ -16,7 +16,7 @@ const program = new Command();
 program
   .name('scs')
   .description('SOLO CORN SKILLS - Build billion-dollar companies, one skill at a time')
-  .version('0.2.0', '-v, --version');
+  .version('0.2.2', '-v, --version');
 
 program
   .addCommand(createModelsCommand());

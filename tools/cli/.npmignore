@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Git
+.git/
+.gitignore
+
+# Build output (will be included via "files" field)
+# dist/ is listed in package.json files, so no need to ignore
+
+# Testing
+test/
+tests/
+*.test.ts
+*.spec.ts
+
+# Development
+.eslintrc.js
+.prettierrc
+jest.config.js
+tsconfig.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
