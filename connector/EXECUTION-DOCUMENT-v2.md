@@ -666,7 +666,7 @@ What is [concept] and why does it matter?
 
 ### Phase 2: Content Development (Week 3-4)
 **Deliverables**:
-- [ ] 5 domain templates (通用/科技/商业/设计/科学)
+- [ ] 5 domain templates (General/Technology/Business/Design/Science)
 - [ ] Connection pattern library
 - [ ] Learning method guides
 

@@ -88,7 +88,7 @@ Buying Behavior:
 - [Budget range]
 
 Quote:
-"[代表性语录]"
+"[Representative quote]"
 ```
 
 ### 2.2 Example Persona

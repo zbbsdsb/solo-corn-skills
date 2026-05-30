@@ -39,7 +39,7 @@ The concept of first principles thinking traces its roots to ancient Greek philo
 - **Confusing opinions with facts**: Failing to distinguish between genuinely fundamental truths and personal preferences disguised as axioms.
 - **Incomplete decomposition**: Stopping too early in the breakdown process and accepting assumptions that could be further questioned.
 - **Ignoring practical constraints**: Building elegant theoretical frameworks that ignore real-world limitations like physics, regulations, or resource availability.
-- **Overconfidence in重建 solutions**: Believing that starting fresh always yields better results when sometimes conventional wisdom contains hard-won wisdom.
+- **Overconfidence in rebuilt solutions**: Believing that starting fresh always yields better results when sometimes conventional wisdom contains hard-won wisdom.
 - **Analysis paralysis**: Getting so caught up in questioning everything that progress becomes impossible.
 
 ## Quick Reference

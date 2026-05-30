@@ -166,7 +166,7 @@ Shows detailed information about a skill including:
 
 ```bash
 # Basic invocation
-scs invoke landing --input '{"idea":"我要做一个产品"}'
+scs invoke landing --input '{"idea":"I want to build a product"}'
 
 # Interactive mode (most common)
 scs invoke landing --interactive
@@ -303,7 +303,7 @@ scs run idea-validation --interactive
 scs invoke landing --interactive
 
 # Just want to generate spec
-scs invoke product-builder --input '{"problem":"我要做一个AI工具"}'
+scs invoke product-builder --input '{"problem":"I want to build an AI tool"}'
 ```
 
 ## Contributing

@@ -133,3 +133,88 @@ The Collector continuously improves through:
 ---
 
 **Role**: Central Decision Hub | **Type**: Orchestration & Coordination
+
+---
+
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "collector",
+  "version": "2.0.0",
+  "description": "Decision framework engine and central coordination hub for skill selection and orchestration",
+  "author": "SOLO CORN SKILLS",
+  "category": ["orchestration", "decision"],
+  "tags": ["skill-routing", "problem-decomposition", "decision-framework"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "request",
+      "type": "string",
+      "required": true,
+      "description": "User's original request or problem statement"
+    },
+    {
+      "name": "context",
+      "type": "string",
+      "required": false,
+      "description": "Additional context about the situation"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "analysis",
+      "type": "object",
+      "description": "Problem analysis and decomposition"
+    },
+    {
+      "name": "skillPlan",
+      "type": "object",
+      "description": "Skill selection and orchestration plan"
+    },
+    {
+      "name": "recommendations",
+      "type": "array",
+      "description": "Actionable recommendations and next steps"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute decision framework
+  // 1. Request analysis and problem identification
+  // 2. Framework selection and application
+  // 3. Skill selection and orchestration
+  // 4. Synthesis and solution delivery
+  // 5. Return results
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke collector --input '{"request": "I need to build a product"}'
+
+# Interactive mode
+scs invoke collector --interactive
+
+# With additional context
+scs invoke collector --input '{"request": "Startup idea", "context": "SaaS for project management"}'
+```

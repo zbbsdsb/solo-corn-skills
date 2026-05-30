@@ -155,3 +155,94 @@ This skill activates when users mention:
 - **Research Integration**: Validate ideas using research-backed frameworks
 - **Marketing Growth**: Plan go-to-market strategy
 - **Customer Success**: Design user support workflows
+
+---
+
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "product-builder",
+  "version": "2.0.0",
+  "description": "Provides end-to-end product development support from idea to code implementation",
+  "author": "SOLO CORN SKILLS",
+  "category": ["product", "development"],
+  "tags": ["product", "development", "prd", "code-generation"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "problem",
+      "type": "string",
+      "required": true,
+      "description": "The problem to solve or product idea"
+    },
+    {
+      "name": "constraints",
+      "type": "string",
+      "required": false,
+      "description": "Constraints (tech stack, time, resources, etc.)"
+    },
+    {
+      "name": "targetUsers",
+      "type": "string",
+      "required": false,
+      "description": "Target user description"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "prdDocument",
+      "type": "string",
+      "description": "Complete product requirements document"
+    },
+    {
+      "name": "userStories",
+      "type": "array",
+      "description": "List of user stories"
+    },
+    {
+      "name": "acceptanceCriteria",
+      "type": "array",
+      "description": "Acceptance criteria"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute product development process
+  // 1. Validate idea
+  // 2. Generate specifications
+  // 3. Design UI
+  // 4. Develop code
+  // 5. Return results
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke product-builder --input '{"problem":"I want to build a task management app"}'
+
+# Interactive invocation
+scs invoke product-builder --interactive
+
+# Chain invocation
+scs invoke landing --then product-builder
+```

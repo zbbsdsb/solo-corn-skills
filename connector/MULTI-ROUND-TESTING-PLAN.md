@@ -1,415 +1,415 @@
-# Connector Skill - 多轮测试评估计划
+# Connector Skill - Multi-Round Testing and Evaluation Plan
 
-## 测试概述
+## Testing Overview
 
-本计划描述了Connector Skill的多轮测试评估框架，旨在确保：
-1. 认知科学原理的正确应用
-2. AI辅助学习功能的有效性
-3. 用户学习效果的可测量性
-4. 持续改进的迭代机制
-
----
-
-## 评估维度
-
-### 1. 认知科学原理验证
-
-| 理论 | 验证方法 | 成功标准 |
-|------|---------|---------|
-| 认知负荷理论 | 用户反馈 + 学习时间 | 认知负荷可管理 |
-| 生成效应 | 主动回忆测试 | 生成学习效果显著优于被动阅读 |
-| 间隔重复 | 长期记忆测试 | 记忆保留率显著高于基准 |
-| 结构映射 | 跨领域类比应用测试 | 能有效发现深度结构相似性 |
-| 知识诅咒 | 专家-新手对话测试 | 新手能理解专家解释 |
-
-### 2. AI辅助功能测试
-
-| 功能 | 测试指标 | 成功标准 |
-|------|----------|---------|
-| 个性化内容 | 内容适应度 | 与用户背景匹配 |
-| 自适应路径优化 | 学习效率 | 学习时间减少% |
-| 智能反馈 | 反馈质量评分 | 4.0/5.0以上 |
-| 知识追踪 | 预测准确率 | 85%以上准确率 |
-| 连接发现 | 连接质量评分 | 4.0/5.0以上 |
-
-### 3. 用户体验评估
-
-| 维度 | 测量指标 | 目标值 |
-|------|----------|--------|
-| 可用性 | 任务完成率 | 95%+ |
-| 学习满意度 | NPS评分 | 60+ |
-| 继续使用意愿 | 二次使用比例 | 80%+ |
-| 易用性 | 系统可用性量表(SUS) | 80+ |
+This plan describes the multi-round testing and evaluation framework for the Connector Skill, designed to ensure:
+1. Correct application of cognitive science principles
+2. Effectiveness of AI-assisted learning features
+3. Measurability of user learning outcomes
+4. Iterative mechanism for continuous improvement
 
 ---
 
-## 测试阶段
+## Evaluation Dimensions
 
-### 阶段一：专家评审 (Round 1)
+### 1. Cognitive Science Principle Verification
 
-#### 目标
-- 验证认知科学原理应用的准确性
-- 评估AI辅助学习策略的有效性
+| Theory | Verification Method | Success Criteria |
+|--------|---------------------|------------------|
+| Cognitive Load Theory | User feedback + learning time | Cognitive load manageable |
+| Generation Effect | Active recall testing | Generative learning significantly better than passive reading |
+| Spaced Repetition | Long-term memory testing | Memory retention rate significantly above baseline |
+| Structure Mapping | Cross-domain analogy application testing | Can effectively discover deep structure similarities |
+| Curse of Knowledge | Expert-novice conversation testing | Novice can understand expert explanations |
 
-#### 测试方法
-1. **专家审查
-2. **对照实验**
-3. **用户测试
+### 2. AI-Assisted Feature Testing
 
-#### 测试内容
-- Domain QuickScan模块
-- Connection Discovery模块
-- 关键学习理论映射
+| Feature | Test Metric | Success Criteria |
+|---------|-------------|-----------------|
+| Personalized Content | Content adaptability | Matches user background |
+| Adaptive Path Optimization | Learning efficiency | Learning time reduced by % |
+| Intelligent Feedback | Feedback quality score | 4.0/5.0 or above |
+| Knowledge Tracking | Prediction accuracy | 85%+ accuracy |
+| Connection Discovery | Connection quality score | 4.0/5.0 or above |
 
-#### 成功标准
-- 认知科学原理应用正确
-- 所有关键功能工作正常
-- 初始用户反馈积极
+### 3. User Experience Evaluation
 
----
-
-### 阶段二：小范围用户测试 (Round 2)
-
-#### 目标
-- 收集用户反馈
-- 验证学习效果
-- 优化用户体验
-
-#### 测试方法
-1. A/B测试
-2. 前后测比较
-3. 用户访谈
-4. 学习日志分析
-
-#### 测试内容
-- 完整工作流
-- AI辅助功能
-- 学习效率对比
-
-#### 成功标准
-- 学习效果显著优于基准
-- 用户满意度达标
-- 关键改进建议收集完毕
+| Dimension | Measurement Metric | Target Value |
+|-----------|-------------------|--------------|
+| Usability | Task completion rate | 95%+ |
+| Learning Satisfaction | NPS score | 60+ |
+| Continued Use Intent | Retest participation rate | 80%+ |
+| Ease of Use | System Usability Scale (SUS) | 80+ |
 
 ---
 
-### 阶段三：优化改进 (Round 3)
+## Testing Phases
 
-#### 目标
-- 迭代优化
-- 性能优化
-- 文档完善
+### Phase One: Expert Review (Round 1)
 
-#### 测试方法
-1. 迭代开发
-2. 对比测试
-3. 专家再审
+#### Objectives
+- Verify accuracy of cognitive science principle application
+- Evaluate effectiveness of AI-assisted learning strategies
 
-#### 测试内容
-- 优化后的功能
-- 性能指标验证
-- 文档质量评估
+#### Testing Methods
+1. **Expert Review
+2. **Controlled Experiment**
+3. **User Testing
 
-#### 成功标准
-- 所有问题修复
-- 性能指标提升
-- 文档完整准确
+#### Testing Content
+- Domain QuickScan module
+- Connection Discovery module
+- Key learning theory mapping
 
----
-
-## 具体测试场景
-
-### 场景1：快速学习测试
-
-**测试任务**
-- 用户在30分钟内学习一个全新领域
-- 使用Connector Skill完成QuickScan
-
-**测量指标**
-- 概念理解程度
-- 认知负荷感知
-- 学习完成率
-
-**对照组**
-- 传统快速阅读方法
-- 无AI辅助
-
-**预期效果**
-- Connector Skill组理解深度提升30%
-- 认知负荷降低25%
+#### Success Criteria
+- Cognitive science principles applied correctly
+- All key functions working properly
+- Initial user feedback positive
 
 ---
 
-### 场景2：跨领域连接测试
+### Phase Two: Small-Scale User Testing (Round 2)
 
-**测试任务**
-- 发现不同领域间的连接
-- 应用跨领域类比
+#### Objectives
+- Collect user feedback
+- Verify learning effectiveness
+- Optimize user experience
 
-**测量指标**
-- 连接数量
-- 连接质量
-- 创新性评分
+#### Testing Methods
+1. A/B testing
+2. Pre/post test comparison
+3. User interviews
+4. Learning log analysis
 
-**对照组**
-- 人工发现连接
+#### Testing Content
+- Complete workflow
+- AI-assisted features
+- Learning efficiency comparison
 
-**预期效果**
-- 连接发现效率提升2倍
-- 连接质量评分提升
-
----
-
-### 场景3：记忆保留测试
-
-**测试任务**
-- 使用Knowledge Archive系统
-- 间隔重复学习
-
-**测量指标**
-- 1周记忆保留率
-- 1月记忆保留率
-- 复习效率
-
-**对照组**
-- 传统学习方法
-- 无间隔重复
-
-**预期效果**
-- 记忆保留率提升50%
-- 复习效率提升30%
+#### Success Criteria
+- Learning effectiveness significantly above baseline
+- User satisfaction meets standards
+- Key improvement suggestions collected
 
 ---
 
-## 评估指标体系
+### Phase Three: Optimization and Improvement (Round 3)
 
-### 学习效果指标
+#### Objectives
+- Iterative optimization
+- Performance optimization
+- Documentation completion
 
-| 指标 | 测量方法 | 目标 |
-|------|----------|------|
-| 知识掌握度 | 前后知识测试 | +25% |
-| 学习速度 | 时间测量 | -30% |
-| 记忆保留 | 延迟测试 | +40% |
-| 迁移能力 | 迁移测试 | +35% |
-| 连接发现 | 计数与评分 | +100% |
+#### Testing Methods
+1. Iterative development
+2. Comparative testing
+3. Expert re-review
 
-### 用户体验指标
+#### Testing Content
+- Optimized features
+- Performance metric verification
+- Documentation quality assessment
 
-| 指标 | 测量方法 | 目标 |
-|------|----------|--------|
-| 满意度 | 问卷调查 | 4.5/5.0 |
-| 可用性 | 任务成功率 | 95% |
-| 易用性 | SUS量表 | 80+ |
-| 继续使用意愿 | 重测参与率 | 80% |
-| 推荐度 | NPS | 60+ |
-
-### AI功能指标
-
-| 指标 | 测量方法 | 目标 |
-|------|----------|--------|
-| 个性化准确度 | 人工评估 | 85%+ |
-| 响应速度 | 性能测试 | <3秒 |
-| 错误率 | 错误追踪 | <5% |
-| 内容质量 | 专家评分 | 4.2/5.0 |
+#### Success Criteria
+- All issues fixed
+- Performance metrics improved
+- Documentation complete and accurate
 
 ---
 
-## 数据收集方法
+## Specific Test Scenarios
 
-### 定量数据
+### Scenario 1: Rapid Learning Test
 
-1. **学习表现数据
-   - 前后测成绩
-   - 学习时间记录
-   - 任务完成情况
-   - 错误率统计
+**Test Task**
+- User learns an entirely new domain within 30 minutes
+- Complete QuickScan using Connector Skill
 
-2. **用户行为数据**
-   - 点击流分析
-   - 停留时间
-   - 交互模式
-   - 完成路径
+**Measurement Metrics**
+- Concept understanding depth
+- Cognitive load perception
+- Learning completion rate
 
-3. **系统性能数据**
-   - 响应时间
-   - 资源使用
-   - 错误日志
-   - 可用性指标
+**Control Group**
+- Traditional rapid reading method
+- No AI assistance
 
-### 定性数据
-
-1. **用户问卷**
-   - 满意度调查
-   - 痛点反馈
-   - 改进建议
-   - 使用体验描述
-
-2. **用户访谈**
-   - 深度体验分享
-   - 使用场景描述
-   - 改进建议
-   - 情感反馈
-
-3. **专家评审**
-   - 理论正确性
-   - 设计合理性
-   - 改进建议
-   - 潜在风险
+**Expected Effect**
+- Connector Skill group understanding depth increased by 30%
+- Cognitive load reduced by 25%
 
 ---
 
-## 测试案例设计
+### Scenario 2: Cross-Domain Connection Test
 
-### 案例1：技术领域学习
+**Test Task**
+- Discover connections between different domains
+- Apply cross-domain analogies
 
-**领域选择**：机器学习入门
-**测试用户**：无技术背景用户
-**任务时长**：30分钟
+**Measurement Metrics**
+- Number of connections
+- Connection quality
+- Innovation score
 
-**预期输出**
-- QuickScan报告
-- 概念图谱
-- 与其他领域连接
-- 快速掌握路径
+**Control Group**
+- Manual connection discovery
 
----
-
-### 案例2：商业领域学习
-
-**领域选择**：区块链商业应用
-**测试用户**：商业背景
-**任务时长**：30分钟
-
-**预期输出**
-- QuickScan报告
-- 商业模式分析
-- 与现有商业知识连接
+**Expected Effect**
+- Connection discovery efficiency increased by 2x
+- Connection quality score improved
 
 ---
 
-### 案例3：跨领域创新
+### Scenario 3: Memory Retention Test
 
-**领域组合**：生物学 + 设计
-**测试任务**：寻找类比连接
-**任务时长**：15分钟
+**Test Task**
+- Use Knowledge Archive system
+- Spaced repetition learning
 
-**预期输出**
-- 跨领域类比集合
-- 创新机会识别
-- 跨领域连接
+**Measurement Metrics**
+- 1-week memory retention rate
+- 1-month memory retention rate
+- Review efficiency
 
----
+**Control Group**
+- Traditional learning method
+- No spaced repetition
 
-## 分析框架
-
-### 分析维度
-
-1. **效果分析**
-   - 学习效果对比
-   - 效率提升幅度
-   - 与目标达成度
-
-2. **用户分析**
-   - 需求匹配度
-   - 痛点解决度
-   - 满意度分析
-
-3. **技术分析**
-   - 性能评估
-   - 瓶颈识别
-   - 优化建议
+**Expected Effect**
+- Memory retention rate increased by 50%
+- Review efficiency improved by 30%
 
 ---
 
-## 迭代改进
+## Evaluation Metric System
 
-### 改进优先级
+### Learning Effectiveness Metrics
 
-- **P0**：核心功能问题
-- **P1**：重要体验问题
-- **P2**：优化建议
-- **P3**：未来功能需求
+| Metric | Measurement Method | Target |
+|--------|-------------------|--------|
+| Knowledge Mastery | Pre/post knowledge tests | +25% |
+| Learning Speed | Time measurement | -30% |
+| Memory Retention | Delayed testing | +40% |
+| Transfer Ability | Transfer testing | +35% |
+| Connection Discovery | Counting and scoring | +100% |
 
-### 迭代流程
+### User Experience Metrics
 
-1. 问题收集 → 2. 根因分析 → 3. 方案设计 → 4. 实现开发 → 5. 测试验证 → 6. 部署上线
+| Metric | Measurement Method | Target |
+|--------|-------------------|--------|
+| Satisfaction | Questionnaire | 4.5/5.0 |
+| Usability | Task success rate | 95% |
+| Ease of Use | SUS scale | 80+ |
+| Continued Use Intent | Retest participation | 80% |
+| Recommendation | NPS | 60+ |
 
----
+### AI Feature Metrics
 
-## 持续改进
-
-### 长期评估周期
-
-- **每周**：小迭代
-- **每月**：功能优化
-- **每季度**：全面评估
-- **每年**：大版本
-
----
-
-## 成功标准
-
-### 整体成功标准
-
-1. 学习效果提升 学习效果比传统方法提升30%+
-2. 用户满意度 4.3/5.0以上
-3. 可用性95%以上完成率
-4. 推荐度 NPS 60+
-
-### 阶段目标
-
-**阶段一**
-- 专家评审通过
-- 理论验证完成
-- 关键指标达标
-
-**阶段二**
-- 用户测试完成
-- 问题收集完毕
-- 改进方案制定
-
-**阶段三**
-- 所有问题修复
-- 性能指标提升
-- 正式发布准备
+| Metric | Measurement Method | Target |
+|--------|-------------------|--------|
+| Personalization Accuracy | Human evaluation | 85%+ |
+| Response Speed | Performance testing | <3 seconds |
+| Error Rate | Error tracking | <5% |
+| Content Quality | Expert scoring | 4.2/5.0 |
 
 ---
 
-## 附录：测试模板
+## Data Collection Methods
 
-### 用户测试记录表
+### Quantitative Data
+
+1. **Learning Performance Data
+   - Pre/post test scores
+   - Learning time records
+   - Task completion status
+   - Error rate statistics
+
+2. **User Behavior Data**
+   - Clickstream analysis
+   - Time spent
+   - Interaction patterns
+   - Completion paths
+
+3. **System Performance Data**
+   - Response time
+   - Resource usage
+   - Error logs
+   - Availability metrics
+
+### Qualitative Data
+
+1. **User Questionnaire**
+   - Satisfaction survey
+   - Pain point feedback
+   - Improvement suggestions
+   - Usage experience description
+
+2. **User Interviews**
+   - Deep experience sharing
+   - Usage scenario description
+   - Improvement suggestions
+   - Emotional feedback
+
+3. **Expert Review**
+   - Theoretical correctness
+   - Design rationality
+   - Improvement suggestions
+   - Potential risks
+
+---
+
+## Test Case Design
+
+### Case 1: Technology Domain Learning
+
+**Domain Selection**: Machine learning introduction
+**Test Users**: Users without technical background
+**Task Duration**: 30 minutes
+
+**Expected Output**
+- QuickScan report
+- Concept graph
+- Connections to other domains
+- Rapid mastery path
+
+---
+
+### Case 2: Business Domain Learning
+
+**Domain Selection**: Blockchain business applications
+**Test Users**: Business background
+**Task Duration**: 30 minutes
+
+**Expected Output**
+- QuickScan report
+- Business model analysis
+- Connections to existing business knowledge
+
+---
+
+### Case 3: Cross-Domain Innovation
+
+**Domain Combination**: Biology + Design
+**Test Task**: Find analogy connections
+**Task Duration**: 15 minutes
+
+**Expected Output**
+- Cross-domain analogy collection
+- Innovation opportunity identification
+- Cross-domain connections
+
+---
+
+## Analysis Framework
+
+### Analysis Dimensions
+
+1. **Effectiveness Analysis**
+   - Learning outcome comparison
+   - Efficiency improvement magnitude
+   - Goal achievement level
+
+2. **User Analysis**
+   - Requirement matching degree
+   - Pain point resolution level
+   - Satisfaction analysis
+
+3. **Technical Analysis**
+   - Performance evaluation
+   - Bottleneck identification
+   - Optimization suggestions
+
+---
+
+## Iterative Improvement
+
+### Improvement Priority
+
+- **P0**: Core functionality issues
+- **P1**: Important experience issues
+- **P2**: Optimization suggestions
+- **P3**: Future feature requirements
+
+### Iteration Process
+
+1. Problem collection → 2. Root cause analysis → 3. Solution design → 4. Implementation development → 5. Testing validation → 6. Deployment
+
+---
+
+## Continuous Improvement
+
+### Long-Term Evaluation Cycle
+
+- **Weekly**: Small iterations
+- **Monthly**: Feature optimization
+- **Quarterly**: Comprehensive assessment
+- **Annual**: Major version
+
+---
+
+## Success Criteria
+
+### Overall Success Criteria
+
+1. Learning effectiveness improvement 30%+ improvement over traditional methods
+2. User satisfaction 4.3/5.0 or above
+3. Usability 95%+ completion rate
+4. Recommendation NPS 60+
+
+### Phase Goals
+
+**Phase One**
+- Expert review passed
+- Theory verification completed
+- Key metrics meet standards
+
+**Phase Two**
+- User testing completed
+- Problems collected
+- Improvement plan formulated
+
+**Phase Three**
+- All issues fixed
+- Performance metrics improved
+- Ready for official release
+
+---
+
+## Appendix: Test Templates
+
+### User Test Record Form
 
 ```
-测试ID：____
-测试日期：____
-测试用户：____
-测试领域：____
+Test ID: ____
+Test Date: ____
+Test User: ____
+Test Domain: ____
 
-1. 快速学习效果
-- 前测成绩：____
-- 后测成绩：____
-- 理解深度：____
+1. Rapid Learning Effectiveness
+- Pre-test score: ____
+- Post-test score: ____
+- Understanding depth: ____
 
-2. 用户体验
-- 易用性评分：____
-- 满意度评分：____
-- 继续使用意愿：____
-- NPS评分：____
+2. User Experience
+- Ease of use score: ____
+- Satisfaction score: ____
+- Continued use intent: ____
+- NPS score: ____
 
-3. 功能评估
-- 最满意功能：____
-- 最不满意功能：____
-- 改进建议：____
+3. Feature Evaluation
+- Most satisfying feature: ____
+- Least satisfying feature: ____
+- Improvement suggestions: ____
 
-4. 定性反馈
-- 正面反馈：____
-- 负面反馈：____
-- 改进建议：____
+4. Qualitative Feedback
+- Positive feedback: ____
+- Negative feedback: ____
+- Improvement suggestions: ____
 
 ```
 
 ---
 
-**测试评估计划制定完成
-**版本：v1.0
-**日期：2026-05-21
+**Test Evaluation Plan Completed
+**Version**: v1.0
+**Date**: 2026-05-21

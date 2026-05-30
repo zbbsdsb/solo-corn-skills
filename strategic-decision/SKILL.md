@@ -96,3 +96,90 @@ The Strategic Decision skill should be activated when:
 ---
 
 **Role**: Strategic Decision Engine | **Type**: Strategy & Planning
+
+---
+
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "strategic-decision",
+  "version": "2.0.0",
+  "description": "Strategic decision engine providing structured frameworks for business strategy, competitive positioning, market analysis, and long-term planning",
+  "author": "SOLO CORN SKILLS",
+  "category": ["strategy", "planning"],
+  "tags": ["strategy", "decision", "business-model", "market-analysis"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "plan",
+      "type": "string",
+      "required": true,
+      "description": "Plan, strategy, or product specification document"
+    },
+    {
+      "name": "mode",
+      "type": "string",
+      "required": false,
+      "description": "Validation mode (quick-validation, technical-validation, market-analysis, etc.)",
+      "default": "quick-validation"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "validationResult",
+      "type": "object",
+      "description": "Complete validation result including ratings and recommendations"
+    },
+    {
+      "name": "technicalSpec",
+      "type": "string",
+      "description": "Technical specification document (if in technical validation mode)"
+    },
+    {
+      "name": "marketAnalysis",
+      "type": "object",
+      "description": "Market analysis results (if in market analysis mode)"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute strategic decision process
+  // 1. Problem framing
+  // 2. Context analysis
+  // 3. Option generation
+  // 4. Evaluation and selection
+  // 5. Planning and execution
+  // 6. Return results
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke strategic-decision --input '{"plan":"My product plan", "mode":"quick-validation"}'
+
+# Interactive invocation
+scs invoke strategic-decision --interactive
+
+# Chain invocation
+scs invoke product-builder --then strategic-decision
+```

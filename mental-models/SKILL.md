@@ -180,5 +180,102 @@ This library draws from diverse sources:
 
 ---
 
-*Last Updated: 2026-05-19*
-*Version: 1.0.0*
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "mental-models",
+  "version": "2.0.0",
+  "description": "Comprehensive thinking toolkit with 45+ cognitive frameworks",
+  "author": "SOLO CORN SKILLS",
+  "category": ["thinking", "frameworks"],
+  "tags": ["mental-models", "decision-making", "cognitive-frameworks"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "situation",
+      "type": "string",
+      "required": true,
+      "description": "Situation or problem to think about"
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "required": false,
+      "description": "Model category (decision-reasoning, strategy-competition, systems-complexity, psychology-behavior, execution-learning)"
+    },
+    {
+      "name": "specificModel",
+      "type": "string",
+      "required": false,
+      "description": "Specific model to use (e.g., first-principles, swot-analysis)"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "models",
+      "type": "array",
+      "description": "Recommended mental models with explanations"
+    },
+    {
+      "name": "application",
+      "type": "object",
+      "description": "How to apply the models to your situation"
+    },
+    {
+      "name": "insights",
+      "type": "array",
+      "description": "Key insights from model application"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute mental model selection and application
+  // 1. Analyze situation and identify problem type
+  // 2. Select relevant models from library
+  // 3. Provide model explanations and context
+  // 4. Guide application to user's situation
+  // 5. Return results with insights
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke mental-models --input '{"situation": "Making a major career decision"}'
+
+# Interactive mode
+scs invoke mental-models --interactive
+
+# With specific category or model
+scs invoke mental-models --input '{"situation": "Competitive strategy", "category": "strategy-competition"}'
+scs invoke mental-models --input '{"situation": "My problem", "specificModel": "first-principles"}'
+
+# Also available via scs models commands
+scs models list
+scs models show first-principles
+scs models search "decision"
+```
+
+---
+
+*Last Updated: 2026-05-26*
+*Version: 2.0.0*

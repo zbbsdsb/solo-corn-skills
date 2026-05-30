@@ -124,7 +124,7 @@
 ---
 
 ### Task 7: Domain Templates Enhancement ✅
-**File**: [connector/references/domain-templates/通用领域速览模板-AI-ENHANCED.md](connector/references/domain-templates/通用领域速览模板-AI-ENHANCED.md)
+**File**: [connector/references/domain-templates/General-Domain-Overview-Template-AI-ENHANCED.md](connector/references/domain-templates/General-Domain-Overview-Template-AI-ENHANCED.md)
 
 **Content Included**:
 - ✅ AI-enhanced general domain template
@@ -141,7 +141,7 @@
 ---
 
 ### Task 8: Connection Patterns Library Enhancement ✅
-**File**: [connector/references/connection-patterns/科技-商业连接-AI-ENHANCED.md](connector/references/connection-patterns/科技-商业连接-AI-ENHANCED.md)
+**File**: [connector/references/connection-patterns/Tech-Business-Connection-AI-ENHANCED.md](connector/references/connection-patterns/Tech-Business-Connection-AI-ENHANCED.md)
 
 **Content Included**:
 - ✅ AI-enhanced tech-business connection
@@ -229,10 +229,10 @@ connector/
     │   └── knowledge-archive-AI-IMPLEMENTATION.md ✅ (New)
     ├── domain-templates/
     │   ├── [5 template files]
-    │   └── 通用领域速览模板-AI-ENHANCED.md ✅ (New)
+    │   └── General-Domain-Overview-Template-AI-ENHANCED.md ✅ (New)
     ├── connection-patterns/
     │   ├── [4 pattern files]
-    │   └── 科技-商业连接-AI-ENHANCED.md ✅ (New)
+    │   └── Tech-Business-Connection-AI-ENHANCED.md ✅ (New)
     ├── learning-methods/
     │   └── [4 method files]
     └── AI-ASSISTED-LEARNING-REVIEW.md

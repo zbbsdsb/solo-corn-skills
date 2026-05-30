@@ -463,7 +463,7 @@ How does natural selection relate to business competition?
 
 ## Back
 
-**Core Similarity**: Both淘汰不适合的，奖励适应者
+**Core Similarity**: Both eliminate those who are unsuitable and reward those who adapt
 
 **Business Application**:
 - Products that don't meet needs die

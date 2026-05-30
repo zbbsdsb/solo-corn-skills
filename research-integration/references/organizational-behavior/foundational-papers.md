@@ -179,7 +179,7 @@ This document compiles the most influential foundational papers in the field of 
 **Key Insights**:
 - Difficulty of knowledge transfer depends on causal ambiguity and embeddedness of knowledge
 - Causal ambiguity makes it difficult for recipients to understand knowledge value
-- Embeddedness makes it difficult to剥离 knowledge from its original context
+- Embeddedness makes it difficult to separate knowledge from its original context
 - Mismatched transfer motivation is a common obstacle
 - Differences in absorptive capacity affect transfer effectiveness
 

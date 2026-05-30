@@ -401,7 +401,7 @@ Confirm market readiness
 | Pivot Type | When to Use | Example |
 |------------|-------------|---------|
 | **Zoom-in** | One feature is the whole product | Instagram from Burbn |
-| **Zoom-out** | Product is one feature of larger whole | YouTube from Video约会 |
+| **Zoom-out** | Product is one feature of larger whole | YouTube from video hosting |
 | **Customer segment** | Different target audience | Slack from gaming company |
 | **Customer need** | Solving different problem for same audience | Spotify from music sharing |
 | **Platform** | Technical architecture change | Instagram from web to mobile |

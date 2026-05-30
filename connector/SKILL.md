@@ -2,13 +2,13 @@
 name: connector
 description: Helps users rapidly learn any domain and build cross-domain knowledge connections, becoming a "T-shaped" generalist who can connect experts across fields. Use when users need to quickly understand a new field, find cross-domain connections, or build efficient learning paths.
 triggers:
-  - "我想快速了解XX"
-  - "帮我学习XX"
-  - "XX是什么"
-  - "我想进入XX领域"
-  - "如何快速掌握XX"
-  - "帮我找XX和其他领域的联系"
-  - "我需要了解XX但没时间"
+  - "I want to quickly understand XX"
+  - "Help me learn XX"
+  - "What is XX"
+  - "I want to enter the XX field"
+  - "How to master XX quickly"
+  - "Help me find connections between XX and other fields"
+  - "I need to understand XX but don't have time"
 capabilities:
   - Rapid domain overview (30 minutes)
   - Cross-domain connection discovery
@@ -189,7 +189,7 @@ AI: "Let's start your quantum computing overview journey.
      2. Connections to what you already know
      3. Minimum necessary knowledge path
      4. Expert conversation knowledge package
-     
+
      Ready to begin?"
 ```
 
@@ -392,11 +392,11 @@ This skill integrates research on AI-assisted learning and intelligent tutoring 
 
 ## Philosophy
 
-> "不是成为某个领域的博士，而是成为能够连接博士的人。"
-> 
-> "知识是廉价的，连接才是价值。"
-> 
-> "5% 的知识 + 95% 的连接 = 无限可能。"
+> "Don't become a PhD in a field—become someone who can connect PhDs."
+
+> "Knowledge is cheap; connections are valuable."
+
+> "5% knowledge + 95% connections = infinite possibilities."
 
 ## Notes
 
@@ -404,3 +404,97 @@ This skill integrates research on AI-assisted learning and intelligent tutoring 
 - Encourage active recall over passive reading
 - Build systematic review habits
 - Celebrate cross-domain insights
+
+---
+
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "connector",
+  "version": "2.0.0",
+  "description": "Rapid domain learning and cross-domain knowledge connection builder",
+  "author": "SOLO CORN SKILLS",
+  "category": ["learning", "connection"],
+  "tags": ["rapid-learning", "cross-domain", "knowledge-connection", "t-shaped"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "domain",
+      "type": "string",
+      "required": true,
+      "description": "Domain or topic to learn about"
+    },
+    {
+      "name": "goal",
+      "type": "string",
+      "required": false,
+      "description": "Learning goal (overview, expert-prep, deep-dive)",
+      "default": "overview"
+    },
+    {
+      "name": "timeAvailable",
+      "type": "string",
+      "required": false,
+      "description": "Time available for learning (30min, 2hr, 1day, etc)"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "quickscan",
+      "type": "object",
+      "description": "Domain quickscan report with concept tree"
+    },
+    {
+      "name": "connections",
+      "type": "array",
+      "description": "Cross-domain connection discoveries"
+    },
+    {
+      "name": "learningPath",
+      "type": "object",
+      "description": "Personalized learning path"
+    },
+    {
+      "name": "expertPrep",
+      "type": "object",
+      "description": "Expert conversation preparation package"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute rapid learning workflow
+  // 1. Domain QuickScan - generate overview and concept tree
+  // 2. Connection Discovery - find cross-domain links
+  // 3. Rapid Mastery Path - personalized learning sequence
+  // 4. Expert Talk Prep - conversation preparation
+  // 5. Return results
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke connector --input '{"domain": "quantum computing"}'
+
+# Interactive mode
+scs invoke connector --interactive
+```

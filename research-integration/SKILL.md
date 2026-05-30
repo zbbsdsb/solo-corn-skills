@@ -184,3 +184,93 @@ To extend this skill:
 - **Product Development Skill**: Apply theories from this skill to specific products
 - **Marketing Growth Skill**: Combine with marketing research insights
 - **Decision Support Skill**: Deepen decision framework application
+
+---
+
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "research-integration",
+  "version": "2.0.0",
+  "description": "Integrates 50 years of cross-disciplinary academic research for actionable insights",
+  "author": "SOLO CORN SKILLS",
+  "category": ["research", "insights"],
+  "tags": ["research-integration", "mental-models", "academic-insights"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "question",
+      "type": "string",
+      "required": true,
+      "description": "Question or problem to research"
+    },
+    {
+      "name": "area",
+      "type": "string",
+      "required": false,
+      "description": "Research area (ai-ml, entrepreneurship, automation-hci, organizational-behavior, software-engineering)"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "insights",
+      "type": "array",
+      "description": "Relevant research insights and findings"
+    },
+    {
+      "name": "models",
+      "type": "array",
+      "description": "Applicable mental models"
+    },
+    {
+      "name": "framework",
+      "type": "object",
+      "description": "Composed analytical framework"
+    },
+    {
+      "name": "examples",
+      "type": "array",
+      "description": "Practical application examples"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute research integration
+  // 1. Analyze question and identify relevant areas
+  // 2. Retrieve research insights from knowledge base
+  // 3. Select and apply appropriate mental models
+  // 4. Compose analytical framework
+  // 5. Return results with examples
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke research-integration --input '{"question": "How to validate my startup idea"}'
+
+# Interactive mode
+scs invoke research-integration --interactive
+
+# With specific area
+scs invoke research-integration --input '{"question": "Team management", "area": "organizational-behavior"}'
+```

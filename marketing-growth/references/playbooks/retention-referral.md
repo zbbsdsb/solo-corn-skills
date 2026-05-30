@@ -833,7 +833,7 @@ Success Criteria: [X]% likely to renew
 
 Checklist:
 □ ROI demonstrated
-□ Success story素材 collected
+□ Success story materials collected
 □ Expansion discussed
 □ Renewal process initiated
 □ Relationship deepened

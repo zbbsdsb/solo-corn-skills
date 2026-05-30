@@ -172,3 +172,96 @@ This skill activates when users mention:
 - **Research Integration**: Market insights and competitive analysis
 - **Product Builder**: Landing page and funnel implementation
 - **Customer Success**: Retention and support strategies
+
+---
+
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "marketing-growth",
+  "version": "2.0.0",
+  "description": "Comprehensive marketing and growth support for solo entrepreneurs, from zero to one customer acquisition",
+  "author": "SOLO CORN SKILLS",
+  "category": ["marketing", "growth"],
+  "tags": ["marketing", "growth", "customer-acquisition", "content-marketing"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "product",
+      "type": "string",
+      "required": true,
+      "description": "Product or service description"
+    },
+    {
+      "name": "phase",
+      "type": "string",
+      "required": false,
+      "description": "Marketing phase (research, strategy, content, conversion, growth)",
+      "default": "strategy"
+    },
+    {
+      "name": "budget",
+      "type": "string",
+      "required": false,
+      "description": "Marketing budget range"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "strategy",
+      "type": "object",
+      "description": "Complete marketing strategy and channel plan"
+    },
+    {
+      "name": "content",
+      "type": "object",
+      "description": "Content calendar and templates"
+    },
+    {
+      "name": "metrics",
+      "type": "object",
+      "description": "KPI definitions and tracking plan"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute marketing workflow
+  // 1. Customer research and persona creation
+  // 2. Marketing strategy development
+  // 3. Channel selection and prioritization
+  // 4. Content creation and optimization
+  // 5. Growth experiment design
+  // 6. Return results
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke marketing-growth --input '{"product": "My new SaaS app"}'
+
+# Interactive mode
+scs invoke marketing-growth --interactive
+
+# With specific phase
+scs invoke marketing-growth --input '{"product": "My SaaS", "phase": "content"}'
+```

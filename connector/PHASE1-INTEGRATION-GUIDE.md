@@ -85,7 +85,7 @@ Domain QuickScan
 
 **Use Guides**:
 - [domain-quickscan-AI-IMPLEMENTATION.md](references/rapid-learning/domain-quickscan-AI-IMPLEMENTATION.md)
-- [通用领域速览模板-AI-ENHANCED.md](references/domain-templates/通用领域速览模板-AI-ENHANCED.md)
+- [General-Domain-Overview-Template-AI-ENHANCED.md](references/domain-templates/General-Domain-Overview-Template-AI-ENHANCED.md)
 
 **Output**:
 ```markdown
@@ -126,7 +126,7 @@ Blockchain
 
 **Use Guides**:
 - [connection-discovery-AI-IMPLEMENTATION.md](references/rapid-learning/connection-discovery-AI-IMPLEMENTATION.md)
-- [科技-商业连接-AI-ENHANCED.md](references/connection-patterns/科技-商业连接-AI-ENHANCED.md)
+- [Tech-Business-Connection-AI-ENHANCED.md](references/connection-patterns/Tech-Business-Connection-AI-ENHANCED.md)
 
 **Output**:
 ```markdown
@@ -366,10 +366,10 @@ Output: Project-ready expertise
 ## 8. Module-Specific Templates
 
 ### QuickScan Template
-**File**: [通用领域速览模板-AI-ENHANCED.md](references/domain-templates/通用领域速览模板-AI-ENHANCED.md)
+**File**: [General-Domain-Overview-Template-AI-ENHANCED.md](references/domain-templates/General-Domain-Overview-Template-AI-ENHANCED.md)
 
 ### Connection Template
-**File**: [科技-商业连接-AI-ENHANCED.md](references/connection-patterns/科技-商业连接-AI-ENHANCED.md)
+**File**: [Tech-Business-Connection-AI-ENHANCED.md](references/connection-patterns/Tech-Business-Connection-AI-ENHANCED.md)
 
 ### All Module Templates
 **Location**: [references/rapid-learning/](references/rapid-learning/)

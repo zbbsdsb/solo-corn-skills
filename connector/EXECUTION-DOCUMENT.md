@@ -445,9 +445,9 @@ What is [concept] and why does it matter?
 ### 6.1 With mental-models Skill
 
 **Synergy Points**:
--复用 45+ 思维模型作为连接发现的基础
-- 学习路径中嵌入相关心智模型
-- 强调"用思维模型连接领域"
+- Reuse 45+ mental models as the basis for connection discovery
+- Embed relevant mental models in learning paths
+- Emphasize "using mental models to connect domains"
 
 **Integration Method**:
 ```markdown
@@ -462,8 +462,8 @@ When analyzing [domain], automatically suggest:
 ### 6.2 With research-integration Skill
 
 **Synergy Points**:
--复用文献综述能力进行深度研究
-- 共享知识图谱构建方法
+- Reuse literature review capabilities for in-depth research
+- Share knowledge graph construction methods
 
 **Integration Method**:
 ```markdown
@@ -503,7 +503,7 @@ This will use the research-integration skill for a 2-hour deep dive."
 
 ### Phase 3: Expansion (Month 2)
 **Deliverables**:
-- [ ] 5 domain templates (通用、科技、商业、设计、科学)
+- [ ] 5 domain templates (General/Technology/Business/Design/Science)
 - [ ] 10 classic connection patterns
 - [ ] Enhanced mental model integration
 - [ ] Community feedback integration
@@ -547,7 +547,7 @@ This will use the research-integration skill for a 2-hour deep dive."
 
 | Risk | Probability | Impact | Mitigation |
 |------|-------------|--------|------------|
-| Research misinterpretation | Low | High | Peer review of理论基础 |
+| Research misinterpretation | Low | High | Peer review of theoretical foundation |
 | Over-simplification | Medium | Medium | Link to primary sources |
 
 ---

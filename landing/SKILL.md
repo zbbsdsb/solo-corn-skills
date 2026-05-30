@@ -1,85 +1,85 @@
 ---
 name: landing
-description:引导用户从模糊想法到清晰方向，通过"怀疑-重构"框架帮助用户厘清真实需求，建立清晰的发展路线图。
+description: Guides users from vague ideas to clear direction through the "Doubt + Reconstruction" framework, helping users clarify their true needs and establish a clear development roadmap.
 triggers:
-  - "我不知道我想做什么"
-  - "我有想法但不清晰"
-  - "我想要XX但不知道具体要什么"
-  - "帮我梳理一下"
-  - "我想做XX但是..."
-  - 任何需要澄清想法的场景
+  - "I don't know what I want to do"
+  - "I have an idea but it's not clear"
+  - "I want XX but I don't know exactly what I want"
+  - "Help me sort this out"
+  - "I want to do XX but..."
+  - Any scenario requiring idea clarification
 capabilities:
-  - 深入探索用户的模糊想法
-  - 识别表面需求背后的真实动机
-  - 通过质疑重构，帮助用户建立清晰的认知框架
-  - 提供清晰的方向指导
+  - Deep exploration of user's vague ideas
+  - Identifying true motivations behind surface-level needs
+  - Helping users build a clear cognitive framework through questioning and reconstruction
+  - Providing clear direction guidance
 ---
 
 # Landing Skill
 
-引导用户从**模糊想法**到**清晰方向**的技能。
+Guides users from **vague ideas** to **clear direction**.
 
 ## Core Philosophy: Doubt + Reconstruction
 
-**怀疑-重构**框架是本技能的内核。
+The **Doubt + Reconstruction** framework is the core of this skill.
 
-### Doubt Framework (怀疑框架)
+### Doubt Framework
 
-不急于接受用户的第一个答案。通过系统性提问：
-- 质疑表面的答案
-- 追问"为什么"直到触及本质
-- 识别矛盾和隐藏假设
-- 区分"想要"和"需要"
+Don't rush to accept the user's first answer. Through systematic questioning:
+- Question surface-level answers
+- Ask "why" repeatedly until reaching the essence
+- Identify contradictions and hidden assumptions
+- Distinguish between "wants" and "needs"
 
-### Reconstruction Framework (重构框架)
+### Reconstruction Framework
 
-在充分怀疑后，帮助用户：
-- 从基本原理重建理解
-- 将碎片化想法整合为系统认知
-- 建立清晰的优先级
-- 形成可执行的行动计划
+After thorough doubting, help users:
+- Rebuild understanding from first principles
+- Integrate fragmented ideas into systematic cognition
+- Establish clear priorities
+- Form actionable action plans
 
 ## Usage Guide
 
 ### When to Use
 
-触发场景包括但不限于：
-- 用户表达模糊的需求
-- 用户说"我不知道我要什么"
-- 用户说"我想要XX但是..."
-- 用户需要厘清发展方向
-- 任何需要澄清想法的场景
+Trigger scenarios include but are not limited to:
+- User expresses vague needs
+- User says "I don't know what I want"
+- User says "I want XX but..."
+- User needs to clarify development direction
+- Any scenario requiring idea clarification
 
 ### How to Use
 
-1. **Listen actively** - 不急于给建议，先理解用户真实处境
-2. **Apply Doubt** - 通过提问质疑表面答案
-3. **Reconstruct** - 帮助用户从第一性原理重建理解
-4. **Clarify** - 最终形成清晰的方向和行动计划
+1. **Listen actively** - Don't rush to give advice, first understand the user's true situation
+2. **Apply Doubt** - Question surface answers through questioning
+3. **Reconstruct** - Help users rebuild understanding from first principles
+4. **Clarify** - Finally form a clear direction and action plan
 
 ### Key Questions
 
 #### Idea Clarification
-- "你说的XX，具体指什么？"
-- "为什么这对你重要？"
-- "如果不解决这个问题，会发生什么？"
+- "What do you mean by XX exactly?"
+- "Why is this important to you?"
+- "What happens if this problem isn't solved?"
 
 #### First Principles
-- "如果抛开现有方案，从头开始，你会怎么做？"
-- "这个问题的本质是什么？"
-- "有哪些基本假设可能是错的？"
+- "If you set aside existing solutions and start from scratch, how would you approach this?"
+- "What is the true nature of this problem?"
+- "What basic assumptions might be wrong?"
 
 #### Direction Building
-- "你现在能做的最小行动是什么？"
-- "什么情况下你会放弃这个想法？"
-- "三年后，你希望自己在哪里？"
+- "What is the smallest action you can take right now?"
+- "Under what circumstances would you abandon this idea?"
+- "Where do you want to be in three years?"
 
 ## Workflow
 
-1. **Clarify** - 深入理解用户的模糊想法
-2. **Doubt** - 系统性质疑，寻找隐藏矛盾
-3. **Reconstruct** - 从第一性原理重建认知
-4. **Direct** - 提供清晰的方向和路径
+1. **Clarify** - Deeply understand the user's vague idea
+2. **Doubt** - Systematic questioning, finding hidden contradictions
+3. **Reconstruct** - Rebuild cognition from first principles
+4. **Direct** - Provide clear direction and path
 
 ## References
 
@@ -91,7 +91,98 @@ capabilities:
 
 ## Notes
 
-- 耐心是第一要素，不要急于给答案
-- 怀疑是为了更好地理解，不是为了否定
-- 重构是帮助用户建立自己的认知框架
-- 最终目标是让用户自己找到方向
+- Patience is the first priority, don't rush to give answers
+- Doubt is for better understanding, not for negation
+- Reconstruction is helping users build their own cognitive framework
+- The ultimate goal is for users to find their own direction
+
+---
+
+## Interface Definition
+
+### Metadata
+```typescript
+{
+  "name": "landing",
+  "version": "2.0.0",
+  "description": "Guides users from vague ideas to clear direction through the Doubt + Reconstruction framework to help clarify true needs",
+  "author": "SOLO CORN SKILLS",
+  "category": ["clarity", "ideation"],
+  "tags": ["idea", "doubt", "reconstruction", "first-principles"]
+}
+```
+
+### Input Schema
+```typescript
+{
+  "inputs": [
+    {
+      "name": "idea",
+      "type": "string",
+      "required": true,
+      "description": "User's initial idea or problem description"
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "required": false,
+      "description": "User's background (technical, business, fullstack, etc.)",
+      "default": "fullstack"
+    },
+    {
+      "name": "constraints",
+      "type": "string",
+      "required": false,
+      "description": "Time or resource constraints"
+    }
+  ]
+}
+```
+
+### Output Schema
+```typescript
+{
+  "outputs": [
+    {
+      "name": "problemStatement",
+      "type": "string",
+      "description": "Clarified problem statement"
+    },
+    {
+      "name": "successCriteria",
+      "type": "object",
+      "description": "Success criteria and validation conditions"
+    },
+    {
+      "name": "direction",
+      "type": "string",
+      "description": "Clear development direction"
+    }
+  ]
+}
+```
+
+### Invoke Method
+```typescript
+async invoke(params: InvocationParams): Promise<SkillResult> {
+  // Execute "Doubt + Reconstruction" process
+  // 1. Understand user's vague idea
+  // 2. Systematic questioning
+  // 3. Rebuild from first principles
+  // 4. Return clear direction
+}
+```
+
+---
+
+## Usage via CLI
+```bash
+# Basic invocation
+scs invoke landing --input '{"idea":"I want to build an AI product"}'
+
+# Interactive invocation
+scs invoke landing --interactive
+
+# Chain invocation
+scs invoke landing --then product-builder
+```

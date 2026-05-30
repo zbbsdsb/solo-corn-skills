@@ -20,7 +20,7 @@ This document provides guidance on when, how, and why to combine multiple skills
 - Full product development and launch
 - Business planning from concept to market
 - Strategic decisions with implementation needs
-- Market entry with product准备好了
+- Market entry with product ready
 
 **Moderate Triggers (Consider Combining):**
 - Complex decision with multiple frameworks needed

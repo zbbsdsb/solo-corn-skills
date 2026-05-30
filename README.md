@@ -89,18 +89,18 @@ More info: See [tools/cli/README.md](tools/cli/README.md) and [QUICKSTART.md](to
 
 ---
 
-## 📚 代码示例库
+## 📚 Code Example Library
 
-**快速开始你的项目，使用我们的可复用模板！**
+**Quick start your project with our reusable templates!**
 
-### 🎯 可用模板
+### 🎯 Available Templates
 
-| 模板 | 描述 | 路径 |
-|------|------|------|
-| **Basic Starter** | 简洁的基础项目骨架 | [examples/templates/basic-starter/](examples/templates/basic-starter/) |
-| **SaaS Starter** | 前后端分离的 SaaS 项目 | [examples/templates/saas-starter/](examples/templates/saas-starter/) |
+| Template | Description | Path |
+|----------|-------------|------|
+| **Basic Starter** | Clean basic project skeleton | [examples/templates/basic-starter/](examples/templates/basic-starter/) |
+| **SaaS Starter** | Frontend-backend separated SaaS project | [examples/templates/saas-starter/](examples/templates/saas-starter/) |
 
-### 使用 Basic Starter
+### Using Basic Starter
 
 ```bash
 cd examples/templates/basic-starter
@@ -108,16 +108,16 @@ npm install
 npm start
 ```
 
-### 使用 SaaS Starter
+### Using SaaS Starter
 
 ```bash
 cd examples/templates/saas-starter
 npm install
 npm start
-# 浏览器访问 http://localhost:3000
+# Open browser to http://localhost:3000
 ```
 
-更多示例和模板请查看 [examples/](examples/) 目录。
+More examples and templates can be found in the [examples/](examples/) directory.
 
 ---
 

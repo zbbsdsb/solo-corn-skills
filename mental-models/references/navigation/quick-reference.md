@@ -91,7 +91,7 @@ A condensed one-page reference for all 45 mental models organized by domain.
 1. [OODA Loop](../execution-learning/ooda-loop.md) - Fast iteration cycle
 2. [Two Boxes Thinking](../execution-learning/two-boxes-thinking.md) - Focus on controllables
 3. [Hanlon's Razor](../decision-reasoning/hanlons-razor.md) - Quick conflict resolution
-4. [Occam's Razor](../decision-reasoning/occams-razor.md) - Simplicity优先
+4. [Occam's Razor](../decision-reasoning/occams-razor.md) - Prefer simplicity
 
 ### For Strategic Planning
 

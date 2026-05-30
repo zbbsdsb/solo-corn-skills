@@ -116,7 +116,7 @@ Read, S., Dew, N., Sarasvathy, S. D., Song, M., & Wiltbank, R. (2016). *Effectua
 
 **Core Contribution**
 
-This book compiles twenty years of research results on Effectuation theory, deepening the understanding of the entrepreneurial decision-making process through extensive empirical research. The book not only explains the academic development脉络 of Effectuation theory but also provides specific methods for applying this theory to teaching and practice.
+This book compiles twenty years of research results on Effectuation theory, deepening the understanding of the entrepreneurial decision-making process through extensive empirical research. The book not only explains the academic development trajectory of Effectuation theory but also provides specific methods for applying this theory to teaching and practice.
 
 **Key Insights**
 
@@ -160,7 +160,7 @@ The Business Model Canvas includes nine interrelated building blocks: Customer S
 
 **Applicable Scenarios**
 
-The Business Model Canvas is applicable to various entrepreneurial scenarios and business model innovations of enterprises, including business model design for early-stage entrepreneurial projects, business transformation and business model renewal of mature enterprises, business model梳理 for entrepreneurship competitions and accelerator projects, and strategic planning and internal innovation projects. It is also of important reference value for business model design of non-profit organizations and social enterprises.
+The Business Model Canvas is applicable to various entrepreneurial scenarios and business model innovations of enterprises, including business model design for early-stage entrepreneurial projects, business transformation and business model renewal of mature enterprises, business model analysis for entrepreneurship competitions and accelerator projects, and strategic planning and internal innovation projects. It is also of important reference value for business model design of non-profit organizations and social enterprises.
 
 **Practical Recommendations**
 
@@ -300,7 +300,7 @@ The customer development methodology is applicable to all types of startups, esp
 
 **Practical Recommendations**
 
-Founders should spend more than 50% of their time on customer discovery and customer validation work rather than sitting in the office planning products. Establish a weekly customer interview system, documenting findings in detail after each interview. At the end of each development cycle, hold a "pivot or persevere" key decision. Ensure that the sales and customer acquisition process is打通 and can be executed repeatedly before entering the scaling stage. Establish customer development milestones as key indicators for judging company progress.
+Founders should spend more than 50% of their time on customer discovery and customer validation work rather than sitting in the office planning products. Establish a weekly customer interview system, documenting findings in detail after each interview. At the end of each development cycle, hold a "pivot or persevere" key decision. Ensure that the sales and customer acquisition process is established and can be executed repeatedly before entering the scaling stage. Establish customer development milestones as key indicators for judging company progress.
 
 **Limitations**
 

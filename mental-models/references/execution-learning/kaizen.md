@@ -122,8 +122,8 @@ KAIZEN AT A GLANCE
 ═══════════════════════════════════════════════════════════
 
 ETYMOLOGY:
-Kai (改) = Change
-Zen (善) = Good
+Kai (Change) = Change
+Zen (Good) = Good
 Together = Continuous Improvement
 
 CORE PRINCIPLES:

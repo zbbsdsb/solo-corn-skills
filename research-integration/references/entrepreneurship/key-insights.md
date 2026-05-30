@@ -103,7 +103,7 @@ A business model is the complete logic of how an enterprise creates, delivers, a
 **Applicable Scenarios**
 - Business model design for early-stage entrepreneurial projects
 - Business model transformation or repositioning
-- Business model梳理 for internal innovation projects
+- Business model review for internal innovation projects
 - Presentation of business logic for entrepreneurship competitions and business plans
 
 **Practical Recommendations**

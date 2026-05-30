@@ -26,7 +26,7 @@
   - Need to formalize "likelihood" rather than absolute truth
   - Human-AI collaboration is superior to full automation
 - **Application Scenarios**: High-uncertainty domains like medical diagnosis and risk assessment
-- **Practical Advice**: Retain human review环节 in high-risk decisions
+- **Practical Advice**: Retain human review checkpoints in high-risk decisions
 
 ### 1.2 Knowledge Graphs and Semantic Networks
 
@@ -185,7 +185,7 @@
 ### 5.1 Agent Fundamentals
 
 #### Autonomous Agents Survey (Wang et al., 2023)
-- **Core Contribution**: Systematically梳理自主Agent的设计模式
+- **Core Contribution**: Systematically reviews design patterns for autonomous agents
 - **Key Insights**:
   - Agents need: perception, planning, action, memory capabilities
   - Tool use is key to extending Agent capabilities

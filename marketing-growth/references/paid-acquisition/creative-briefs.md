@@ -374,7 +374,7 @@ VISUAL DIRECTION
 
 IMAGE CONCEPT:
 Reference/Mood Board: [Links to inspiration]
-Subject Focus: [Product/Person/Lifestyle/抽象]
+Subject Focus: [Product/Person/Lifestyle/Abstract]
 Style: [Clean/Minimal/Bold/Colorful/Editorial]
 Setting: [Studio/Location/Mixed]
 

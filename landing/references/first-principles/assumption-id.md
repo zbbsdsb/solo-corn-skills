@@ -117,7 +117,7 @@ Step 6: Design experiments to validate highest-impact assumptions
 
 ### Blank Slate Thinking
 
-**Exercise**: If you had no preconceptions, no industry experience, and no existing solutions to参考, what would you do?
+**Exercise**: If you had no preconceptions, no industry experience, and no existing solutions to reference, what would you do?
 
 ```
 My blank slate response:

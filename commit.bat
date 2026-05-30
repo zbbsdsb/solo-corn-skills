@@ -7,45 +7,46 @@ echo.
 git status
 echo.
 echo ========================================
-echo  Committing CLI Tool (tools/cli/)
+echo  Committing All Changes
 echo ========================================
-git add tools/cli/
-git commit -m "feat: add SOLO CORN SKILLS CLI tool
 
-- Add command-line interface for mental models access
-- Implement list, show, search, and categories commands
-- Add pretty printing with colors and box-drawing
-- Support JSON output format
-- Add TypeScript-based architecture
-- Include quick start guide and documentation"
+git add .
 
-echo.
-echo ========================================
-echo  Committing Code Examples Library (English)
-echo ========================================
-git add examples/
-git commit -m "feat: add comprehensive code examples library
+git commit -m "feat: complete English documentation and CLI v0.2.0
 
-- Add 8 single-skill examples (mental-models, strategic-decision, landing, product-builder, research-integration, marketing-growth, collector, connector)
-- Add 2 multi-skill combination examples (idea-validation, strategic-execution)
-- Add 1 complete end-to-end workflow (zero-to-one-saas)
-- Add 2 project templates (basic-starter, saas-starter)
-- All examples and documentation in English
-- Include comprehensive documentation and README
+- Translate all 27+ Chinese documentation files to English
+- Fix sensitive .npmrc file with auth token (DELETED)
+- Complete English translation for all SKILL.md files
+- Update all reference documentation to English
+- Translate all README files and examples
 
-Closes #v1.2.0"
+- Add CLI v0.2.0 with enhanced features:
+  - scs init - Interactive workflow initialization
+  - scs run <workflow> - Workflow execution
+  - scs invoke <skill> - Skill invocation with interactive mode
+  - scs invoke <skill> --interactive - Interactive question mode
+  - scs invoke <skill> --then <skill2> - Skill chaining
+  - scs invoke <skill> --output <file> - Output to file
+  - scs skills - List all skills
+  - scs skill <name> - Show skill details
 
-echo.
-echo ========================================
-echo  Committing Documentation Updates
-echo ========================================
-git add CHANGELOG.md README.md
-git commit -m "docs: update CHANGELOG to v1.2.0 and enhance README
+- Add comprehensive code examples library:
+  - 8 single-skill examples
+  - 2 multi-skill combination examples
+  - 1 complete end-to-end workflow
+  - 2 project templates (basic-starter, saas-starter)
 
-- Add v1.2.0 changelog entry for code examples library
-- Add CLI tool section to README
-- Add code examples section to README
-- Update documentation index"
+- Skill standardization:
+  - All 8 skills now have standardized interfaces
+  - Interface Definition sections in all SKILL.md
+  - Skill Registry and Workflow Engine
+
+- Documentation:
+  - Complete .gitignore with comprehensive rules
+  - Updated CHANGELOG to v1.3.0
+  - Enhanced README with all sections
+
+Closes #v1.3.0"
 
 echo.
 echo ========================================
