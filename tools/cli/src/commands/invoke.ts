@@ -14,39 +14,39 @@ async function showSkill(skillName: string): Promise<void> {
   const outputs = skillRegistry.getOutputs(skillName);
 
   if (!metadata) {
-    interactionManager.printError(`Skill "${skillName}" 不存在`);
+    interactionManager.printError(`Skill "${skillName}" does not exist`);
     return;
   }
 
-  console.log(chalk.bold.cyan('\n技能信息:'));
-  console.log(chalk.cyan('  名称: ') + metadata.name);
-  console.log(chalk.cyan('  版本: ') + metadata.version);
-  console.log(chalk.cyan('  描述: ') + metadata.description);
-  console.log(chalk.cyan('  分类: ') + metadata.category.join(', '));
+  console.log(chalk.bold.cyan('\nSkill Information:'));
+  console.log(chalk.cyan('  Name: ') + metadata.name);
+  console.log(chalk.cyan('  Version: ') + metadata.version);
+  console.log(chalk.cyan('  Description: ') + metadata.description);
+  console.log(chalk.cyan('  Category: ') + metadata.category.join(', '));
 
   if (metadata.tags && metadata.tags.length > 0) {
-    console.log(chalk.cyan('  标签: ') + metadata.tags.join(', '));
+    console.log(chalk.cyan('  Tags: ') + metadata.tags.join(', '));
   }
 
   if (inputs && inputs.length > 0) {
-    console.log(chalk.bold('\n输入参数:'));
+    console.log(chalk.bold('\nInput Parameters:'));
     inputs.forEach(input => {
-      const required = input.required ? chalk.red('*') : chalk.gray('(可选)');
+      const required = input.required ? chalk.red('*') : chalk.gray('(optional)');
       console.log(chalk.cyan(`  ${input.name} `) + required);
-      console.log(chalk.gray(`    类型: ${input.type}`));
-      console.log(chalk.gray(`    描述: ${input.description}`));
+      console.log(chalk.gray(`    Type: ${input.type}`));
+      console.log(chalk.gray(`    Description: ${input.description}`));
       if (input.default !== undefined) {
-        console.log(chalk.gray(`    默认值: ${input.default}`));
+        console.log(chalk.gray(`    Default value: ${input.default}`));
       }
     });
   }
 
   if (outputs && outputs.length > 0) {
-    console.log(chalk.bold('\n输出参数:'));
+    console.log(chalk.bold('\nOutput Parameters:'));
     outputs.forEach(output => {
       console.log(chalk.cyan(`  ${output.name}`));
-      console.log(chalk.gray(`    类型: ${output.type}`));
-      console.log(chalk.gray(`    描述: ${output.description}`));
+      console.log(chalk.gray(`    Type: ${output.type}`));
+      console.log(chalk.gray(`    Description: ${output.description}`));
     });
   }
 
@@ -60,11 +60,11 @@ async function listSkills(): Promise<void> {
   const skills = skillRegistry.list();
 
   if (skills.length === 0) {
-    interactionManager.printWarning('暂无可用的 Skills');
+    interactionManager.printWarning('No skills available');
     return;
   }
 
-  console.log(chalk.bold.cyan(`\n可用的 Skills (${skills.length}):\n`));
+  console.log(chalk.bold.cyan(`\nAvailable Skills (${skills.length}):\n`));
 
   skills.forEach(skill => {
     console.log(chalk.cyan('  • ') + chalk.bold(skill.name));
@@ -83,7 +83,7 @@ async function invokeSkill(
     const skill = skillRegistry.find(skillName);
 
     if (!skill) {
-      interactionManager.printError(`Skill "${skillName}" 不存在`);
+      interactionManager.printError(`Skill "${skillName}" does not exist`);
       await listSkills();
       return;
     }
@@ -92,13 +92,13 @@ async function invokeSkill(
     let context: Record<string, any> = {};
 
     if (options.interactive) {
-      console.log(chalk.bold(`\n📝 调用技能: ${skillName}\n`));
+      console.log(chalk.bold(`\n📝 Invoking Skill: ${skillName}\n`));
       
       const questions: Question[] = [
         {
           type: 'input',
           name: 'idea',
-          message: '请输入你的想法：'
+          message: 'Enter your idea:'
         }
       ];
 
@@ -113,14 +113,14 @@ async function invokeSkill(
           inputs = JSON.parse(content);
         }
       } catch (error) {
-        interactionManager.printError(`解析输入失败: ${error.message}`);
+        interactionManager.printError(`Failed to parse input: ${error.message}`);
         return;
       }
     } else if (options.context) {
       context = options.context;
     }
 
-    console.log(chalk.cyan(`\n⚡ 调用技能: ${skillName}...\n`));
+    console.log(chalk.cyan(`\n⚡ Invoking skill: ${skillName}...\n`));
 
     const result = await skillRegistry.invoke(skillName, {
       context,
@@ -131,35 +131,35 @@ async function invokeSkill(
     });
 
     if (result.success) {
-      interactionManager.printSuccess('技能调用成功！');
+      interactionManager.printSuccess('Skill invoked successfully!');
 
       if (result.metadata) {
-        console.log(chalk.gray(`\n执行时间: ${result.metadata.duration}ms`));
+        console.log(chalk.gray(`\nExecution time: ${result.metadata.duration}ms`));
         if (result.metadata.tokens) {
-          console.log(chalk.gray(`Token 消耗: ${result.metadata.tokens}`));
+          console.log(chalk.gray(`Tokens used: ${result.metadata.tokens}`));
         }
       }
 
-      console.log(chalk.bold('\n输出结果:\n'));
+      console.log(chalk.bold('\nOutput Results:\n'));
       console.log(JSON.stringify(result.outputs, null, 2));
 
       if (options.output) {
         await saveResult(result, options.output);
       }
     } else {
-      interactionManager.printError('技能调用失败');
+      interactionManager.printError('Skill invocation failed');
       if (result.error) {
-        console.log(chalk.red(`\n错误代码: ${result.error.code}`));
-        console.log(chalk.red(`错误信息: ${result.error.message}`));
+        console.log(chalk.red(`\nError code: ${result.error.code}`));
+        console.log(chalk.red(`Error message: ${result.error.message}`));
         if (result.error.details) {
-          console.log(chalk.gray(`\n详细信息:`));
+          console.log(chalk.gray(`\nDetails:`));
           console.log(JSON.stringify(result.error.details, null, 2));
         }
       }
       process.exit(1);
     }
   } catch (error) {
-    interactionManager.printError(`调用技能失败: ${error.message}`);
+    interactionManager.printError(`Failed to invoke skill: ${error.message}`);
     process.exit(1);
   }
 }
@@ -172,11 +172,11 @@ async function chainInvoke(
   options: InvokeOptions
 ): Promise<void> {
   if (skills.length < 2) {
-    interactionManager.printError('链式调用至少需要 2 个技能');
+    interactionManager.printError('Chain invocation requires at least 2 skills');
     return;
   }
 
-  console.log(chalk.bold.cyan('\n🔗 链式调用技能链:'));
+  console.log(chalk.bold.cyan('\n🔗 Chain Invocation:'));
   skills.forEach((skill, index) => {
     console.log(chalk.cyan(`  ${index + 1}. ${skill}`));
   });
@@ -189,11 +189,11 @@ async function chainInvoke(
     const skill = skillRegistry.find(skillName);
 
     if (!skill) {
-      interactionManager.printError(`技能 "${skillName}" 不存在`);
+      interactionManager.printError(`Skill "${skillName}" does not exist`);
       return;
     }
 
-    console.log(chalk.cyan(`\n⚡ [${i + 1}/${skills.length}] 调用: ${skillName}\n`));
+    console.log(chalk.cyan(`\n⚡ [${i + 1}/${skills.length}] Invoking: ${skillName}\n`));
 
     let inputs: Record<string, any> = {};
 
@@ -202,7 +202,7 @@ async function chainInvoke(
         {
           type: 'input',
           name: 'idea',
-          message: '请输入你的想法：'
+          message: 'Enter your idea:'
         }
       ];
       inputs = await interactionManager.askMany(questions);
@@ -215,7 +215,7 @@ async function chainInvoke(
           inputs = JSON.parse(fs.readFileSync(options.input, 'utf-8'));
         }
       } catch (error) {
-        interactionManager.printError(`解析输入失败: ${error.message}`);
+        interactionManager.printError(`Failed to parse input: ${error.message}`);
         return;
       }
     } else {
@@ -231,14 +231,14 @@ async function chainInvoke(
     });
 
     if (result.success) {
-      console.log(chalk.green(`✓ ${skillName} 调用成功`));
+      console.log(chalk.green(`✓ ${skillName} invoked successfully`));
       lastOutput = result.outputs;
 
       if (options.output && i === skills.length - 1) {
         await saveResult(result, options.output);
       }
     } else {
-      interactionManager.printError(`${skillName} 调用失败`);
+      interactionManager.printError(`${skillName} invocation failed`);
       if (result.error) {
         console.log(chalk.red(`  ${result.error.message}`));
       }
@@ -246,8 +246,8 @@ async function chainInvoke(
     }
   }
 
-  interactionManager.printSuccess('\n链式调用完成！');
-  console.log(chalk.bold('\n最终输出:\n'));
+  interactionManager.printSuccess('\nChain invocation complete!');
+  console.log(chalk.bold('\nFinal Output:\n'));
   console.log(JSON.stringify(lastOutput, null, 2));
 }
 
@@ -269,9 +269,9 @@ async function saveResult(
 
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
     
-    interactionManager.printSuccess(`结果已保存到: ${outputPath}`);
+    interactionManager.printSuccess(`Results saved to: ${outputPath}`);
   } catch (error) {
-    interactionManager.printError(`保存结果失败: ${error.message}`);
+    interactionManager.printError(`Failed to save results: ${error.message}`);
   }
 }
 
@@ -282,14 +282,14 @@ async function interactiveInvoke(): Promise<void> {
   const skills = skillRegistry.list();
 
   if (skills.length === 0) {
-    interactionManager.printWarning('暂无可用的 Skills');
+    interactionManager.printWarning('No skills available');
     return;
   }
 
   const selectedSkill = await interactionManager.ask({
     type: 'select',
     name: 'skill',
-    message: '请选择要调用的技能：',
+    message: 'Select a skill to invoke:',
     choices: skills.map(s => ({
       name: `${s.name} - ${s.description}`,
       value: s.name
@@ -305,12 +305,12 @@ async function interactiveInvoke(): Promise<void> {
 export function registerInvokeCommand(program: Command): void {
   program
     .command('invoke <skill>')
-    .description('调用指定的技能')
-    .option('-i, --interactive', '交互式调用', false)
-    .option('-I, --input <json-or-file>', '输入参数 (JSON 或文件路径)')
-    .option('-o, --output <path>', '输出结果到文件')
-    .option('-t, --then <skills...>', '链式调用后续技能')
-    .option('-c, --context <context>', '上下文参数 (JSON)')
+    .description('Invoke the specified skill')
+    .option('-i, --interactive', 'Interactive mode', false)
+    .option('-I, --input <json-or-file>', 'Input parameters (JSON or file path)')
+    .option('-o, --output <path>', 'Output results to file')
+    .option('-t, --then <skills...>', 'Chain invoke subsequent skills')
+    .option('-c, --context <context>', 'Context parameters (JSON)')
     .action(async (skill, options) => {
       if (options.then && options.then.length > 0) {
         const skills = [skill, ...options.then];
@@ -331,14 +331,14 @@ export function registerInvokeCommand(program: Command): void {
 
   program
     .command('skills')
-    .description('列出所有可用的技能')
+    .description('List all available skills')
     .action(async () => {
       await listSkills();
     });
 
   program
     .command('skill <name>')
-    .description('显示技能的详细信息')
+    .description('Show detailed skill information')
     .action(async (name) => {
       await showSkill(name);
     });

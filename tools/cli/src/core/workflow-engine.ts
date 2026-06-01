@@ -34,7 +34,7 @@ export class WorkflowEngine {
     const builtinWorkflows: SkillWorkflow[] = [
       {
         name: 'idea-to-spec',
-        description: '从概念到技术规格文档',
+        description: 'From concept to technical specification document',
         stages: [
           {
             name: 'clarify',
@@ -65,7 +65,7 @@ export class WorkflowEngine {
       },
       {
         name: 'idea-validation',
-        description: '快速验证想法',
+        description: 'Quick idea validation',
         stages: [
           {
             name: 'clarify',
@@ -86,7 +86,7 @@ export class WorkflowEngine {
       },
       {
         name: 'product-design',
-        description: '完整的产品设计流程',
+        description: 'Complete product design process',
         stages: [
           {
             name: 'clarify',
@@ -287,19 +287,19 @@ export class WorkflowEngine {
     }> = [];
 
     console.log(chalk.bold.cyan('\n' + '═'.repeat(60)));
-    console.log(chalk.bold.cyan(`  执行工作流: ${workflow.name}`));
+    console.log(chalk.bold.cyan(`  Executing workflow: ${workflow.name}`));
     console.log(chalk.bold.cyan('═'.repeat(60) + '\n'));
 
     for (const stage of orderedStages) {
       const startTime = Date.now();
 
       if (options.skip && options.skip.includes(stage.name)) {
-        console.log(chalk.yellow(`⏭ 跳过阶段: ${stage.name}\n`));
+        console.log(chalk.yellow(`⏭ Skipping stage: ${stage.name}\n`));
         continue;
       }
 
-      console.log(chalk.cyan(`\n📌 阶段 ${stageResults.length + 1}/${orderedStages.length}: ${stage.name}`));
-      console.log(chalk.gray(`   技能: ${stage.skill}\n`));
+      console.log(chalk.cyan(`\n📌 Stage ${stageResults.length + 1}/${orderedStages.length}: ${stage.name}`));
+      console.log(chalk.gray(`   Skill: ${stage.skill}\n`));
 
       const resolvedInputs = this.resolveInputs(stage.inputs, {
         input: inputContext,
@@ -318,7 +318,7 @@ export class WorkflowEngine {
         const duration = Date.now() - startTime;
 
         if (result.success) {
-          console.log(chalk.green(`✓ 阶段完成 (${duration}ms)\n`));
+          console.log(chalk.green(`✓ Stage completed (${duration}ms)\n`));
           
           stageOutputs[stage.name] = result.outputs;
           
@@ -333,10 +333,10 @@ export class WorkflowEngine {
             options.onProgress(stage.name, result);
           }
         } else {
-          console.log(chalk.red(`✗ 阶段失败\n`));
+          console.log(chalk.red(`✗ Stage failed\n`));
           
           if (result.error) {
-            console.log(chalk.red(`  错误: ${result.error.message}\n`));
+            console.log(chalk.red(`  Error: ${result.error.message}\n`));
           }
 
           return {
@@ -346,7 +346,7 @@ export class WorkflowEngine {
           };
         }
       } catch (error) {
-        console.log(chalk.red(`✗ 阶段执行错误: ${error.message}\n`));
+        console.log(chalk.red(`✗ Stage execution error: ${error.message}\n`));
         
         return {
           success: false,
@@ -357,7 +357,7 @@ export class WorkflowEngine {
     }
 
     console.log(chalk.bold.cyan('\n' + '═'.repeat(60)));
-    console.log(chalk.bold.green('✓ 工作流执行完成'));
+    console.log(chalk.bold.green('✓ Workflow execution complete'));
     console.log(chalk.bold.cyan('═'.repeat(60) + '\n'));
 
     return {
@@ -371,17 +371,17 @@ export class WorkflowEngine {
    * Display workflow information
    */
   displayWorkflow(workflow: SkillWorkflow): void {
-    console.log(chalk.bold('\n工作流信息:'));
-    console.log(chalk.cyan('  名称: ') + workflow.name);
-    console.log(chalk.cyan('  描述: ') + workflow.description);
-    console.log(chalk.cyan('  阶段数: ') + workflow.stages.length);
+    console.log(chalk.bold('\nWorkflow information:'));
+    console.log(chalk.cyan('  Name: ') + workflow.name);
+    console.log(chalk.cyan('  Description: ') + workflow.description);
+    console.log(chalk.cyan('  Stages: ') + workflow.stages.length);
 
-    console.log(chalk.bold('\n阶段列表:'));
+    console.log(chalk.bold('\nStage list:'));
     workflow.stages.forEach((stage, index) => {
       const deps = stage.dependsOn && stage.dependsOn.length > 0
-        ? ` (依赖: ${stage.dependsOn.join(', ')})`
+        ? ` (depends on: ${stage.dependsOn.join(', ')})`
         : '';
-      const optional = stage.optional ? ' [可选]' : '';
+      const optional = stage.optional ? ' [optional]' : '';
       
       console.log(
         chalk.cyan(`  ${index + 1}. `) + 

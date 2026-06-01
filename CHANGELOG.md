@@ -11,6 +11,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.4.0] - 2026-06-01
+
+### Added
+- **New Skills Planning** - Comprehensive gap analysis document (`.trae/specs/npm-github-pages/new-skills-planning.md`)
+  - Proposed 6 new Skills: sales-engineer, financial-navigator, solo-productivity, customer-success, legal-basics, content-creator
+  - Gap analysis identifying missing capabilities for one-person companies
+  - Integration recommendations with existing workflow templates
+
+### Changed
+- **CLI v0.2.3** - Full English Localization:
+  - All CLI user-facing text translated to English
+  - Interactive prompts, error messages, command descriptions
+  - Fixed files: `init.ts`, `run.ts`, `invoke.ts`, `workflow-engine.ts`
+
+### Fixed
+- Removed all Chinese text from npm package (`@oasis-npm/scs`)
+- Ensured all CLI output is English-only for international users
+
+---
+
 ## [1.3.0] - 2026-05-26
 
 ### Added
@@ -139,6 +159,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Release Notes
 
+### v1.4.0 - Full English Localization & New Skills Planning
+Major update with complete English localization of the CLI tool and comprehensive planning for future Skills expansion.
+
+### v1.3.0 - Enhanced CLI & Skill Standardization
+Major CLI overhaul with interactive workflows, skill chaining, and standardized skill interfaces.
+
 ### v1.0.0 - Official Release 🎉
 The first official release with complete project infrastructure, documentation, and website. This is the foundation for future development.
 
@@ -147,7 +173,8 @@ This is the foundation release with complete core skill system and mental model 
 
 ---
 
-[Unreleased]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.0.2...v1.2.0
 [1.0.2]: https://github.com/zbbsdsb/solo-corn-skills/compare/v1.0.1...v1.0.2

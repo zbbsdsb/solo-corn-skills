@@ -10,7 +10,7 @@ import { InitOptions, SkillWorkflow } from '../types';
 const WORKFLOW_TEMPLATES: Record<string, SkillWorkflow> = {
   'idea-validation': {
     name: 'idea-validation',
-    description: '从概念到产品验证的完整路径',
+    description: 'Complete path from concept to product validation',
     stages: [
       {
         name: 'clarify',
@@ -29,7 +29,7 @@ const WORKFLOW_TEMPLATES: Record<string, SkillWorkflow> = {
   },
   'product-design': {
     name: 'product-design',
-    description: '从想法到完整产品规格文档',
+    description: 'From idea to complete product specification document',
     stages: [
       {
         name: 'clarify',
@@ -55,7 +55,7 @@ const WORKFLOW_TEMPLATES: Record<string, SkillWorkflow> = {
   },
   'tech-selection': {
     name: 'tech-selection',
-    description: '技术选型和架构设计',
+    description: 'Technology selection and architecture design',
     stages: [
       {
         name: 'context',
@@ -74,7 +74,7 @@ const WORKFLOW_TEMPLATES: Record<string, SkillWorkflow> = {
   },
   'market-analysis': {
     name: 'market-analysis',
-    description: '市场分析和增长策略',
+    description: 'Market analysis and growth strategy',
     stages: [
       {
         name: 'research',
@@ -93,7 +93,7 @@ const WORKFLOW_TEMPLATES: Record<string, SkillWorkflow> = {
   },
   'idea-to-spec': {
     name: 'idea-to-spec',
-    description: '从概念到技术规格文档（推荐）',
+    description: 'From concept to technical specification document (recommended)',
     stages: [
       {
         name: 'clarify',
@@ -126,34 +126,34 @@ const GOAL_QUESTIONS = [
   {
     type: 'select' as const,
     name: 'goal',
-    message: '请选择你的目标：',
+    message: 'Please select your goal:',
     choices: [
-      { name: 'Idea 验证', value: 'idea-validation', description: '验证你的想法是否值得做' },
-      { name: '产品设计', value: 'product-design', description: '从想法到完整的产品规格' },
-      { name: '技术选型', value: 'tech-selection', description: '选择技术栈和架构方案' },
-      { name: '市场分析', value: 'market-analysis', description: '分析市场和制定增长策略' },
-      { name: '自定义组合', value: 'custom', description: '自己组合工作流阶段' }
+      { name: 'Idea Validation', value: 'idea-validation', description: 'Validate if your idea is worth pursuing' },
+      { name: 'Product Design', value: 'product-design', description: 'From idea to complete product specification' },
+      { name: 'Tech Selection', value: 'tech-selection', description: 'Select technology stack and architecture' },
+      { name: 'Market Analysis', value: 'market-analysis', description: 'Analyze market and develop growth strategy' },
+      { name: 'Custom Workflow', value: 'custom', description: 'Compose your own workflow stages' }
     ]
   },
   {
     type: 'select' as const,
     name: 'timeConstraint',
-    message: '你有多少时间？',
+    message: 'How much time do you have?',
     choices: [
-      { name: '30分钟', value: '30m', description: '快速验证概念' },
-      { name: '1小时', value: '1h', description: '完整验证一个想法' },
-      { name: '2小时', value: '2h', description: '深入分析和规划' },
-      { name: '不限', value: 'unlimited', description: '全面深入的工作' }
+      { name: '30 minutes', value: '30m', description: 'Quick concept validation' },
+      { name: '1 hour', value: '1h', description: 'Complete idea validation' },
+      { name: '2 hours', value: '2h', description: 'In-depth analysis and planning' },
+      { name: 'Unlimited', value: 'unlimited', description: 'Comprehensive deep dive' }
     ]
   },
   {
     type: 'select' as const,
     name: 'background',
-    message: '你的背景是？',
+    message: 'What is your background?',
     choices: [
-      { name: '全能型', value: 'fullstack', description: '什么都想做，什么都会一点' },
-      { name: '技术型', value: 'technical', description: '擅长技术，缺产品和商业思维' },
-      { name: '业务型', value: 'business', description: '擅长业务和运营，技术较弱' }
+      { name: 'Full-stack', value: 'fullstack', description: 'Want to do everything, know a bit of everything' },
+      { name: 'Technical', value: 'technical', description: 'Strong at technology, weaker at product and business' },
+      { name: 'Business', value: 'business', description: 'Strong at business and operations, weaker at technology' }
     ]
   }
 ];
@@ -202,19 +202,19 @@ function getTimeMultiplier(constraint: string): number {
  * Display workflow preview
  */
 function displayWorkflowPreview(workflow: SkillWorkflow): void {
-  interactionManager.printHeader('推荐工作流预览');
+  interactionManager.printHeader('Recommended Workflow Preview');
 
-  console.log(chalk.bold('工作流名称: ') + workflow.name);
-  console.log(chalk.bold('描述: ') + workflow.description + '\n');
+  console.log(chalk.bold('Workflow Name: ') + workflow.name);
+  console.log(chalk.bold('Description: ') + workflow.description + '\n');
 
-  console.log(chalk.bold('执行阶段:\n'));
+  console.log(chalk.bold('Execution Stages:\n'));
 
   workflow.stages.forEach((stage, index) => {
     const deps = stage.dependsOn && stage.dependsOn.length > 0 
-      ? chalk.gray(` (依赖: ${stage.dependsOn.join(', ')})`) 
+      ? chalk.gray(` (depends on: ${stage.dependsOn.join(', ')})`) 
       : '';
     
-    const optional = stage.optional ? chalk.yellow(' [可选]') : '';
+    const optional = stage.optional ? chalk.yellow(' [optional]') : '';
     
     console.log(
       chalk.cyan(`${index + 1}. `) + 
@@ -231,9 +231,9 @@ function displayWorkflowPreview(workflow: SkillWorkflow): void {
  */
 async function interactiveInit(): Promise<void> {
   interactionManager.clear();
-  interactionManager.printHeader('SOLO CORN SKILLS - 项目初始化');
+  interactionManager.printHeader('SOLO CORN SKILLS - Project Initialization');
 
-  console.log(chalk.gray('让我们一步步来创建你的工作流...\n'));
+  console.log(chalk.gray('Let\'s create your workflow step by step...\n'));
 
   const answers = await interactionManager.askMany(GOAL_QUESTIONS);
 
@@ -259,16 +259,16 @@ async function handlePredefinedWorkflow(answers: any): Promise<void> {
   const confirmed = await interactionManager.ask({
     type: 'confirm',
     name: 'confirm',
-    message: '确认使用此工作流？',
+    message: 'Confirm using this workflow?',
     default: true
   });
 
   if (confirmed) {
     await saveWorkflow(workflow);
-    interactionManager.printSuccess('工作流已保存！');
+    interactionManager.printSuccess('Workflow saved!');
     printNextSteps(workflow);
   } else {
-    interactionManager.printWarning('好的，让我们重新选择...');
+    interactionManager.printWarning('Okay, let\'s start over...');
     await interactiveInit();
   }
 }
@@ -277,24 +277,24 @@ async function handlePredefinedWorkflow(answers: any): Promise<void> {
  * Handle custom workflow creation
  */
 async function handleCustomWorkflow(): Promise<void> {
-  interactionManager.printInfo('自定义工作流功能开发中...');
+  interactionManager.printInfo('Custom workflow feature under development...');
   
   const availableSkills = skillRegistry.list();
   
   if (availableSkills.length === 0) {
-    interactionManager.printWarning('暂无可用的 Skills');
+    interactionManager.printWarning('No skills available');
     return;
   }
 
-  interactionManager.printSuccess(`发现 ${availableSkills.length} 个可用的 Skills`);
+  interactionManager.printSuccess(`Found ${availableSkills.length} available skills`);
 
-  console.log(chalk.bold('\n可用的 Skills:\n'));
+  console.log(chalk.bold('\nAvailable Skills:\n'));
   availableSkills.forEach((skill, index) => {
     console.log(chalk.cyan(`${index + 1}. `) + skill.name);
     console.log(chalk.gray(`   ${skill.description}\n`));
   });
 
-  interactionManager.printInfo('自定义工作流将通过 scs run 命令实现');
+  interactionManager.printInfo('Custom workflows will be implemented via scs run command');
 }
 
 /**
@@ -313,22 +313,22 @@ async function saveWorkflow(workflow: SkillWorkflow): Promise<void> {
   const filePath = path.join(workflowsDir, `${workflow.name}.json`);
   fs.writeFileSync(filePath, JSON.stringify(workflow, null, 2));
 
-  console.log(chalk.gray(`\n工作流已保存到: ${filePath}\n`));
+  console.log(chalk.gray(`\nWorkflow saved to: ${filePath}\n`));
 }
 
 /**
  * Print next steps
  */
 function printNextSteps(workflow: SkillWorkflow): void {
-  interactionManager.printHeader('下一步');
+  interactionManager.printHeader('Next Steps');
 
-  console.log(chalk.bold('运行工作流:\n'));
+  console.log(chalk.bold('Run workflow:\n'));
   console.log(chalk.cyan(`  scs run ${workflow.name}\n`));
 
-  console.log(chalk.bold('或交互式运行:\n'));
+  console.log(chalk.bold('Or run interactively:\n'));
   console.log(chalk.cyan(`  scs run ${workflow.name} --interactive\n`));
 
-  console.log(chalk.bold('查看所有可用工作流:\n'));
+  console.log(chalk.bold('View all available workflows:\n'));
   console.log(chalk.cyan('  scs run --list\n'));
 
   console.log();
@@ -345,7 +345,7 @@ export async function init(options: InitOptions): Promise<void> {
       await nonInteractiveInit(options);
     }
   } catch (error) {
-    interactionManager.printError(`初始化失败: ${error.message}`);
+    interactionManager.printError(`Initialization failed: ${error.message}`);
     process.exit(1);
   }
 }
@@ -358,11 +358,11 @@ async function nonInteractiveInit(options: InitOptions): Promise<void> {
     const workflow = WORKFLOW_TEMPLATES[options.workflow];
     displayWorkflowPreview(workflow);
     await saveWorkflow(workflow);
-    interactionManager.printSuccess(`工作流 "${workflow.name}" 已创建！`);
+    interactionManager.printSuccess(`Workflow "${workflow.name}" created!`);
     printNextSteps(workflow);
   } else {
-    interactionManager.printError(`未知的工作流: ${options.workflow}`);
-    console.log(chalk.bold('\n可用工作流:\n'));
+    interactionManager.printError(`Unknown workflow: ${options.workflow}`);
+    console.log(chalk.bold('\nAvailable workflows:\n'));
     Object.keys(WORKFLOW_TEMPLATES).forEach(name => {
       console.log(chalk.cyan(`  - ${name}`));
     });
@@ -376,11 +376,11 @@ async function nonInteractiveInit(options: InitOptions): Promise<void> {
 export function registerInitCommand(program: Command): void {
   program
     .command('init [workflow]')
-    .description('交互式创建项目工作流')
-    .option('-i, --interactive', '交互式模式', false)
-    .option('-g, --goal <goal>', '目标类型')
-    .option('-t, --time <time>', '时间限制')
-    .option('-b, --background <background>', '背景类型')
+    .description('Interactive project workflow creation')
+    .option('-i, --interactive', 'Interactive mode', false)
+    .option('-g, --goal <goal>', 'Goal type')
+    .option('-t, --time <time>', 'Time constraint')
+    .option('-b, --background <background>', 'Background type')
     .action(async (workflow, options) => {
       await init({
         interactive: options.interactive,

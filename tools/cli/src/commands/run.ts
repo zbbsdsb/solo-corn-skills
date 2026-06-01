@@ -11,12 +11,12 @@ async function listWorkflows(): Promise<void> {
   const workflows = workflowEngine.list();
 
   if (workflows.length === 0) {
-    interactionManager.printWarning('暂无可用的工作流');
-    console.log(chalk.gray('\n使用 scs init 创建第一个工作流\n'));
+    interactionManager.printWarning('No workflows available');
+    console.log(chalk.gray('\nUse scs init to create your first workflow\n'));
     return;
   }
 
-  console.log(chalk.bold.cyan('\n可用工作流:\n'));
+  console.log(chalk.bold.cyan('\nAvailable Workflows:\n'));
 
   workflows.forEach(workflow => {
     console.log(chalk.cyan('  • ') + chalk.bold(workflow.name));
@@ -31,7 +31,7 @@ async function showWorkflow(name: string): Promise<void> {
   const workflow = workflowEngine.find(name);
 
   if (!workflow) {
-    interactionManager.printError(`工作流 "${name}" 不存在`);
+    interactionManager.printError(`Workflow "${name}" does not exist`);
     await listWorkflows();
     return;
   }
@@ -50,7 +50,7 @@ async function runWorkflow(
     const workflow = workflowEngine.find(workflowName);
 
     if (!workflow) {
-      interactionManager.printError(`工作流 "${workflowName}" 不存在`);
+      interactionManager.printError(`Workflow "${workflowName}" does not exist`);
       await listWorkflows();
       return;
     }
@@ -60,13 +60,13 @@ async function runWorkflow(
     let context: Record<string, any> = {};
 
     if (options.interactive) {
-      console.log(chalk.bold('\n📝 请提供初始信息:\n'));
+      console.log(chalk.bold('\n📝 Please provide initial information:\n'));
       
       const questions = [
         {
           type: 'input' as const,
           name: 'idea',
-          message: '你的想法/概念是什么？'
+          message: 'What is your idea/concept?'
         }
       ];
 
@@ -78,17 +78,17 @@ async function runWorkflow(
     });
 
     if (result.success) {
-      interactionManager.printSuccess('工作流执行成功！');
+      interactionManager.printSuccess('Workflow executed successfully!');
       
       if (options.output) {
         await saveOutput(result, options.output);
       }
     } else {
-      interactionManager.printError('工作流执行失败');
+      interactionManager.printError('Workflow execution failed');
       process.exit(1);
     }
   } catch (error) {
-    interactionManager.printError(`运行工作流失败: ${error.message}`);
+    interactionManager.printError(`Failed to run workflow: ${error.message}`);
     process.exit(1);
   }
 }
@@ -111,9 +111,9 @@ async function saveOutput(
 
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
     
-    interactionManager.printSuccess(`结果已保存到: ${outputPath}`);
+    interactionManager.printSuccess(`Results saved to: ${outputPath}`);
   } catch (error) {
-    interactionManager.printError(`保存结果失败: ${error.message}`);
+    interactionManager.printError(`Failed to save results: ${error.message}`);
   }
 }
 
@@ -124,15 +124,15 @@ async function interactiveRun(): Promise<void> {
   const workflows = workflowEngine.list();
 
   if (workflows.length === 0) {
-    interactionManager.printWarning('暂无可用工作流');
-    console.log(chalk.gray('\n请先运行 scs init 创建工作流\n'));
+    interactionManager.printWarning('No workflows available');
+    console.log(chalk.gray('\nPlease run scs init to create a workflow first\n'));
     return;
   }
 
   const selected = await interactionManager.ask({
     type: 'select',
     name: 'workflow',
-    message: '请选择要运行的工作流：',
+    message: 'Select a workflow to run:',
     choices: workflows.map(w => ({
       name: `${w.name} - ${w.description}`,
       value: w.name
@@ -148,12 +148,12 @@ async function interactiveRun(): Promise<void> {
 export function registerRunCommand(program: Command): void {
   program
     .command('run [workflow]')
-    .description('运行指定的工作流')
-    .option('-i, --interactive', '交互式运行', false)
-    .option('-l, --list', '列出所有可用工作流', false)
-    .option('-s, --show <name>', '显示工作流详情')
-    .option('-o, --output <path>', '输出结果到文件')
-    .option('--skip <stages...>', '跳过的阶段')
+    .description('Run the specified workflow')
+    .option('-i, --interactive', 'Interactive mode', false)
+    .option('-l, --list', 'List all available workflows', false)
+    .option('-s, --show <name>', 'Show workflow details')
+    .option('-o, --output <path>', 'Output results to file')
+    .option('--skip <stages...>', 'Skip specific stages')
     .action(async (workflow, options) => {
       if (options.list) {
         await listWorkflows();

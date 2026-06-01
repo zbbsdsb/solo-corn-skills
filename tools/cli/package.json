@@ -1,6 +1,6 @@
 {
   "name": "@oasis-npm/scs",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "SOLO CORN SKILLS - Build billion-dollar companies, one skill at a time",
   "main": "dist/index.js",
   "bin": {
