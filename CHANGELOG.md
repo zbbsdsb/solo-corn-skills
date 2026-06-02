@@ -9,6 +9,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- CLI skills now support real LLM-powered execution via the `invoke` command
+
+---
+
+## [0.3.0] - 2026-06-02 — "The Executable Release"
+
+### Added
+- **LLM Execution Engine** — Skills are no longer mock stubs. The CLI now connects to OpenAI-compatible APIs to execute real skill workflows.
+  - `LLMProvider` — generic OpenAI-compatible chat completions client (`src/core/llm-provider.ts`)
+  - `SkillExecutor` — loads `SKILL.md` as system prompt, constructs operation-specific user prompts, and calls the LLM (`src/core/skill-executor.ts`)
+  - Per-skill prompt builders for all 8 skills: product-builder, landing, strategic-decision, research-integration, marketing-growth, mental-models, collector, connector
+- **Config System** (`src/core/config.ts`) — persistent configuration stored in `~/.scs/config.json`
+  - `scs config` CLI command for managing API keys, base URL, model, temperature, max tokens
+  - Environment variable support: `SCS_API_KEY`, `OPENAI_API_KEY`, `SCS_BASE_URL`, `SCS_MODEL`
+  - `.env` file auto-loading (from CWD or `.env.local`)
+- **Real Workflow Execution** — `scs run idea-to-spec` now actually invokes LLM calls through the skill chain
+- **Skill Chaining** — `scs invoke landing --then product-builder` passes context between LLM calls
+
+### Changed
+- Mock `invoke()` in `skill-registry.ts` replaced with real `SkillExecutor` calls
+- Skill directory resolution improved for npm global install and repo-relative paths
+- CLI version bumped to `0.3.0`
+
+### Fixed
+- TypeScript strict mode compatibility issues in frontmatter parser
+
 ---
 
 ## [1.4.0] - 2026-06-01

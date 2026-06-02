@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/zbbsdsb/solo-corn-skills/releases/tag/v1.0.0">
-    <img src="https://img.shields.io/badge/version-v1.0.0-brightgreen?style=flat-square" alt="v1.0.0"/>
+  <a href="https://github.com/zbbsdsb/solo-corn-skills/releases/tag/v0.3.0">
+    <img src="https://img.shields.io/badge/version-v0.3.0-brightgreen?style=flat-square" alt="v0.3.0"/>
   </a>
   <a href="https://www.npmjs.com/package/@oasis-npm/scs">
     <img src="https://img.shields.io/npm/v/@oasis-npm/scs?style=flat-square" alt="npm version"/>
@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <strong>🎉 v1.0 Official Release - May 20, 2026</strong>
+  <strong>🚀 v0.3.0 — Now with Real LLM Execution — June 2, 2026</strong>
 </p>
 
 ---
@@ -40,9 +40,9 @@
 
 ---
 
-## ⚡ CLI Tool
+## ⚡ CLI Tool — Now with Real LLM Execution!
 
-**Use SOLO CORN SKILLS directly from your terminal!**
+**Use SOLO CORN SKILLS directly from your terminal!** The CLI now connects to LLM APIs to execute real skill workflows — not just display documentation.
 
 ### Quick Start (Recommended)
 
@@ -51,10 +51,18 @@ Install via npm:
 ```bash
 npm install -g @oasis-npm/scs
 
+# Configure your LLM API key
+scs config --set-api-key sk-your-openai-api-key
+
 # Now you can use 'scs' globally!
 scs --version
-scs models list
-scs models show first-principles
+scs skills
+
+# Execute a skill with real LLM
+scs invoke product-builder --input '{"operation":"validate","idea":"AI writing assistant"}'
+
+# Run a complete workflow
+scs run idea-to-spec --interactive
 ```
 
 ### Build from Source
@@ -64,22 +72,32 @@ cd tools/cli
 npm install
 npm run build
 npm link
-
-# Now you can use 'scs' globally!
-scs --version
-scs models list
-scs models show first-principles
 ```
 
 ### Commands
 
 ```bash
+# Configuration
+scs config --show
+scs config --set-api-key <key>
+scs config --set-model gpt-4o
+
 # Mental models
 scs models list
 scs models list --category decision-reasoning
 scs models show <model-id>
 scs models search <query>
 scs models categories
+
+# Skills (LLM-powered!)
+scs skills                        # List all skills
+scs skill <name>                  # Show skill details
+scs invoke <skill> --interactive  # Invoke with real LLM execution
+scs invoke landing --then product-builder  # Chain skills
+
+# Workflows
+scs run idea-to-spec --interactive  # Full workflow execution
+scs run --list                      # List available workflows
 
 # Help
 scs help
@@ -167,8 +185,21 @@ cd solo-corn-skills
 
 ### Usage
 
-Each skill is a self-contained module. Invoke them based on your needs:
+Each skill is a self-contained module. Invoke them via the **CLI** or programmatically:
 
+**CLI (LLM-Powered):**
+```bash
+# Validate a product idea
+scs invoke product-builder --input '{"operation":"validate","idea":"AI writing tool","market":"B2B SaaS"}'
+
+# Clarify a vague startup idea
+scs invoke landing --interactive
+
+# Run a full idea-to-spec workflow
+scs run idea-to-spec --interactive
+```
+
+**Programmatic (API Mockup):**
 ```javascript
 // Example: Use mental models for strategic decisions
 const result = await invoke('mental-models', {
@@ -180,12 +211,6 @@ const result = await invoke('mental-models', {
 const spec = await invoke('product-builder', {
   feature: 'user authentication',
   constraints: ['JWT', 'OAuth2', 'TypeScript']
-});
-
-// Example: Analyze market opportunity
-const analysis = await invoke('strategic-decision', {
-  mode: 'market-analysis',
-  domain: 'B2B SaaS'
 });
 ```
 

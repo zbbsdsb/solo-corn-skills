@@ -1,52 +1,59 @@
-# SOLO CORN SKILLS - Next Steps Plan (Post v1.0)
+# SOLO CORN SKILLS - Next Steps Plan
 
 ---
 
-## Immediate Priorities (v1.1 - 2 weeks)
+## ✅ Completed — v0.3.0 "The Executable Release" (June 2, 2026)
 
-### 1. Website Enhancement
-- [ ] Complete all skills pages (research-integration, product-builder, etc.)
-- [ ] Add mental model detail pages for all 45+ models
-- [ ] Implement search functionality for mental models
-- [ ] Add downloadable resources (PDF guides, cheat sheets)
-
-### 2. Documentation Polish
-- [ ] Add installation and quickstart guide
-- [ ] Create "Getting Started" tutorial series
-- [ ] Add video walkthroughs for key skills
-- [ ] Add code examples and usage patterns
-
-### 3. Developer Experience
-- [ ] Create issue templates on GitHub
-- [ ] Create PR templates
-- [ ] Set up label system for issues/PRs
-- [ ] Add CONTRIBUTING guide examples
+- [x] **LLM Execution Engine** — Skills now connect to OpenAI-compatible APIs for real execution
+- [x] **Config System** — `scs config` command for API keys and model settings
+- [x] **Per-Skill Prompt Builders** — Operation-specific prompt templates for all 8 skills
+- [x] **Real Workflow Execution** — `scs run` chains now pass real LLM outputs
+- [x] **Skill Chaining** — Context-aware pipeline between skill invocations
+- [x] **Documentation Updated** — README, INSTALLATION, CHANGELOG, CLI README (all English)
 
 ---
 
-## Short-term (v1.2 - 1 month)
+## Immediate Priorities (v0.4.0 - 2 weeks)
+
+### 1. Streaming & UX
+- [ ] Add streaming output support for long LLM responses
+- [ ] Add progress spinners during LLM calls
+- [ ] Improve error messages with troubleshooting hints
+- [ ] Add `--dry-run` mode to preview prompts without API calls
+
+### 2. Provider Expansion
+- [ ] Native Anthropic API support (Claude models)
+- [ ] Google Gemini API support
+- [ ] Local Ollama integration guide
+- [ ] Provider auto-detection from base URL
+
+### 3. Skill Quality
+- [ ] Fill `references/` directories with substantive prompt content for all skills
+- [ ] Add example input/output pairs for each skill operation
+- [ ] Create an "SCS Skill Development Kit" template
+
+---
+
+## Short-term (v0.5.0 - 1 month)
 
 ### 1. Content Creation
-- [ ] Create 1-2 case studies of how to use the skills
+- [ ] Create 1-2 case studies showing real SCS invocations and results
 - [ ] Write blog posts about mental models in practice
-- [ ] Create interactive examples
-- [ ] Add real-world templates for each skill
+- [ ] Add downloadable resources (PDF guides, cheat sheets)
 
 ### 2. Community Building
 - [ ] Setup Discord/Slack community
 - [ ] Create community guidelines
-- [ ] Schedule first community call
 - [ ] Create contributor onboarding materials
 
 ### 3. Testing & Validation
-- [ ] Test all skills workflows
+- [ ] Test all skill workflows end-to-end
 - [ ] Gather feedback from early users
-- [ ] Fix any issues or bugs
-- [ ] Improve documentation based on feedback
+- [ ] Add automated tests for prompt builders
 
 ---
 
-## Mid-term (v2.0 - 3 months)
+## Mid-term (v1.0 - 3 months)
 
 ### 1. New Skills
 - [ ] Customer Support Skill
@@ -54,82 +61,42 @@
 - [ ] Product Operations Skill
 
 ### 2. Platform Features
-- [ ] CLI tool for running skills
-- [ ] Skill combination workflow system
+- [ ] Skill marketplace concept
 - [ ] Project templates
-- [ ] AI integration (LLM-based skill selection)
+- [ ] LLM-based skill selection (auto-routing via collector)
 
 ### 3. Developer Tools
 - [ ] Skill development guide
 - [ ] Template for new skills
 - [ ] Skill validation tool
-- [ ] Skill testing framework
 
 ---
 
-## Long-term (v3.0 - 6+ months)
+## Long-term (v2.0 - 6+ months)
 
 ### 1. Ecosystem
 - [ ] Skill marketplace
 - [ ] Community-contributed skills
-- [ ] Skill discovery platform
 - [ ] Certification system
 
 ### 2. Advanced Features
 - [ ] Analytics dashboard
 - [ ] Personalized recommendations
-- [ ] Integration with external tools
+- [ ] VS Code / Cursor extension
 - [ ] API for automation
-
----
-
-## Action Items - This Week
-
-### Priority 1 - High
-- [ ] Push v1.0 to GitHub
-- [ ] Enable GitHub Pages
-- [ ] Test website functionality
-- [ ] Create GitHub Release
-
-### Priority 2 - Medium
-- [ ] Update README.md with latest info
-- [ ] Add GitHub Topics
-- [ ] Set up issue templates
-- [ ] Plan first blog post
-
-### Priority 3 - Low
-- [ ] Create social media graphics
-- [ ] Plan launch announcement
-- [ ] Reach out to potential early users
 
 ---
 
 ## Success Metrics
 
-- 10+ stars on GitHub in first month
-- 5+ visitors to website daily
-- 1+ contributor in first month
-- 3+ feedback messages received
-- Complete at least 1 case study
+- 10+ stars on GitHub
+- 5+ daily website visitors
+- 1+ external contributor
+- 1 complete case study (real LLM invocation documented)
+- Positive user feedback on LLM execution quality
 
 ---
 
-## Communication Plan
-
-1. **GitHub**: Main project home, releases, issues
-2. **Discord/Slack**: Real-time community chat (future)
-3. **Blog/Newsletter**: Updates and tutorials
-
----
-
-## Next Review Date
-
-Review progress on **June 20, 2026** (1 month from now)
-- What worked?
-- What needs adjustment?
-- Update roadmap accordingly
-
----
-
-**Last Updated**: 2026-05-20
-**Next Version**: v1.1
+**Last Updated**: 2026-06-02
+**Current Version**: v0.3.0
+**Next Version**: v0.4.0

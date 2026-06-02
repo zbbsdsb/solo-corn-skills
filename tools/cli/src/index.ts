@@ -1,5 +1,38 @@
 #!/usr/bin/env node
 
+// Load .env files before anything else
+import * as path from 'path';
+import * as fs from 'fs';
+
+function loadDotEnv(): void {
+  // Try loading from current directory, then home directory
+  const candidates = [
+    path.join(process.cwd(), '.env'),
+    path.join(process.cwd(), '.env.local'),
+  ];
+  for (const file of candidates) {
+    try {
+      if (fs.existsSync(file)) {
+        const content = fs.readFileSync(file, 'utf-8');
+        for (const line of content.split('\n')) {
+          const trimmed = line.trim();
+          if (!trimmed || trimmed.startsWith('#')) continue;
+          const eqIdx = trimmed.indexOf('=');
+          if (eqIdx === -1) continue;
+          const key = trimmed.slice(0, eqIdx).trim();
+          const value = trimmed.slice(eqIdx + 1).trim().replace(/^["']|["']$/g, '');
+          if (!process.env[key]) {
+            process.env[key] = value;
+          }
+        }
+      }
+    } catch {
+      // Silently skip files that can't be read
+    }
+  }
+}
+loadDotEnv();
+
 import { Command } from 'commander';
 import figlet from 'figlet';
 import chalk from 'chalk';
@@ -7,6 +40,7 @@ import { createModelsCommand } from './commands/models';
 import { registerInitCommand, init } from './commands/init';
 import { registerRunCommand } from './commands/run';
 import { registerInvokeCommand } from './commands/invoke';
+import { registerConfigCommand } from './commands/config';
 import { OutputFormatter } from './core/output-formatter';
 import { skillRegistry } from './core/skill-registry';
 import { workflowEngine } from './core/workflow-engine';
@@ -16,7 +50,7 @@ const program = new Command();
 program
   .name('scs')
   .description('SOLO CORN SKILLS - Build billion-dollar companies, one skill at a time')
-  .version('0.2.2', '-v, --version');
+  .version('0.3.0', '-v, --version');
 
 program
   .addCommand(createModelsCommand());
@@ -24,6 +58,7 @@ program
 registerInitCommand(program);
 registerRunCommand(program);
 registerInvokeCommand(program);
+registerConfigCommand(program);
 
 program
   .command('help')
@@ -40,12 +75,15 @@ program.action(() => {
   console.log(chalk.gray('GitHub: https://github.com/zbbsdsb/solo-corn-skills'));
   console.log(chalk.gray('\nRun "scs help" to see all commands.\n'));
   
-  console.log(chalk.bold.cyan('\nNew Commands:\n'));
+  console.log(chalk.bold.cyan('\nCommands:\n'));
+  console.log(chalk.cyan('  scs config        ') + 'Manage API keys and settings');
   console.log(chalk.cyan('  scs init          ') + 'Initialize a new project workflow');
   console.log(chalk.cyan('  scs run           ') + 'Run a predefined workflow');
-  console.log(chalk.cyan('  scs invoke        ') + 'Invoke a skill');
+  console.log(chalk.cyan('  scs invoke        ') + 'Invoke a skill (real LLM execution!)');
   console.log(chalk.cyan('  scs skills        ') + 'List all available skills');
-  console.log(chalk.cyan('  scs skill <name>  ') + 'Show skill details\n');
+  console.log(chalk.cyan('  scs skill <name>  ') + 'Show skill details');
+  console.log(chalk.cyan('  scs models        ') + 'Browse 45+ mental models\n');
+  console.log(chalk.gray('\n⚡ First time? Run: scs config --set-api-key <your-key>\n'));
 });
 
 program.addHelpText('beforeAll', 

@@ -40,20 +40,41 @@ The website provides instant access to all documentation and mental models witho
 
 ## Quick Start
 
-### Get Started in 3 Minutes
+### Option 1: npm Global Install (Recommended)
+
+```bash
+# Install via npm
+npm install -g @oasis-npm/scs
+
+# Configure your LLM API key
+scs config --set-api-key sk-your-openai-api-key
+
+# Optional: use a custom endpoint or model
+scs config --set-base-url https://api.openai.com
+scs config --set-model gpt-4o
+
+# Verify installation
+scs --version
+scs skills
+```
+
+### Option 2: Clone Repository
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/zbbsdsb/solo-corn-skills.git
 
-# 2. Navigate to the project directory
-cd solo-corn-skills
+# 2. Navigate to the CLI directory
+cd solo-corn-skills/tools/cli
+npm install
+npm run build
 
-# 3. Explore the documentation
-# Start with README.md
+# 3. Link globally (optional)
+npm link
+
+# 4. Configure API key
+scs config --set-api-key sk-your-openai-api-key
 ```
-
-That's it! SOLO CORN SKILLS is documentation-first and doesn't require complex installation to use.
 
 ---
 
@@ -131,6 +152,36 @@ pip --version
 ---
 
 ## Configuration
+
+### API Key Setup (Required for LLM Execution)
+
+The SCS CLI now supports **real LLM-powered skill execution**. You need an OpenAI-compatible API key:
+
+```bash
+# Set your API key
+scs config --set-api-key sk-your-openai-api-key
+
+# Verify configuration
+scs config --show
+```
+
+**Supported providers:**
+- **OpenAI** — `scs config --set-base-url https://api.openai.com`
+- **Any OpenAI-compatible endpoint** — Azure, Anthropic (via proxy), Ollama, etc.
+
+**Environment variables** (alternative to config file):
+```bash
+export SCS_API_KEY=sk-your-key
+export SCS_BASE_URL=https://api.openai.com   # optional
+export SCS_MODEL=gpt-4o                      # optional
+```
+
+Or create a `.env` file in your project directory:
+```
+SCS_API_KEY=sk-your-key
+SCS_BASE_URL=https://api.openai.com
+SCS_MODEL=gpt-4o-mini
+```
 
 ### Git Configuration (For Contributors)
 
@@ -218,11 +269,29 @@ solo-corn-skills/
 
 ## Usage
 
-### Using the Skills
+### Using the Skills via CLI (LLM-Powered)
 
-SOLO CORN SKILLS is designed to be used through documentation and reference materials.
+The CLI now executes skills against real LLM APIs:
 
-#### 1. Browse Skills
+```bash
+# Validate a product idea
+scs invoke product-builder --input '{"operation":"validate","idea":"AI writing assistant for developers"}'
+
+# Generate a PRD
+scs invoke product-builder --input '{"operation":"spec","idea":"Task management app","features":["boards","collaboration","automation"]}'
+
+# Clarify a vague idea (interactive)
+scs invoke landing --interactive
+
+# Run a complete workflow
+scs run idea-to-spec --interactive
+
+# Chain multiple skills
+scs invoke landing --then product-builder --then strategic-decision
+```
+
+### Using the Skills as Documentation
+
 Each skill has its own directory with a `SKILL.md` file:
 - [mental-models/SKILL.md](mental-models/SKILL.md)
 - [product-builder/SKILL.md](product-builder/SKILL.md)
@@ -232,25 +301,6 @@ Each skill has its own directory with a `SKILL.md` file:
 - [marketing-growth/SKILL.md](marketing-growth/SKILL.md)
 - [research-integration/SKILL.md](research-integration/SKILL.md)
 - [connector/SKILL.md](connector/SKILL.md)
-
-#### 2. Use Reference Materials
-Each skill has a `references/` directory with detailed guides.
-
-#### 3. Use the Website
-Open [docs/index.html](docs/index.html) in your browser for web-based documentation.
-
-### Quick Reference
-
-```bash
-# Quick navigation examples
-cd mental-models
-ls references/
-# Browse mental models by category
-
-cd product-builder
-ls references/
-# Browse product development resources
-```
 
 ---
 
@@ -357,5 +407,5 @@ rm -rf solo-corn-skills  # macOS/Linux
 
 ---
 
-*Last Updated: 2026-05-21*
-*Version: 1.0.0*
+*Last Updated: 2026-06-02*
+*Version: 0.3.0*

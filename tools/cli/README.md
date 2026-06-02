@@ -1,6 +1,6 @@
 # SOLO CORN SKILLS CLI
 
-A command-line interface for SOLO CORN SKILLS - Build billion-dollar companies, one skill at a time.
+A command-line interface for SOLO CORN SKILLS — now with **real LLM-powered execution**.
 
 ## Quick Start
 
@@ -8,6 +8,7 @@ A command-line interface for SOLO CORN SKILLS - Build billion-dollar companies, 
 
 - Node.js 16.0.0 or higher
 - npm or yarn
+- An OpenAI-compatible API key (or any LLM provider with a chat completions endpoint)
 
 ### Installation
 
@@ -29,6 +30,27 @@ npm run build
 npm link
 ```
 
+### First-Time Setup
+
+```bash
+# Configure your LLM API key (required for skill execution)
+scs config --set-api-key sk-your-openai-api-key
+
+# Optional: customize model and endpoint
+scs config --set-model gpt-4o
+scs config --set-base-url https://api.openai.com
+
+# Verify your config
+scs config --show
+```
+
+You can also use environment variables instead:
+```bash
+export SCS_API_KEY=sk-your-key      # or OPENAI_API_KEY
+export SCS_BASE_URL=https://api.openai.com
+export SCS_MODEL=gpt-4o-mini
+```
+
 ## Usage
 
 ### Basic Commands
@@ -40,18 +62,23 @@ scs --version
 # Show help
 scs --help
 
-# Mental models commands
+# Configuration
+scs config --show
+scs config --set-api-key sk-...
+scs config --set-model gpt-4o
+
+# Mental models commands (no API key needed)
 scs models list
 scs models show first-principles
 scs models search "decision"
 scs models categories
 
-# Workflow commands
+# Workflow commands (requires API key)
 scs init
-scs run idea-to-spec
+scs run idea-to-spec --interactive
 scs run --list
 
-# Skill commands
+# Skill commands (requires API key)
 scs skills
 scs skill landing
 scs invoke landing --interactive
@@ -244,17 +271,21 @@ npm run format
 ```
 tools/cli/
 ├── src/
-│   ├── index.ts                 # Main entry point
+│   ├── index.ts                 # Main entry point (+ .env loader)
 │   ├── commands/
+│   │   ├── config.ts            # Config management command (NEW)
 │   │   ├── init.ts              # Init command
 │   │   ├── run.ts               # Run command
 │   │   ├── invoke.ts            # Invoke command
 │   │   └── models/
 │   │       └── index.ts         # Models commands
 │   ├── core/
+│   │   ├── llm-provider.ts      # OpenAI-compatible API client (NEW)
+│   │   ├── skill-executor.ts    # SKILL.md → LLM prompt bridge (NEW)
+│   │   ├── config.ts            # Config management (~/.scs) (NEW)
 │   │   ├── model-loader.ts      # Data loading
-│   │   ├── skill-registry.ts    # Skill management
-│   │   ├── workflow-engine.ts   # Workflow execution
+│   │   ├── skill-registry.ts    # Skill management (+ real LLM invoke)
+│   │   ├── workflow-engine.ts   # Workflow execution (uses real LLM)
 │   │   └── output-formatter.ts  # Output formatting
 │   ├── utils/
 │   │   └── inquirer.ts          # Interactive prompts
@@ -323,25 +354,29 @@ MIT
 
 ---
 
-## What's New in v0.2.0
+## What's New in v0.3.0
 
-- 🎉 **Skill Registry** - Auto-discovers and manages all skills
-- 🚀 **Workflow Engine** - Executes multi-stage workflows
-- 💬 **Interactive Mode** - User-friendly question-based interaction
-- 🔗 **Skill Chaining** - Chain multiple skills together
-- 📝 **New Commands** - `init`, `run`, `skills`, `skill`, `invoke`
-- 📚 **Updated Documentation** - Comprehensive guides and examples
+- 🧠 **Real LLM Execution** — Skills now call OpenAI-compatible APIs with context-aware prompt chains
+- ⚙️ **Config System** — `scs config` command for managing API keys and model settings
+- 🔗 **True Skill Chaining** — Chain invocations pass real LLM outputs between skills
+- 🎯 **Per-Skill Prompt Builders** — Each skill has operation-specific prompt templates
+- 📡 **Multi-Provider Support** — Works with OpenAI, Azure, Ollama, or any compatible endpoint
 
 ---
 
 ## Quick Reference
 
 ```bash
+# First-time setup
+scs config --set-api-key sk-...          # Set your API key
+scs config --show                         # View configuration
+
 # Most useful commands
 scs init                                  # Start a new project
 scs skills                                # List all skills
-scs run idea-to-spec --interactive       # Run idea-to-spec workflow
+scs run idea-to-spec --interactive       # Run idea-to-spec workflow (LLM-powered!)
 scs invoke landing --interactive          # Interactive skill invocation
 scs invoke landing --then product-builder # Chain skills
+scs invoke product-builder --input '{"operation":"validate","idea":"..."}'
 scs --help                                # Show help
 ```

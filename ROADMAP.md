@@ -35,39 +35,44 @@ Released on May 20, 2026
 
 ---
 
-## Phase 2: Enhancement (3-6 months)
+## Phase 2: Enhancement (3-6 months) — IN PROGRESS
 
 **Goal**: Refine, extend, and polish the current feature set.
 
 ### Feature Roadmap
 
-| Item | Priority | Description |
-|------|----------|-------------|
-| Skill integration examples | High | Real-world use cases showing skill combinations |
-| Interactive mental model quiz | High | Decision support tool |
-| Video tutorials | Medium | Walkthrough of key skills |
-| Advanced search capability | Medium | Find relevant mental models quickly |
-| CLI tool | Medium | Command-line interface for skills |
-| Workflow templates | High | Pre-built workflows for common scenarios |
+| Item | Priority | Status | Description |
+|------|----------|--------|-------------|
+| LLM execution engine | High | ✅ Done (v0.3.0) | Real API-powered skill execution |
+| Skill integration examples | High | 🔄 In Progress | Real-world use cases showing skill combinations |
+| Interactive mental model quiz | High | 📋 Planned | Decision support tool |
+| Video tutorials | Medium | 📋 Planned | Walkthrough of key skills |
+| Advanced search capability | Medium | 📋 Planned | Find relevant mental models quickly |
+| CLI tool | High | ✅ Done | Command-line interface with LLM execution |
+| Workflow templates | High | ✅ Done | Pre-built workflows for common scenarios |
 
 ### Technical Improvements
 
-| Item | Priority | Description |
-|------|----------|-------------|
-| Automated testing | High | Test suite for all skills |
-| CI/CD pipeline | High | Automated builds and deployments |
-| API documentation | High | Complete API specs |
-| Performance optimization | Medium | Faster loading times |
-| Accessibility improvements | Medium | WCAG 2.1 compliance |
+| Item | Priority | Status | Description |
+|------|----------|--------|-------------|
+| LLM provider abstraction | High | ✅ Done (v0.3.0) | OpenAI-compatible API client |
+| Config management | High | ✅ Done (v0.3.0) | Persistent config with env var support |
+| Skill executor / prompt bridge | High | ✅ Done (v0.3.0) | SKILL.md → LLM prompt pipeline |
+| Automated testing | High | 📋 Planned | Test suite for all skills |
+| CI/CD pipeline | High | 📋 Planned | Automated builds and deployments |
+| Streaming output | Medium | 📋 Planned | Real-time LLM response streaming |
+| Performance optimization | Medium | 📋 Planned | Faster loading times |
+| Accessibility improvements | Medium | 📋 Planned | WCAG 2.1 compliance |
 
 ### Documentation & Community
 
-| Item | Priority | Description |
-|------|----------|-------------|
-| Case studies | High | Real-world success stories |
-| Contributor guide enhancements | Medium | Better onboarding |
-| Discord/Slack community | Medium | Real-time discussion |
-| Monthly newsletter | Low | Project updates |
+| Item | Priority | Status | Description |
+|------|----------|--------|-------------|
+| Documentation (English) | High | ✅ Done (v0.3.0) | README, INSTALLATION, CHANGELOG updated |
+| Case studies | High | 📋 Planned | Real-world success stories |
+| Contributor guide enhancements | Medium | 📋 Planned | Better onboarding |
+| Discord/Slack community | Medium | 📋 Planned | Real-time discussion |
+| Monthly newsletter | Low | 📋 Planned | Project updates |
 
 ---
 
@@ -116,4 +121,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) to get started. Every contribution counts
 
 ---
 
-**Last Updated:** 2026-05-19
+**Last Updated:** 2026-06-02

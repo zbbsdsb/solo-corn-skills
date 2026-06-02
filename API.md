@@ -577,5 +577,7 @@ const acquisition = await invoke('marketing-growth', {
 
 ---
 
-*Last Updated: 2026-05-21*
-*Version: 1.0.0*
+*Last Updated: 2026-06-02*
+*Version: 0.3.0*
+
+> **Note**: As of v0.3.0, the CLI now supports **real LLM-powered execution** via `scs invoke` and `scs run`. The `invoke()` API shown below represents the programmatic interface pattern — actual execution happens through the CLI connected to OpenAI-compatible APIs. See [INSTALLATION.md](INSTALLATION.md) for setup instructions.

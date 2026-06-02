@@ -9,6 +9,7 @@ import {
   InputSchema,
   OutputSchema
 } from '../types';
+import { skillExecutor } from './skill-executor';
 
 /**
  * SkillRegistry - Manages skill registration, discovery, and invocation
@@ -195,10 +196,33 @@ export class SkillRegistry {
   }
 
   /**
+   * Resolve the skills directory (works from repo root or npm global install).
+   */
+  private resolveSkillsDir(): string {
+    // Check multiple candidate locations
+    const candidates = [
+      path.resolve(process.cwd(), '../..'),           // Running from tools/cli in repo
+      path.resolve(__dirname, '../../../..'),          // Running from dist/ in repo
+      path.resolve(process.cwd()),                     // Running from repo root
+    ];
+    for (const dir of candidates) {
+      if (fs.existsSync(dir) && fs.existsSync(path.join(dir, 'collector', 'SKILL.md'))) {
+        return dir;
+      }
+    }
+    // Fallback: check if data directory has bundled skills
+    const dataDir = path.resolve(__dirname, '../../data');
+    if (fs.existsSync(dataDir)) {
+      return dataDir;
+    }
+    return candidates[0]; // Default fallback
+  }
+
+  /**
    * Auto-discover skills from the skills directory
    */
   private async discoverSkills(): Promise<void> {
-    const skillsDir = path.resolve(process.cwd(), '../..');
+    const skillsDir = this.resolveSkillsDir();
     
     if (!fs.existsSync(skillsDir)) {
       console.warn('Skills directory not found, skipping auto-discovery');
@@ -250,17 +274,7 @@ export class SkillRegistry {
       inputs: [],
       outputs: [],
       invoke: async (params: InvocationParams): Promise<SkillResult> => {
-        return {
-          success: true,
-          outputs: {
-            message: `Skill "${skillDir}" invoked successfully`,
-            inputs: params.inputs
-          },
-          metadata: {
-            duration: 0,
-            tokens: 0
-          }
-        };
+        return skillExecutor.execute(skillDir, params);
       }
     };
 
