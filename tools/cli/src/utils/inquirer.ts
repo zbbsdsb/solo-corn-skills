@@ -1,5 +1,5 @@
 import * as readline from 'readline';
-import * as chalk from 'chalk';
+import { cyan, bold, gray, green, yellow, red } from 'picocolors';
 import { Question, QuestionOption } from '../types';
 
 /**
@@ -84,7 +84,7 @@ export class InteractionManager {
       if (question.validate) {
         const isValid = question.validate(answer);
         if (isValid !== true) {
-          console.log(chalk.yellow(`⚠ ${isValid}`));
+          console.log(yellow(`⚠ ${isValid}`));
           const retryAnswer = await this.ask(question);
           answers[question.name] = retryAnswer;
         }
@@ -100,7 +100,7 @@ export class InteractionManager {
   private async askInput(question: Question): Promise<string> {
     return new Promise((resolve) => {
       this.rl!.question(
-        chalk.cyan('? ') + chalk.bold(question.message) + ' ',
+        cyan('? ') + bold(question.message) + ' ',
         (answer) => {
           resolve(answer.trim() || question.default || '');
         }
@@ -116,14 +116,14 @@ export class InteractionManager {
       throw new Error('Select question requires choices');
     }
 
-    console.log(chalk.bold('\n' + question.message + '\n'));
+    console.log(bold('\n' + question.message + '\n'));
 
     question.choices.forEach((choice, index) => {
-      const marker = index === 0 ? chalk.green('❯') : ' ';
+      const marker = index === 0 ? green('❯') : ' ';
       const description = choice.description 
-        ? chalk.gray(` - ${choice.description}`) 
+        ? gray(` - ${choice.description}`) 
         : '';
-      console.log(`${marker} ${chalk.cyan(index + 1)}. ${choice.name}${description}`);
+      console.log(`${marker} ${cyan(index + 1 + '. ' + choice.name)}${description}`);
     });
 
     console.log();
@@ -131,7 +131,7 @@ export class InteractionManager {
     const selectedIndex = await this.selectIndex(question.choices.length);
     const selectedChoice = question.choices[selectedIndex];
 
-    console.log(chalk.green('✓ ') + chalk.bold(selectedChoice.name) + '\n');
+    console.log(green('✓ ') + bold(selectedChoice.name) + '\n');
 
     return selectedChoice.value;
   }
@@ -144,12 +144,12 @@ export class InteractionManager {
       throw new Error('Multiselect question requires choices');
     }
 
-    console.log(chalk.bold('\n' + question.message));
-    console.log(chalk.gray('(Press SPACE to select, ENTER to confirm)\n'));
+    console.log(bold('\n' + question.message));
+    console.log(gray('(Press SPACE to select, ENTER to confirm)\n'));
 
     const selected = await this.checkboxSelection(question.choices);
     
-    console.log(chalk.green('✓ ') + chalk.bold(`Selected ${selected.length} item(s)\n`));
+    console.log(green('✓ ') + bold(`Selected ${selected.length} item(s)\n`));
 
     return selected;
   }
@@ -163,7 +163,7 @@ export class InteractionManager {
 
     return new Promise((resolve) => {
       this.rl!.question(
-        chalk.cyan('? ') + chalk.bold(question.message) + ` ${chalk.gray(yesNo)} `,
+        cyan('? ') + bold(question.message) + ` ${gray(yesNo)} `,
         (answer) => {
           const normalized = answer.toLowerCase().trim();
           if (!normalized) {
@@ -182,7 +182,7 @@ export class InteractionManager {
   private async askPassword(question: Question): Promise<string> {
     return new Promise((resolve) => {
       this.rl!.question(
-        chalk.cyan('? ') + chalk.bold(question.message) + ' ',
+        cyan('? ') + bold(question.message) + ' ',
         (answer) => {
           resolve(answer);
         }
@@ -203,12 +203,12 @@ export class InteractionManager {
         (this.rl! as any).output.write('\x1b[0G');
         
         question.choices!.forEach((choice, index) => {
-          const marker = index === selected ? chalk.green('❯') : ' ';
+          const marker = index === selected ? green('❯') : ' ';
           const description = choice.description 
-            ? chalk.gray(` - ${choice.description}`) 
+            ? gray(` - ${choice.description}`) 
             : '';
           if (index === selected) {
-            (this.rl! as any).output.write(`${marker} ${chalk.cyan(chalk.bold(index + 1 + '. ' + choice.name))}${description}\n`);
+            (this.rl! as any).output.write(`${marker} ${cyan(bold(index + 1 + '. ' + choice.name))}${description}\n`);
           } else {
             (this.rl! as any).output.write(`${marker} ${index + 1}. ${choice.name}${description}\n`);
           }
@@ -251,15 +251,15 @@ export class InteractionManager {
         (this.rl! as any).output.write('\x1b[0G');
         
         choices.forEach((choice, index) => {
-          const check = selected.has(index) ? chalk.green('✓') : ' ';
-          const marker = selected.has(index) ? chalk.green('❯') : ' ';
+          const check = selected.has(index) ? green('✓') : ' ';
+          const marker = selected.has(index) ? green('❯') : ' ';
           const description = choice.description 
-            ? chalk.gray(` - ${choice.description}`) 
+            ? gray(` - ${choice.description}`) 
             : '';
           (this.rl! as any).output.write(`${check} ${marker} ${choice.name}${description}\n`);
         });
         
-        (this.rl! as any).output.write(chalk.gray('\nPress SPACE to toggle, ENTER to confirm\n'));
+        (this.rl! as any).output.write(gray('\nPress SPACE to toggle, ENTER to confirm\n'));
         (this.rl! as any).output.write('\x1b[' + (choices.length + 2) + 'A');
       };
 
@@ -294,37 +294,37 @@ export class InteractionManager {
    * Print a header
    */
   printHeader(title: string): void {
-    console.log('\n' + chalk.bold.cyan('═'.repeat(60)));
-    console.log(chalk.bold.cyan('  ' + title));
-    console.log(chalk.bold.cyan('═'.repeat(60)) + '\n');
+    console.log('\n' + cyan(bold('═'.repeat(60))));
+    console.log(cyan(bold('  ' + title)));
+    console.log(cyan(bold('═'.repeat(60))) + '\n');
   }
 
   /**
    * Print a success message
    */
   printSuccess(message: string): void {
-    console.log(chalk.green('✓ ') + message + '\n');
+    console.log(green('✓ ') + message + '\n');
   }
 
   /**
    * Print an error message
    */
   printError(message: string): void {
-    console.log(chalk.red('✗ ') + message + '\n');
+    console.log(red('✗ ') + message + '\n');
   }
 
   /**
    * Print a warning message
    */
   printWarning(message: string): void {
-    console.log(chalk.yellow('⚠ ') + message + '\n');
+    console.log(yellow('⚠ ') + message + '\n');
   }
 
   /**
    * Print info message
    */
   printInfo(message: string): void {
-    console.log(chalk.cyan('ℹ ') + message + '\n');
+    console.log(cyan('ℹ ') + message + '\n');
   }
 
   /**
@@ -341,7 +341,7 @@ export class InteractionManager {
     return new Promise((resolve) => {
       this.initReadline();
       
-      console.log(chalk.gray('\n' + message));
+      console.log(gray('\n' + message));
       
       this.rl!.once('keypress', () => {
         resolve();

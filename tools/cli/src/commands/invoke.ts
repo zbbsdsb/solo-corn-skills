@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import chalk from 'chalk';
+import { cyan, bold, gray, green, red } from 'picocolors';
 import { skillRegistry } from '../core/skill-registry';
 import { workflowEngine } from '../core/workflow-engine';
 import { interactionManager } from '../utils/inquirer';
@@ -18,35 +18,35 @@ async function showSkill(skillName: string): Promise<void> {
     return;
   }
 
-  console.log(chalk.bold.cyan('\nSkill Information:'));
-  console.log(chalk.cyan('  Name: ') + metadata.name);
-  console.log(chalk.cyan('  Version: ') + metadata.version);
-  console.log(chalk.cyan('  Description: ') + metadata.description);
-  console.log(chalk.cyan('  Category: ') + metadata.category.join(', '));
+  console.log(cyan(bold('\nSkill Information:')));
+  console.log(cyan('  Name: ') + metadata.name);
+  console.log(cyan('  Version: ') + metadata.version);
+  console.log(cyan('  Description: ') + metadata.description);
+  console.log(cyan('  Category: ') + metadata.category.join(', '));
 
   if (metadata.tags && metadata.tags.length > 0) {
-    console.log(chalk.cyan('  Tags: ') + metadata.tags.join(', '));
+    console.log(cyan('  Tags: ') + metadata.tags.join(', '));
   }
 
   if (inputs && inputs.length > 0) {
-    console.log(chalk.bold('\nInput Parameters:'));
+    console.log(bold('\nInput Parameters:'));
     inputs.forEach(input => {
-      const required = input.required ? chalk.red('*') : chalk.gray('(optional)');
-      console.log(chalk.cyan(`  ${input.name} `) + required);
-      console.log(chalk.gray(`    Type: ${input.type}`));
-      console.log(chalk.gray(`    Description: ${input.description}`));
+      const required = input.required ? red('*') : gray('(optional)');
+      console.log(cyan(`  ${input.name} `) + required);
+      console.log(gray(`    Type: ${input.type}`));
+      console.log(gray(`    Description: ${input.description}`));
       if (input.default !== undefined) {
-        console.log(chalk.gray(`    Default value: ${input.default}`));
+        console.log(gray(`    Default value: ${input.default}`));
       }
     });
   }
 
   if (outputs && outputs.length > 0) {
-    console.log(chalk.bold('\nOutput Parameters:'));
+    console.log(bold('\nOutput Parameters:'));
     outputs.forEach(output => {
-      console.log(chalk.cyan(`  ${output.name}`));
-      console.log(chalk.gray(`    Type: ${output.type}`));
-      console.log(chalk.gray(`    Description: ${output.description}`));
+      console.log(cyan(`  ${output.name}`));
+      console.log(gray(`    Type: ${output.type}`));
+      console.log(gray(`    Description: ${output.description}`));
     });
   }
 
@@ -64,11 +64,11 @@ async function listSkills(): Promise<void> {
     return;
   }
 
-  console.log(chalk.bold.cyan(`\nAvailable Skills (${skills.length}):\n`));
+  console.log(cyan(bold(`\nAvailable Skills (${skills.length}):\n`)));
 
   skills.forEach(skill => {
-    console.log(chalk.cyan('  • ') + chalk.bold(skill.name));
-    console.log(chalk.gray(`    ${skill.description}\n`));
+    console.log(cyan('  • ') + bold(skill.name));
+    console.log(gray(`    ${skill.description}\n`));
   });
 }
 
@@ -92,7 +92,7 @@ async function invokeSkill(
     let context: Record<string, any> = {};
 
     if (options.interactive) {
-      console.log(chalk.bold(`\n📝 Invoking Skill: ${skillName}\n`));
+      console.log(bold(`\n📝 Invoking Skill: ${skillName}\n`));
       
       const questions: Question[] = [
         {
@@ -120,7 +120,7 @@ async function invokeSkill(
       context = options.context;
     }
 
-    console.log(chalk.cyan(`\n⚡ Invoking skill: ${skillName}...\n`));
+    console.log(cyan(`\n⚡ Invoking skill: ${skillName}...\n`));
 
     const result = await skillRegistry.invoke(skillName, {
       context,
@@ -134,13 +134,13 @@ async function invokeSkill(
       interactionManager.printSuccess('Skill invoked successfully!');
 
       if (result.metadata) {
-        console.log(chalk.gray(`\nExecution time: ${result.metadata.duration}ms`));
+        console.log(gray(`\nExecution time: ${result.metadata.duration}ms`));
         if (result.metadata.tokens) {
-          console.log(chalk.gray(`Tokens used: ${result.metadata.tokens}`));
+          console.log(gray(`Tokens used: ${result.metadata.tokens}`));
         }
       }
 
-      console.log(chalk.bold('\nOutput Results:\n'));
+      console.log(bold('\nOutput Results:\n'));
       console.log(JSON.stringify(result.outputs, null, 2));
 
       if (options.output) {
@@ -149,10 +149,10 @@ async function invokeSkill(
     } else {
       interactionManager.printError('Skill invocation failed');
       if (result.error) {
-        console.log(chalk.red(`\nError code: ${result.error.code}`));
-        console.log(chalk.red(`Error message: ${result.error.message}`));
+        console.log(red(`\nError code: ${result.error.code}`));
+        console.log(red(`Error message: ${result.error.message}`));
         if (result.error.details) {
-          console.log(chalk.gray(`\nDetails:`));
+          console.log(gray(`\nDetails:`));
           console.log(JSON.stringify(result.error.details, null, 2));
         }
       }
@@ -176,9 +176,9 @@ async function chainInvoke(
     return;
   }
 
-  console.log(chalk.bold.cyan('\n🔗 Chain Invocation:'));
+  console.log(cyan(bold('\n🔗 Chain Invocation:')));
   skills.forEach((skill, index) => {
-    console.log(chalk.cyan(`  ${index + 1}. ${skill}`));
+    console.log(cyan(`  ${index + 1}. ${skill}`));
   });
   console.log();
 
@@ -193,7 +193,7 @@ async function chainInvoke(
       return;
     }
 
-    console.log(chalk.cyan(`\n⚡ [${i + 1}/${skills.length}] Invoking: ${skillName}\n`));
+    console.log(cyan(`\n⚡ [${i + 1}/${skills.length}] Invoking: ${skillName}\n`));
 
     let inputs: Record<string, any> = {};
 
@@ -231,7 +231,7 @@ async function chainInvoke(
     });
 
     if (result.success) {
-      console.log(chalk.green(`✓ ${skillName} invoked successfully`));
+      console.log(green(`✓ ${skillName} invoked successfully`));
       lastOutput = result.outputs;
 
       if (options.output && i === skills.length - 1) {
@@ -240,14 +240,14 @@ async function chainInvoke(
     } else {
       interactionManager.printError(`${skillName} invocation failed`);
       if (result.error) {
-        console.log(chalk.red(`  ${result.error.message}`));
+        console.log(red(`  ${result.error.message}`));
       }
       return;
     }
   }
 
   interactionManager.printSuccess('\nChain invocation complete!');
-  console.log(chalk.bold('\nFinal Output:\n'));
+  console.log(bold('\nFinal Output:\n'));
   console.log(JSON.stringify(lastOutput, null, 2));
 }
 

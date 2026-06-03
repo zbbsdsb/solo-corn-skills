@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import chalk from 'chalk';
+import { cyan, bold, gray, yellow } from 'picocolors';
 import { interactionManager } from '../utils/inquirer';
 import { skillRegistry } from '../core/skill-registry';
 import { InitOptions, SkillWorkflow } from '../types';
@@ -204,21 +204,21 @@ function getTimeMultiplier(constraint: string): number {
 function displayWorkflowPreview(workflow: SkillWorkflow): void {
   interactionManager.printHeader('Recommended Workflow Preview');
 
-  console.log(chalk.bold('Workflow Name: ') + workflow.name);
-  console.log(chalk.bold('Description: ') + workflow.description + '\n');
+  console.log(bold('Workflow Name: ') + workflow.name);
+  console.log(bold('Description: ') + workflow.description + '\n');
 
-  console.log(chalk.bold('Execution Stages:\n'));
+  console.log(bold('Execution Stages:\n'));
 
   workflow.stages.forEach((stage, index) => {
     const deps = stage.dependsOn && stage.dependsOn.length > 0 
-      ? chalk.gray(` (depends on: ${stage.dependsOn.join(', ')})`) 
+      ? gray(` (depends on: ${stage.dependsOn.join(', ')})`) 
       : '';
     
-    const optional = stage.optional ? chalk.yellow(' [optional]') : '';
+    const optional = stage.optional ? yellow(' [optional]') : '';
     
     console.log(
-      chalk.cyan(`${index + 1}. `) + 
-      chalk.bold(stage.name) + 
+      cyan(`${index + 1}. `) + 
+      bold(stage.name) + 
       ` - ${stage.skill}${deps}${optional}`
     );
   });
@@ -233,7 +233,7 @@ async function interactiveInit(): Promise<void> {
   interactionManager.clear();
   interactionManager.printHeader('SOLO CORN SKILLS - Project Initialization');
 
-  console.log(chalk.gray('Let\'s create your workflow step by step...\n'));
+  console.log(gray('Let\'s create your workflow step by step...\n'));
 
   const answers = await interactionManager.askMany(GOAL_QUESTIONS);
 
@@ -288,10 +288,10 @@ async function handleCustomWorkflow(): Promise<void> {
 
   interactionManager.printSuccess(`Found ${availableSkills.length} available skills`);
 
-  console.log(chalk.bold('\nAvailable Skills:\n'));
+  console.log(bold('\nAvailable Skills:\n'));
   availableSkills.forEach((skill, index) => {
-    console.log(chalk.cyan(`${index + 1}. `) + skill.name);
-    console.log(chalk.gray(`   ${skill.description}\n`));
+    console.log(cyan(`${index + 1}. `) + skill.name);
+    console.log(gray(`   ${skill.description}\n`));
   });
 
   interactionManager.printInfo('Custom workflows will be implemented via scs run command');
@@ -313,7 +313,7 @@ async function saveWorkflow(workflow: SkillWorkflow): Promise<void> {
   const filePath = path.join(workflowsDir, `${workflow.name}.json`);
   fs.writeFileSync(filePath, JSON.stringify(workflow, null, 2));
 
-  console.log(chalk.gray(`\nWorkflow saved to: ${filePath}\n`));
+  console.log(gray(`\nWorkflow saved to: ${filePath}\n`));
 }
 
 /**
@@ -322,14 +322,14 @@ async function saveWorkflow(workflow: SkillWorkflow): Promise<void> {
 function printNextSteps(workflow: SkillWorkflow): void {
   interactionManager.printHeader('Next Steps');
 
-  console.log(chalk.bold('Run workflow:\n'));
-  console.log(chalk.cyan(`  scs run ${workflow.name}\n`));
+  console.log(bold('Run workflow:\n'));
+  console.log(cyan(`  scs run ${workflow.name}\n`));
 
-  console.log(chalk.bold('Or run interactively:\n'));
-  console.log(chalk.cyan(`  scs run ${workflow.name} --interactive\n`));
+  console.log(bold('Or run interactively:\n'));
+  console.log(cyan(`  scs run ${workflow.name} --interactive\n`));
 
-  console.log(chalk.bold('View all available workflows:\n'));
-  console.log(chalk.cyan('  scs run --list\n'));
+  console.log(bold('View all available workflows:\n'));
+  console.log(cyan('  scs run --list\n'));
 
   console.log();
 }
@@ -362,9 +362,9 @@ async function nonInteractiveInit(options: InitOptions): Promise<void> {
     printNextSteps(workflow);
   } else {
     interactionManager.printError(`Unknown workflow: ${options.workflow}`);
-    console.log(chalk.bold('\nAvailable workflows:\n'));
+    console.log(bold('\nAvailable workflows:\n'));
     Object.keys(WORKFLOW_TEMPLATES).forEach(name => {
-      console.log(chalk.cyan(`  - ${name}`));
+      console.log(cyan(`  - ${name}`));
     });
     console.log();
   }

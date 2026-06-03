@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import chalk from 'chalk';
+import { cyan, bold, gray } from 'picocolors';
 import { workflowEngine } from '../core/workflow-engine';
 import { interactionManager } from '../utils/inquirer';
 import { RunOptions } from '../types';
@@ -12,15 +12,15 @@ async function listWorkflows(): Promise<void> {
 
   if (workflows.length === 0) {
     interactionManager.printWarning('No workflows available');
-    console.log(chalk.gray('\nUse scs init to create your first workflow\n'));
+    console.log(gray('\nUse scs init to create your first workflow\n'));
     return;
   }
 
-  console.log(chalk.bold.cyan('\nAvailable Workflows:\n'));
+  console.log(cyan(bold('\nAvailable Workflows:\n')));
 
   workflows.forEach(workflow => {
-    console.log(chalk.cyan('  • ') + chalk.bold(workflow.name));
-    console.log(chalk.gray(`    ${workflow.description}\n`));
+    console.log(cyan('  • ') + bold(workflow.name));
+    console.log(gray(`    ${workflow.description}\n`));
   });
 }
 
@@ -60,7 +60,7 @@ async function runWorkflow(
     let context: Record<string, any> = {};
 
     if (options.interactive) {
-      console.log(chalk.bold('\n📝 Please provide initial information:\n'));
+      console.log(bold('\n📝 Please provide initial information:\n'));
       
       const questions = [
         {
@@ -125,7 +125,7 @@ async function interactiveRun(): Promise<void> {
 
   if (workflows.length === 0) {
     interactionManager.printWarning('No workflows available');
-    console.log(chalk.gray('\nPlease run scs init to create a workflow first\n'));
+    console.log(gray('\nPlease run scs init to create a workflow first\n'));
     return;
   }
 

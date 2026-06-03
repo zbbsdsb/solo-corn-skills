@@ -34,7 +34,7 @@
   "homepage": "https://zbbsdsb.github.io/solo-corn-skills/",
   "dependencies": {
     "commander": "^11.1.0",
-    "chalk": "^4.1.2",
+    "picocolors": "^1.0.1",
     "inquirer": "^8.2.6",
     "ora": "^5.4.1",
     "cli-table3": "^0.6.3",

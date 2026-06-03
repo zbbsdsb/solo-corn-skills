@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import chalk from 'chalk';
+import { cyan, bold, white, gray } from 'picocolors';
 import { configManager } from '../core/config';
 import { interactionManager } from '../utils/inquirer';
 
@@ -18,9 +18,9 @@ export function registerConfigCommand(program: Command): void {
     .option('--set-max-tokens <tokens>', 'Set max tokens per response')
     .action(async (options) => {
       if (options.show) {
-        console.log(chalk.bold.cyan('\n╔══════════════════════════════════════════════════════════════╗'));
-        console.log(chalk.bold.cyan('║                  ') + chalk.bold.white('SCS CONFIGURATION') + chalk.bold.cyan('                       ║'));
-        console.log(chalk.bold.cyan('╚══════════════════════════════════════════════════════════════╝\n'));
+        console.log(cyan(bold('\n╔══════════════════════════════════════════════════════════════╗')));
+        console.log(cyan(bold('║                  ')) + white(bold('SCS CONFIGURATION')) + cyan(bold('                       ║')));
+        console.log(cyan(bold('╚══════════════════════════════════════════════════════════════╝\n')));
         console.log(configManager.show());
         console.log();
         return;
@@ -66,16 +66,16 @@ export function registerConfigCommand(program: Command): void {
 
       if (!changed) {
         // Default: show config
-        console.log(chalk.bold.cyan('\n╔══════════════════════════════════════════════════════════════╗'));
-        console.log(chalk.bold.cyan('║                  ') + chalk.bold.white('SCS CONFIGURATION') + chalk.bold.cyan('                       ║'));
-        console.log(chalk.bold.cyan('╚══════════════════════════════════════════════════════════════╝\n'));
+        console.log(cyan(bold('\n╔══════════════════════════════════════════════════════════════╗')));
+        console.log(cyan(bold('║                  ')) + white(bold('SCS CONFIGURATION')) + cyan(bold('                       ║')));
+        console.log(cyan(bold('╚══════════════════════════════════════════════════════════════╝\n')));
         console.log(configManager.show());
-        console.log(chalk.gray('\nConfiguration file: ' + configManager.getConfigPath()));
-        console.log(chalk.gray('\nTips:'));
-        console.log(chalk.gray('  • Set API key:     scs config --set-api-key sk-...'));
-        console.log(chalk.gray('  • Use custom URL:  scs config --set-base-url https://api.openai.com'));
-        console.log(chalk.gray('  • Change model:    scs config --set-model gpt-4o'));
-        console.log(chalk.gray('  • Use env vars:    SCS_API_KEY, SCS_BASE_URL, SCS_MODEL\n'));
+        console.log(gray('\nConfiguration file: ' + configManager.getConfigPath()));
+        console.log(gray('\nTips:'));
+        console.log(gray('  • Set API key:     scs config --set-api-key sk-...'));
+        console.log(gray('  • Use custom URL:  scs config --set-base-url https://api.openai.com'));
+        console.log(gray('  • Change model:    scs config --set-model gpt-4o'));
+        console.log(gray('  • Use env vars:    SCS_API_KEY, SCS_BASE_URL, SCS_MODEL\n'));
       }
     });
 }

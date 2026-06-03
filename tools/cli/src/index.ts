@@ -35,7 +35,7 @@ loadDotEnv();
 
 import { Command } from 'commander';
 import figlet from 'figlet';
-import chalk from 'chalk';
+import { cyan, bold, white, gray, yellow, green } from 'picocolors';
 import { createModelsCommand } from './commands/models';
 import { registerInitCommand, init } from './commands/init';
 import { registerRunCommand } from './commands/run';
@@ -68,35 +68,35 @@ program
   });
 
 program.action(() => {
-  console.log(chalk.cyan(figlet.textSync('SOLO CORN', { horizontalLayout: 'full' })));
-  console.log(chalk.white(figlet.textSync('SKILLS', { horizontalLayout: 'full' })));
-  console.log('\n' + chalk.bold('Build billion-dollar companies, one skill at a time'));
-  console.log(chalk.gray('Website: https://zbbsdsb.github.io/solo-corn-skills/'));
-  console.log(chalk.gray('GitHub: https://github.com/zbbsdsb/solo-corn-skills'));
-  console.log(chalk.gray('\nRun "scs help" to see all commands.\n'));
+  console.log(cyan(figlet.textSync('SOLO CORN', { horizontalLayout: 'full' })));
+  console.log(white(figlet.textSync('SKILLS', { horizontalLayout: 'full' })));
+  console.log('\n' + bold('Build billion-dollar companies, one skill at a time'));
+  console.log(gray('Website: https://zbbsdsb.github.io/solo-corn-skills/'));
+  console.log(gray('GitHub: https://github.com/zbbsdsb/solo-corn-skills'));
+  console.log(gray('\nRun "scs help" to see all commands.\n'));
   
-  console.log(chalk.bold.cyan('\nCommands:\n'));
-  console.log(chalk.cyan('  scs config        ') + 'Manage API keys and settings');
-  console.log(chalk.cyan('  scs init          ') + 'Initialize a new project workflow');
-  console.log(chalk.cyan('  scs run           ') + 'Run a predefined workflow');
-  console.log(chalk.cyan('  scs invoke        ') + 'Invoke a skill (real LLM execution!)');
-  console.log(chalk.cyan('  scs skills        ') + 'List all available skills');
-  console.log(chalk.cyan('  scs skill <name>  ') + 'Show skill details');
-  console.log(chalk.cyan('  scs models        ') + 'Browse 45+ mental models\n');
-  console.log(chalk.gray('\n⚡ First time? Run: scs config --set-api-key <your-key>\n'));
+  console.log(cyan(bold('\nCommands:\n')));
+  console.log(cyan('  scs config        ') + 'Manage API keys and settings');
+  console.log(cyan('  scs init          ') + 'Initialize a new project workflow');
+  console.log(cyan('  scs run           ') + 'Run a predefined workflow');
+  console.log(cyan('  scs invoke        ') + 'Invoke a skill (real LLM execution!)');
+  console.log(cyan('  scs skills        ') + 'List all available skills');
+  console.log(cyan('  scs skill <name>  ') + 'Show skill details');
+  console.log(cyan('  scs models        ') + 'Browse 45+ mental models\n');
+  console.log(gray('\n⚡ First time? Run: scs config --set-api-key <your-key>\n'));
 });
 
 program.addHelpText('beforeAll', 
-  chalk.cyan(figlet.textSync('SOLO CORN', { horizontalLayout: 'full' })) + '\n' +
-  chalk.white(figlet.textSync('SKILLS', { horizontalLayout: 'full' })) + '\n'
+  cyan(figlet.textSync('SOLO CORN', { horizontalLayout: 'full' })) + '\n' +
+  white(figlet.textSync('SKILLS', { horizontalLayout: 'full' })) + '\n'
 );
 
 program.parse(process.argv);
 
 if (!process.argv.slice(2).length) {
-  console.log(chalk.bold.cyan('\n🚀 Quick Start:\n'));
-  console.log(chalk.cyan('  scs init          ') + 'Start a new project');
-  console.log(chalk.cyan('  scs run --list     ') + 'See available workflows');
-  console.log(chalk.cyan('  scs skills        ') + 'List all skills\n');
+  console.log(cyan(bold('\n🚀 Quick Start:\n')));
+  console.log(cyan('  scs init          ') + 'Start a new project');
+  console.log(cyan('  scs run --list     ') + 'See available workflows');
+  console.log(cyan('  scs skills        ') + 'List all skills\n');
   program.outputHelp();
 }

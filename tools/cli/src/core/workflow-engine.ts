@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import chalk from 'chalk';
+import { cyan, bold, gray, yellow, green, red } from 'picocolors';
 import { 
   SkillWorkflow, 
   WorkflowStage, 
@@ -111,7 +111,7 @@ export class WorkflowEngine {
       this.workflows.set(workflow.name, workflow);
     });
 
-    console.log(chalk.gray(`\n✓ Loaded ${this.workflows.size} builtin workflows\n`));
+    console.log(gray(`\n✓ Loaded ${this.workflows.size} builtin workflows\n`));
   }
 
   /**
@@ -125,7 +125,7 @@ export class WorkflowEngine {
       this.workflows.set(workflow.name, workflow);
       return workflow;
     } catch (error) {
-      console.error(chalk.red(`✗ Failed to load workflow from ${filePath}:`), error.message);
+      console.error(red(`✗ Failed to load workflow from ${filePath}:`), error.message);
       return null;
     }
   }
@@ -136,7 +136,7 @@ export class WorkflowEngine {
   register(workflow: SkillWorkflow): void {
     this.validateWorkflow(workflow);
     this.workflows.set(workflow.name, workflow);
-    console.log(chalk.green(`✓ Registered workflow: ${workflow.name}`));
+    console.log(green(`✓ Registered workflow: ${workflow.name}`));
   }
 
   /**
@@ -286,20 +286,20 @@ export class WorkflowEngine {
       duration: number;
     }> = [];
 
-    console.log(chalk.bold.cyan('\n' + '═'.repeat(60)));
-    console.log(chalk.bold.cyan(`  Executing workflow: ${workflow.name}`));
-    console.log(chalk.bold.cyan('═'.repeat(60) + '\n'));
+    console.log(cyan(bold('\n' + '═'.repeat(60))));
+    console.log(cyan(bold(`  Executing workflow: ${workflow.name}`)));
+    console.log(cyan(bold('═'.repeat(60) + '\n')));
 
     for (const stage of orderedStages) {
       const startTime = Date.now();
 
       if (options.skip && options.skip.includes(stage.name)) {
-        console.log(chalk.yellow(`⏭ Skipping stage: ${stage.name}\n`));
+        console.log(yellow(`⏭ Skipping stage: ${stage.name}\n`));
         continue;
       }
 
-      console.log(chalk.cyan(`\n📌 Stage ${stageResults.length + 1}/${orderedStages.length}: ${stage.name}`));
-      console.log(chalk.gray(`   Skill: ${stage.skill}\n`));
+      console.log(cyan(`\n📌 Stage ${stageResults.length + 1}/${orderedStages.length}: ${stage.name}`));
+      console.log(gray(`   Skill: ${stage.skill}\n`));
 
       const resolvedInputs = this.resolveInputs(stage.inputs, {
         input: inputContext,
@@ -318,7 +318,7 @@ export class WorkflowEngine {
         const duration = Date.now() - startTime;
 
         if (result.success) {
-          console.log(chalk.green(`✓ Stage completed (${duration}ms)\n`));
+          console.log(green(`✓ Stage completed (${duration}ms)\n`));
           
           stageOutputs[stage.name] = result.outputs;
           
@@ -333,10 +333,10 @@ export class WorkflowEngine {
             options.onProgress(stage.name, result);
           }
         } else {
-          console.log(chalk.red(`✗ Stage failed\n`));
+          console.log(red(`✗ Stage failed\n`));
           
           if (result.error) {
-            console.log(chalk.red(`  Error: ${result.error.message}\n`));
+            console.log(red(`  Error: ${result.error.message}\n`));
           }
 
           return {
@@ -346,7 +346,7 @@ export class WorkflowEngine {
           };
         }
       } catch (error) {
-        console.log(chalk.red(`✗ Stage execution error: ${error.message}\n`));
+        console.log(red(`✗ Stage execution error: ${error.message}\n`));
         
         return {
           success: false,
@@ -356,9 +356,9 @@ export class WorkflowEngine {
       }
     }
 
-    console.log(chalk.bold.cyan('\n' + '═'.repeat(60)));
-    console.log(chalk.bold.green('✓ Workflow execution complete'));
-    console.log(chalk.bold.cyan('═'.repeat(60) + '\n'));
+    console.log(cyan(bold('\n' + '═'.repeat(60))));
+    console.log(green(bold('✓ Workflow execution complete')));
+    console.log(cyan(bold('═'.repeat(60) + '\n')));
 
     return {
       success: true,
@@ -371,12 +371,12 @@ export class WorkflowEngine {
    * Display workflow information
    */
   displayWorkflow(workflow: SkillWorkflow): void {
-    console.log(chalk.bold('\nWorkflow information:'));
-    console.log(chalk.cyan('  Name: ') + workflow.name);
-    console.log(chalk.cyan('  Description: ') + workflow.description);
-    console.log(chalk.cyan('  Stages: ') + workflow.stages.length);
+    console.log(bold('\nWorkflow information:'));
+    console.log(cyan('  Name: ') + workflow.name);
+    console.log(cyan('  Description: ') + workflow.description);
+    console.log(cyan('  Stages: ') + workflow.stages.length);
 
-    console.log(chalk.bold('\nStage list:'));
+    console.log(bold('\nStage list:'));
     workflow.stages.forEach((stage, index) => {
       const deps = stage.dependsOn && stage.dependsOn.length > 0
         ? ` (depends on: ${stage.dependsOn.join(', ')})`
@@ -384,8 +384,8 @@ export class WorkflowEngine {
       const optional = stage.optional ? ' [optional]' : '';
       
       console.log(
-        chalk.cyan(`  ${index + 1}. `) + 
-        chalk.bold(stage.name) + 
+        cyan(`  ${index + 1}. `) + 
+        bold(stage.name) + 
         ` - ${stage.skill}${deps}${optional}`
       );
     });
