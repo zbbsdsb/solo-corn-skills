@@ -91,12 +91,16 @@ program.addHelpText('beforeAll',
   white(figlet.textSync('SKILLS', { horizontalLayout: 'full' })) + '\n'
 );
 
-program.parse(process.argv);
+// Wait for async skill discovery before parsing commands
+(async () => {
+  await skillRegistry.ready();
+  program.parse(process.argv);
 
-if (!process.argv.slice(2).length) {
-  console.log(cyan(bold('\n🚀 Quick Start:\n')));
-  console.log(cyan('  scs init          ') + 'Start a new project');
-  console.log(cyan('  scs run --list     ') + 'See available workflows');
-  console.log(cyan('  scs skills        ') + 'List all skills\n');
-  program.outputHelp();
-}
+  if (!process.argv.slice(2).length) {
+    console.log(cyan(bold('\n🚀 Quick Start:\n')));
+    console.log(cyan('  scs init          ') + 'Start a new project');
+    console.log(cyan('  scs run --list     ') + 'See available workflows');
+    console.log(cyan('  scs skills        ') + 'List all skills\n');
+    program.outputHelp();
+  }
+})();

@@ -24,9 +24,18 @@ export class SkillRegistry {
   private skills: Map<string, Skill> = new Map();
   private metadata: Map<string, SkillMetadata> = new Map();
   private initialized: boolean = false;
+  private _initPromise: Promise<void>;
 
   constructor() {
-    this.initialize();
+    this._initPromise = this.initialize();
+  }
+
+  /**
+   * Wait for skill discovery to complete. Must be called before
+   * invoking or listing skills to avoid race conditions.
+   */
+  async ready(): Promise<void> {
+    return this._initPromise;
   }
 
   /**

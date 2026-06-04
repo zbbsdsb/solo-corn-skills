@@ -80,13 +80,14 @@ Released on May 20, 2026
 
 **Goal**: Grow the project and build an ecosystem.
 
-### New Skills
+### New Skills — Cognitive Deep-Thinking Engines
 
-- [ ] Customer Support Skill
-- [ ] Finance & Accounting Skill
-- [ ] Legal & Compliance Skill
-- [ ] Hiring & Team Building Skill
-- [ ] Product Operations Skill
+See [PLANNING_COGNITIVE_SKILLS.md](PLANNING_COGNITIVE_SKILLS.md) for full rationale and design.
+
+- [ ] `inversion-engine` — Structured pre-mortem, backcasting, and failure-mode analysis
+- [ ] `systems-orchestrator` — Causal loop mapping, leverage point identification, consequence tracing
+- [ ] `paradox-navigator` — Polarity management for unresolvable founder tensions
+- [ ] `assumption-archaeologist` — Systematic excavation and validation of hidden assumptions
 
 ### Platform Features
 

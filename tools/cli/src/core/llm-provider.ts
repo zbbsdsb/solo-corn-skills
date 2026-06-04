@@ -51,7 +51,7 @@ export class LLMProvider {
   }
 
   async complete(request: LLMRequest): Promise<LLMResponse> {
-    const url = new URL('/v1/chat/completions', this.config.baseUrl);
+    const url = new URL('/chat/completions', this.config.baseUrl);
     const body = JSON.stringify({
       model: request.model || this.config.model,
       messages: request.messages,

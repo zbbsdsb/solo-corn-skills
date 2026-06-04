@@ -22,7 +22,7 @@ const CONFIG_DIR = path.join(os.homedir(), '.scs');
 const CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 
 const DEFAULT_CONFIG: SCSConfig = {
-  baseUrl: 'https://api.openai.com',
+  baseUrl: 'https://api.openai.com/v1',
   model: 'gpt-4o-mini',
   temperature: 0.7,
   maxTokens: 4096,

@@ -152,6 +152,15 @@ examples/*/*.md
 examples/*/output/
 examples/*/results/
 
+# SCS local config (contains API keys)
+.scs/
+
+# WorkBuddy workspace memory (contains API keys, credentials)
+.workbuddy/
+
+# E2E test outputs (may contain sensitive data)
+e2e-test-outputs/
+
 # Local project config
 *.local.json
 *.local.yml
