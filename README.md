@@ -356,6 +356,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Developer**: [ceaserzhao](https://github.com/zbbsdsb)  
 **GitHub**: [@zbbsdsb](https://github.com/zbbsdsb)
+**Email**: 2791351776@qq.com
 
 ---
 
